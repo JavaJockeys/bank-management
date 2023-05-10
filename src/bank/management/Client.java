@@ -12,10 +12,11 @@ public class Client extends TransactionParty implements Serializable {
     private double balance;
     private ArrayList<Transaction> transactions;
     private ArrayList<Complain> complains;
-
+    
     public Client() {
-        
+        // for object serialization
     }
+
     public Client(String name, String phone, String accountNo, String address, String nationalID,
                   String username, String password, double balance) {
         super(name);
@@ -30,12 +31,13 @@ public class Client extends TransactionParty implements Serializable {
         this.complains = new ArrayList<>();
     }
 
-    public void withdraw(double amount) {
-        
+    public void withdraw(double amount) throws InsufficientBalanceException {
+        if (this.balance < amount) throw new InsufficientBalanceException();
+        this.balance -= amount;
     }
 
     public void deposit(double amount) {
-
+        this.balance += amount;
     }
 
     public String getPhone() {
@@ -52,6 +54,10 @@ public class Client extends TransactionParty implements Serializable {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getName() {
+        return super.name;
     }
 
     public double getBalance() {
@@ -73,16 +79,14 @@ public class Client extends TransactionParty implements Serializable {
     public ArrayList<Complain> getComplainList() {
         return this.complains;
     }
-    
-    @Override
-    public String toString() {
-        return "Name: "+ this.name
-                + "Account: " + this.accountNo
-                + "phone: " + this.phone
-                + "end";
-    }
 
     public String getPassword() {
         return this.password;
+    }
+
+    public static class InsufficientBalanceException extends Exception {
+
+        public InsufficientBalanceException() {
+        }
     }
 }

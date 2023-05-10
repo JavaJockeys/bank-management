@@ -1,22 +1,20 @@
 package bank.management;
 
 
-public abstract class TransactionParty {
+public class TransactionParty {
     
     protected String name;
     
     public TransactionParty() {
-        
+        // Object serialization
     }
+    
     public TransactionParty(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
 }

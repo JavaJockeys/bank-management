@@ -145,6 +145,11 @@ public class ManagerClientInfo extends JFrameBase {
         jLabel5.setText("Name:");
 
         clientName.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        clientName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientNameActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(45, 64, 89));
@@ -522,6 +527,10 @@ public class ManagerClientInfo extends JFrameBase {
     private void complainsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainsMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_complainsMenuActionPerformed
+
+    private void clientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

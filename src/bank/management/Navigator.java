@@ -3,6 +3,7 @@ package bank.management;
 
 
 import bank.management.gui.JFrameBase;
+import bank.management.gui.Splash;
 import java.awt.Point;
 
 
@@ -22,7 +23,7 @@ public class Navigator {
     }
     
     public void back() {
-        if (framePointer == 0) {
+        if (framePointer <= 1) {
             return;
         }
         JFrameBase current = this.frames[this.framePointer];
@@ -50,10 +51,6 @@ public class Navigator {
         if (!found && defaultLocation != null) current.setLocation(defaultLocation);
         current.setVisible(true);
         current.toFront();
-//        for (JFrameBase e: frames) 
-//            if (e != null) System.out.println(e.getClass());
-//        System.out.println();
-//        System.out.println();
     }
     
     public JFrameBase getCurrentFrame() throws nullFrameException {

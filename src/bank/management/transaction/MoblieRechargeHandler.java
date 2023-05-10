@@ -25,7 +25,7 @@ public class MoblieRechargeHandler extends TransactionHandler {
         this.receiver = receiver;
     }
     @Override
-    public void makeTransaction(double amount) {
+    public void makeTransaction(double amount) throws Client.InsufficientBalanceException {
         sender.withdraw(amount);
         Transaction transaction = new Transaction(sender, receiver, amount, Transaction.TransactionType.MOBILE_RECHARGE);
         db.getTransactionDB().add(transaction);

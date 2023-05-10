@@ -1,8 +1,11 @@
 package bank.management;
 
 import bank.management.gui.*;
+import bank.management.transaction.BillPaymentHandler;
+import bank.management.transaction.FundTransferHandler;
+import bank.management.transaction.MoblieRechargeHandler;
+
 import java.awt.Frame;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -83,10 +86,6 @@ public class GUIManager {
         setManagerDashboardListeners();
         setManagerClientInfoListeners();
         setComplainsListeners();
-        loadTransactions();
-        loadManagerClientInfoData();
-        loadComplains();
-
         setClientProfilePageListener();
         setClientComplainPageListener();
         setClientFundTransferPageListener();
@@ -95,6 +94,10 @@ public class GUIManager {
         setClientUtilityBillPageListener();
         setClientWithdrawCashPageListener();
 
+        loadTransactions();
+        loadManagerClientInfoData();
+        loadComplains();
+        
         navigator.navigate(splash);
     }
 
@@ -177,6 +180,12 @@ public class GUIManager {
                         HashMap<String, String> mp = dbManager.getCredentialDB();
                         if (mp.get(username).equals(password)) {
                             navigator.navigate(clientProfile);
+                            dbManager.getClientDB().forEach((Client client) -> {
+                                if (client.getUsername().equals(username)) {
+                                    userClient = client;
+                                }
+                            });
+                            updateCurrentBalance();
                             splash.dispose();
                             return;
                         }
@@ -273,6 +282,7 @@ public class GUIManager {
                             userClient = client;
                         }
                     });
+                    updateCurrentBalance();
                     navigator.navigate(clientProfile);
                 } catch (IOException ex) {
                     System.out.println(ex);
@@ -534,10 +544,10 @@ public class GUIManager {
         }
         String complainListString = new String();
         for (Complain complain : dbManager.getComplainDB()) {
-            complainListString += "--------------------------------------------------------------------------\n"
+            complainListString += "-------------------------------------------------------------------------------\n"
                     + complain.getOwner().getName() + ":\n"
                     + complain.getBody() + "\n\n"
-                    + "--------------------------------------------------------------------------\n";
+                    + "-------------------------------------------------------------------------------\n";
         }
         System.out.println("Complains:\n" + complainListString);
         complains.getComplainList().setText(complainListString);
@@ -595,6 +605,15 @@ public class GUIManager {
             e.printStackTrace();
         }
     }
+    
+    private void updateCurrentBalance() {
+        String currentBalance = Double.toString(userClient.getBalance());
+        clientFundTransfer.getCurrentBalance().setText(currentBalance);
+        clientMobileRecharge.getCurrentBalance().setText(currentBalance);
+        clientUtilityBill.getCurrentBalance().setText(currentBalance);
+        clientStatement.getCurrentBalance().setText(currentBalance);
+        clientWithdrawCash.getCurrentBalance().setText(currentBalance);
+    }
 
     private void setClientComplainPageListener() {
 
@@ -645,7 +664,6 @@ public class GUIManager {
         
         complainBox.getDocument().addDocumentListener(documentListener);
 
-        // toggleButtonEnable(clientComplainPage.getSendButton());
         setBackButtonAction(clientComplainPage, clientComplainPage.getBackButton());
         setMinimizeButtonAction(clientComplainPage, clientComplainPage.getMinimizeButton());
         setLogoutButtonAction(clientComplainPage.getLogoutButton());
@@ -660,6 +678,55 @@ public class GUIManager {
         navigateOnButtonAction(clientFundTransfer.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientFundTransfer.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientFundTransfer.getWithdrawFundButton(), clientWithdrawCash);
+        
+        
+        clientFundTransfer.getSendButton().addActionListener((ActionEvent e) -> {
+            String accountNo = clientFundTransfer.getAccountNoField().getText();
+            String amount = clientFundTransfer.getAmountField().getText();
+            try {
+                dbManager.loadClientDB();
+                for (Client client : dbManager.getClientDB()) {
+                    if (client.getAccountNo().equals(accountNo)) {
+                        FundTransferHandler fth = new FundTransferHandler(dbManager, userClient, client);
+                        fth.makeTransaction(Double.parseDouble(amount));
+                        loadTransactions();
+                        loadManagerClientInfoData();
+                        updateCurrentBalance();
+                        return;
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Client.InsufficientBalanceException ex) {
+                JOptionPane.showMessageDialog(clientFundTransfer, "Insufficient Balance!");
+            }
+        });
+        
+        DocumentListener documentListener = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String data[] = new String[2];
+                data[0] = clientFundTransfer.getAmountField().getText();
+                data[1] = clientFundTransfer.getAccountNoField().getText();
+                toggleButtonEnable(data, clientFundTransfer.getSendButton());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String data[] = new String[2];
+                data[0] = clientFundTransfer.getAmountField().getText();
+                data[1] = clientFundTransfer.getAccountNoField().getText();
+                toggleButtonEnable(data, clientFundTransfer.getSendButton());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {}
+        };
+        
+        clientFundTransfer.getAmountField().getDocument().addDocumentListener(documentListener);
+        clientFundTransfer.getAccountNoField().getDocument().addDocumentListener(documentListener);
 
         setBackButtonAction(clientFundTransfer, clientFundTransfer.getBackButton());
         setMinimizeButtonAction(clientFundTransfer, clientFundTransfer.getMinimizeButton());
@@ -669,13 +736,52 @@ public class GUIManager {
     }
 
     private void setClientMobileRechargePageListener() {
-
+        
         navigateOnButtonAction(clientMobileRecharge.getFundTransferButton(), clientFundTransfer);
         navigateOnButtonAction(clientMobileRecharge.getComplainBoxButton(), clientComplainPage);
         navigateOnButtonAction(clientMobileRecharge.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientMobileRecharge.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientMobileRecharge.getWithdrawFundButton(), clientWithdrawCash);
 
+        clientMobileRecharge.getMobileRechargeButton().addActionListener((ActionEvent e) -> {
+            String operatorName = (String) clientMobileRecharge.getOperator().getSelectedItem();
+            String amount = clientMobileRecharge.getAmount().getText();
+            MoblieRechargeHandler mrh = new MoblieRechargeHandler(dbManager, userClient, new Organization(operatorName));
+            try {
+                mrh.makeTransaction(Double.parseDouble(amount));
+            } catch (Client.InsufficientBalanceException ex) {
+                JOptionPane.showMessageDialog(clientMobileRecharge, "Insufficient Balance!");
+            }
+            updateCurrentBalance();
+        });
+        
+        DocumentListener documentListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String[] data = new String[2];
+                data[0] = clientMobileRecharge.getAmount().getText();
+                data[1] = clientMobileRecharge.getPhoneNumber().getText();
+                toggleButtonEnable(data, clientMobileRecharge.getMobileRechargeButton());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String[] data = new String[2];
+                data[0] = clientMobileRecharge.getAmount().getText();
+                data[1] = clientMobileRecharge.getPhoneNumber().getText();
+                toggleButtonEnable(data, clientMobileRecharge.getMobileRechargeButton());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //
+            }
+            
+        };
+        
+        clientMobileRecharge.getPhoneNumber().getDocument().addDocumentListener(documentListener);
+        clientMobileRecharge.getAmount().getDocument().addDocumentListener(documentListener);
+        
         setBackButtonAction(clientMobileRecharge, clientMobileRecharge.getBackButton());
         setMinimizeButtonAction(clientMobileRecharge, clientMobileRecharge.getMinimizeButton());
         setLogoutButtonAction(clientMobileRecharge.getLogoutButton());
@@ -706,6 +812,45 @@ public class GUIManager {
         navigateOnButtonAction(clientUtilityBill.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientUtilityBill.getWithdrawFundButton(), clientWithdrawCash);
 
+        clientUtilityBill.getPayBillButton().addActionListener((ActionEvent e) -> {
+            try {
+                String organization = (String) clientMobileRecharge.getOperator().getSelectedItem();
+                String amount = clientMobileRecharge.getAmount().getText();
+                BillPaymentHandler bph = new BillPaymentHandler(dbManager, userClient, new Organization(organization));
+                bph.makeTransaction(Double.parseDouble(amount));
+                updateCurrentBalance();
+            } catch (Client.InsufficientBalanceException ex) {
+                JOptionPane.showMessageDialog(clientUtilityBill, "Insufficient Balance!");
+            }
+        });
+
+        DocumentListener documentListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String[] data = new String[2];
+                data[0] = clientUtilityBill.getAmount().getText();
+                data[1] = clientUtilityBill.getBillNumber().getText();
+                toggleButtonEnable(data, clientUtilityBill.getPayBillButton());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String[] data = new String[2];
+                data[0] = clientUtilityBill.getAmount().getText();
+                data[1] = clientUtilityBill.getBillNumber().getText();
+                toggleButtonEnable(data, clientUtilityBill.getPayBillButton());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //
+            }
+            
+        };
+        
+        clientUtilityBill.getBillNumber().getDocument().addDocumentListener(documentListener);
+        clientUtilityBill.getAmount().getDocument().addDocumentListener(documentListener);
+
         setBackButtonAction(clientUtilityBill, clientUtilityBill.getBackButton());
         setMinimizeButtonAction(clientUtilityBill, clientUtilityBill.getMinimizeButton());
         setLogoutButtonAction(clientUtilityBill.getLogoutButton());
@@ -720,6 +865,33 @@ public class GUIManager {
         navigateOnButtonAction(clientWithdrawCash.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientWithdrawCash.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientWithdrawCash.getMobileRechargeButton(), clientMobileRecharge);
+
+        DocumentListener documentListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String[] data = new String[2];
+                data[0] = clientWithdrawCash.getAmount().getText();
+                data[1] = clientWithdrawCash.getAgentCode().getText();
+                toggleButtonEnable(data, clientWithdrawCash.getWithdrawButton());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String[] data = new String[2];
+                data[0] = clientWithdrawCash.getAmount().getText();
+                data[1] = clientWithdrawCash.getAgentCode().getText();
+                toggleButtonEnable(data, clientWithdrawCash.getWithdrawButton());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //
+            }
+            
+        };
+        
+        clientWithdrawCash.getAgentCode().getDocument().addDocumentListener(documentListener);
+        clientWithdrawCash.getAmount().getDocument().addDocumentListener(documentListener);
 
         setBackButtonAction(clientWithdrawCash, clientWithdrawCash.getBackButton());
         setMinimizeButtonAction(clientWithdrawCash, clientWithdrawCash.getMinimizeButton());

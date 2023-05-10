@@ -21,7 +21,7 @@ public class WithdrawHandler extends TransactionHandler {
         this.withdrawer = withdrawer;
     }
     @Override
-    public void makeTransaction(double amount) {
+    public void makeTransaction(double amount) throws Client.InsufficientBalanceException {
         withdrawer.withdraw(amount);
         Transaction transaction = new Transaction(withdrawer, null, amount, Transaction.TransactionType.WITHDRAW_CASH);
         db.getTransactionDB().add(transaction);
