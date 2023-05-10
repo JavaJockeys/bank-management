@@ -1,3 +1,5 @@
+package bank.management;
+
 import java.io.Serializable;
 import java.util.*;
 public class Client extends TransactionParty implements Serializable {

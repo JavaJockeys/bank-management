@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -11,12 +12,14 @@ import java.awt.event.MouseEvent;
  *
  * @author Saif
  */
-public class ClientUtilityBill extends javax.swing.JFrame {
+public class ClientUtilityBill extends JFrameBase {
 
     /**
      * Creates new form Client_Utility_Bill
+     * @param navigator
      */
-    public ClientUtilityBill() {
+    public ClientUtilityBill(Navigator navigator) {
+        super(navigator);
         initComponents();
     }
 

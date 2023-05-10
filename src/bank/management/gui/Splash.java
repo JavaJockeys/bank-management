@@ -1,14 +1,13 @@
 
 package bank.management.gui;
 
+import bank.management.Navigator;
 import javax.swing.JProgressBar;
 
 public class Splash extends JFrameBase {
 
-    /**
-     * Creates new form Splash
-     */
-    public Splash() {
+    public Splash(Navigator navigator) {
+        super(navigator);
         initComponents();
         this.placeOnCenter();
     }

@@ -10,19 +10,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import bank.management.Navigator;
 
 /**
  *
  * @author Osama
  */
 public abstract class JFrameBase extends JFrame {
-    final public static Navigator NAVIGATOR = new Navigator();
     final private int titleBarHeight = 50;
+    private Navigator navigator;
     private boolean isDraggable;
     private int prevMouseX;
     private int prevMouseY;
+
+    public Navigator getNavigator() {
+        return navigator;
+    }
     
-    JFrameBase() {
+    JFrameBase(Navigator navigator) {
+        this.navigator = navigator;
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -47,7 +53,7 @@ public abstract class JFrameBase extends JFrame {
                      location.x + (e.getX() - prevMouseX),
                      location.y + (e.getY() - prevMouseY)
                 );
-                NAVIGATOR.setLocation(newLocation);
+                getNavigator().setLocation(newLocation);
             }
         });
     }
@@ -63,8 +69,8 @@ public abstract class JFrameBase extends JFrame {
     
     public void back() {
         try {
-            if (NAVIGATOR.getCurrentFrame() == this)
-                NAVIGATOR.back();
+            if (navigator.getCurrentFrame() == this)
+                navigator.back();
         } catch (Navigator.nullFrameException ex) {
             
         }

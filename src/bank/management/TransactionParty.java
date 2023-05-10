@@ -1,3 +1,5 @@
+package bank.management;
+
 
 public abstract class TransactionParty {
     

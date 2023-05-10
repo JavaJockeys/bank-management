@@ -1,5 +1,8 @@
-package bank.management.gui;
+package bank.management;
 
+
+
+import bank.management.gui.JFrameBase;
 import java.awt.Point;
 
 
@@ -58,7 +61,7 @@ public class Navigator {
         return (JFrameBase) frames[this.framePointer];
     }
 
-    void setLocation(Point point) {
+    public void setLocation(Point point) {
         defaultLocation = point;
         for (JFrameBase frame: frames) {
             if (frame != null) frame.setLocation(point);

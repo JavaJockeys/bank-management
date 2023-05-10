@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
@@ -12,13 +13,16 @@ import javax.swing.BorderFactory;
  *
  * @author Saif
  */
-public class ClientMobileRecharge extends javax.swing.JFrame {
+public class ClientMobileRecharge extends JFrameBase {
 
     /**
      * Creates new form Client_Mobile_Recharge
+     * @param navigator
      */
-    public ClientMobileRecharge() {
+    public ClientMobileRecharge(Navigator navigator) {
+        super(navigator);
         initComponents();
+        placeOnCenter();
         //jButton1.setBorder(BorderFactory.createEmptyBorder());
     }
 

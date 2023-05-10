@@ -1,3 +1,5 @@
+package bank.management;
+
 import java.util.*;
 public class Manager {
     private ArrayList<Client> clients;

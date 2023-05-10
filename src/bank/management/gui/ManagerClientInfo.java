@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -16,8 +17,10 @@ public class ManagerClientInfo extends JFrameBase {
 
     /**
      * Creates new form Manager_Client_Info
+     * @param navigator
      */
-    public ManagerClientInfo() {
+    public ManagerClientInfo(Navigator navigator) {
+        super(navigator);
         initComponents();
         this.placeOnCenter();
     }

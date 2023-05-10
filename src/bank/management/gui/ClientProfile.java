@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -15,13 +16,12 @@ public class ClientProfile extends JFrameBase {
 
     /**
      * Creates new form Client_Profile
+     * @param navigator
      */
-    private int mouseX, mouseY;
-    public ClientProfile() {
+    public ClientProfile(Navigator navigator) {
+        super(navigator);
         initComponents();
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        
-        
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));   
        
     }
 

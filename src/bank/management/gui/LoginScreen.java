@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -19,8 +20,10 @@ public class LoginScreen extends JFrameBase {
 
     /**
      * Creates new form Login_Screen
+     * @param navigator
      */
-    public LoginScreen() {
+    public LoginScreen(Navigator navigator) {
+        super(navigator);
         initComponents();
         this.placeOnCenter();
     }

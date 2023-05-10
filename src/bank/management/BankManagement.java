@@ -1,3 +1,5 @@
+package bank.management;
+
 
 import bank.management.gui.LoginScreen;
 import javax.swing.Timer;

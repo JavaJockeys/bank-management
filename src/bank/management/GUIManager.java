@@ -1,3 +1,5 @@
+package bank.management;
+
 
 import bank.management.gui.*;
 import java.awt.Frame;
@@ -36,8 +38,8 @@ import javax.swing.table.TableModel;
  * @author Osama
  */
 public class GUIManager {
-    
     public static final long LOGIN_CACHE_TIME = 30*60*1000;
+    private final Navigator navigator;
     
     final Splash splash;
     final LoginScreen loginScreen;
@@ -56,21 +58,22 @@ public class GUIManager {
     private final DBManager dbManager;
     
     public GUIManager() {
+        this.navigator = new Navigator();
         this.dbManager = new DBManager();
         
-        this.splash = new Splash();
-        this.loginScreen = new LoginScreen();
-        this.clientComplainPage = new ClientComplainPage();
-        this.clientFundTransfer = new ClientFundTransfer();
-        this.clientMobileRecharge = new ClientMobileRecharge();
-        this.clientProfile = new ClientProfile();
-        this.clientStatement = new ClientStatement();
-        this.clientUtilityBill = new ClientUtilityBill();
-        this.clientWithdrawCash = new ClientWithdrawCash();
-        this.complains = new Complains();
-        this.managerClientInfo = new ManagerClientInfo();
-        this.managerDashboard = new ManagerDashboard();
-        this.managerHomepage = new ManagerHomepage();
+        this.splash = new Splash(navigator);
+        this.loginScreen = new LoginScreen(navigator);
+        this.clientComplainPage = new ClientComplainPage(navigator);
+        this.clientFundTransfer = new ClientFundTransfer(navigator);
+        this.clientMobileRecharge = new ClientMobileRecharge(navigator);
+        this.clientProfile = new ClientProfile(navigator);
+        this.clientStatement = new ClientStatement(navigator);
+        this.clientUtilityBill = new ClientUtilityBill(navigator);
+        this.clientWithdrawCash = new ClientWithdrawCash(navigator);
+        this.complains = new Complains(navigator);
+        this.managerClientInfo = new ManagerClientInfo(navigator);
+        this.managerDashboard = new ManagerDashboard(navigator);
+        this.managerHomepage = new ManagerHomepage(navigator);
         setSplashListeners();
         setLoginScreenListeners();
         setManagerHomepageListeners();
@@ -82,7 +85,7 @@ public class GUIManager {
         loadManagerClientInfoData();
         //loadComplainsData();
 
-        JFrameBase.NAVIGATOR.navigate(splash);
+        navigator.navigate(splash);
     }
 
 
@@ -120,7 +123,7 @@ public class GUIManager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 loginScreen.dispose();
-                JFrameBase.NAVIGATOR.navigate(loginScreen);
+                navigator.navigate(loginScreen);
             }
         });
     }
@@ -156,7 +159,7 @@ public class GUIManager {
                         
                         if (username.equals("admin") && password.equals("admin")) {
                             updateLoginInfo();
-                            JFrameBase.NAVIGATOR.navigate(managerHomepage);
+                            navigator.navigate(managerHomepage);
                             splash.dispose();
                             return;
                         }
@@ -164,7 +167,7 @@ public class GUIManager {
                         dbManager.loadCredentialDB();
                         HashMap<String, String> mp = dbManager.getCredentialDB();
                         if (mp.get(username).equals(password)) {
-                            JFrameBase.NAVIGATOR.navigate(clientProfile);
+                            navigator.navigate(clientProfile);
                             splash.dispose();
                             return;
                         }
@@ -179,7 +182,7 @@ public class GUIManager {
                     System.out.println("Null pointer exx");
                 }
                 
-                JFrameBase.NAVIGATOR.navigate(loginScreen);
+                navigator.navigate(loginScreen);
                 splash.dispose();
             }
         });
@@ -234,7 +237,7 @@ public class GUIManager {
                     
                     if (username.equals("admin") && Arrays.equals(password, adminPass)) {
                         updateLoginInfo();
-                        JFrameBase.NAVIGATOR.navigate(managerHomepage);
+                        navigator.navigate(managerHomepage);
                         return;
                     }
                     
@@ -254,7 +257,7 @@ public class GUIManager {
                     }
                     
                     updateLoginInfo(username, password.toString());
-                    JFrameBase.NAVIGATOR.navigate(clientProfile);
+                    navigator.navigate(clientProfile);
                 } catch (IOException ex) {
                     System.out.println(ex);
                 } catch (ClassNotFoundException ex) {
@@ -305,7 +308,7 @@ public class GUIManager {
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrameBase.NAVIGATOR.navigate(navigateTo);
+                navigator.navigate(navigateTo);
             }
             
         });
@@ -315,7 +318,7 @@ public class GUIManager {
         component.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                JFrameBase.NAVIGATOR.navigate(navigateTo);
+                navigator.navigate(navigateTo);
             }
         });
     }

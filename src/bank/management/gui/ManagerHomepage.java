@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -17,8 +18,10 @@ public class ManagerHomepage extends JFrameBase {
 
     /**
      * Creates new form Manager_Homepage
+     * @param navigator
      */
-    public ManagerHomepage() {
+    public ManagerHomepage(Navigator navigator) {
+        super(navigator);
         initComponents();
         this.placeOnCenter();
     }

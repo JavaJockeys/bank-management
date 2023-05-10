@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -11,13 +12,16 @@ import java.awt.event.MouseEvent;
  *
  * @author Saif
  */
-public class ClientWithdrawCash extends javax.swing.JFrame {
+public class ClientWithdrawCash extends JFrameBase {
 
     /**
      * Creates new form Client_Withdraw_Cash
+     * @param navigator
      */
-    public ClientWithdrawCash() {
+    public ClientWithdrawCash(Navigator navigator) {
+        super(navigator);
         initComponents();
+        placeOnCenter();
     }
 
     /**

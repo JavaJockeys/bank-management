@@ -1,3 +1,5 @@
+package bank.management;
+
 
 public class Organization extends TransactionParty {
     public Organization(String name) {
