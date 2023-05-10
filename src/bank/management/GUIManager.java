@@ -80,7 +80,7 @@ public class GUIManager {
         setManagerDashboardListeners();
         setManagerClientInfoListeners();
         setComplainsListeners();
-        
+        setClientComplainPageListener();
         // loadManagerDashboardData();
         loadManagerClientInfoData();
         //loadComplainsData();
@@ -231,6 +231,7 @@ public class GUIManager {
                     dbManager.loadCredentialDB();
                     
                     HashMap<String, String> mp = dbManager.getCredentialDB();
+                    System.out.println("Here::   " + mp);
                     String username = loginScreen.getUsername().getText();
                     char[] password = loginScreen.getPassword().getPassword();
                     char[] adminPass = {'a', 'd', 'm', 'i', 'n'};
@@ -256,6 +257,7 @@ public class GUIManager {
                         return;
                     }
                     
+                    System.out.println();
                     updateLoginInfo(username, password.toString());
                     navigator.navigate(clientProfile);
                 } catch (IOException ex) {
@@ -538,6 +540,14 @@ public class GUIManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void setClientComplainPageListener() {
+        
+        navigateOnButtonAction(clientComplainPage.getFundTransferButton(), clientFundTransfer);
+        setMinimizeButtonAction(clientComplainPage, clientComplainPage.getMinimizeButton());
+        setLogoutButtonAction(clientComplainPage.getLogoutButton());
+        setCloseButtonAction(clientComplainPage.getCloseButton());
     }
     
 }

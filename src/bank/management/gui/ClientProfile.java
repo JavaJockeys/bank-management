@@ -615,7 +615,10 @@ public class ClientProfile extends JFrameBase {
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
-
+//    public static void main(String[] args) {
+//        ClientProfile cp = new ClientProfile(new Navigator());
+//        cp.setVisible(true);
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
