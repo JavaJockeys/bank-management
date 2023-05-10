@@ -1,6 +1,5 @@
 package bank.management;
 
-
 import bank.management.gui.*;
 import java.awt.Frame;
 import java.awt.HeadlessException;
@@ -38,9 +37,10 @@ import javax.swing.table.TableModel;
  * @author Osama
  */
 public class GUIManager {
-    public static final long LOGIN_CACHE_TIME = 30*60*1000;
+
+    public static final long LOGIN_CACHE_TIME = 30 * 60 * 1000;
     private final Navigator navigator;
-    
+
     final Splash splash;
     final LoginScreen loginScreen;
     final ClientComplainPage clientComplainPage;
@@ -54,13 +54,13 @@ public class GUIManager {
     final ManagerClientInfo managerClientInfo;
     final ManagerDashboard managerDashboard;
     final ManagerHomepage managerHomepage;
-    
+
     private final DBManager dbManager;
-    
+
     public GUIManager() {
         this.navigator = new Navigator();
         this.dbManager = new DBManager();
-        
+
         this.splash = new Splash(navigator);
         this.loginScreen = new LoginScreen(navigator);
         this.clientComplainPage = new ClientComplainPage(navigator);
@@ -80,14 +80,20 @@ public class GUIManager {
         setManagerDashboardListeners();
         setManagerClientInfoListeners();
         setComplainsListeners();
-        setClientComplainPageListener();
         // loadManagerDashboardData();
         loadManagerClientInfoData();
         //loadComplainsData();
 
+        setClientProfilePageListener();
+        setClientComplainPageListener();
+        setClientFundTransferPageListener();
+        setClientMobileRechargePageListener();
+        setClientStatementPageListener();
+        setClientUtilityBillPageListener();
+        setClientWithdrawCashPageListener();
+
         navigator.navigate(splash);
     }
-
 
     private void setBackButtonAction(JFrameBase frame, JButton backButton) {
         backButton.addActionListener(new ActionListener() {
@@ -95,10 +101,10 @@ public class GUIManager {
             public void actionPerformed(ActionEvent e) {
                 frame.back();
             }
-            
+
         });
     }
-    
+
     private void setCloseButtonAction(JButton closeButton) {
         closeButton.addActionListener(new ActionListener() {
             @Override
@@ -107,17 +113,17 @@ public class GUIManager {
             }
         });
     }
-    
+
     private void setMinimizeButtonAction(JFrameBase frame, JButton minimizeButton) {
         minimizeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setExtendedState(Frame.ICONIFIED);
             }
-            
+
         });
     }
-    
+
     private void setLogoutButtonAction(JButton button) {
         button.addActionListener(new ActionListener() {
             @Override
@@ -127,7 +133,7 @@ public class GUIManager {
             }
         });
     }
-    
+
     private void setSplashListeners() {
         Thread t = new Thread(new Runnable() {
             @Override
@@ -141,11 +147,11 @@ public class GUIManager {
                     } catch (InterruptedException ex) {
                         System.out.println(ex);
                     }
-                    progress += random.nextInt(10)+5;
+                    progress += random.nextInt(10) + 5;
                     pb.setValue(progress);
                 }
                 pb.setValue(100);
-                
+
                 try {
                     dbManager.loadLoginInfo();
                     LoginInfo loginInfo = dbManager.getLoginInfo();
@@ -156,14 +162,14 @@ public class GUIManager {
                     if (timeDiff <= GUIManager.LOGIN_CACHE_TIME) {
                         String username = loginInfo.getUsername();
                         String password = loginInfo.getPassword();
-                        
+
                         if (username.equals("admin") && password.equals("admin")) {
                             updateLoginInfo();
                             navigator.navigate(managerHomepage);
                             splash.dispose();
                             return;
                         }
-                        
+
                         dbManager.loadCredentialDB();
                         HashMap<String, String> mp = dbManager.getCredentialDB();
                         if (mp.get(username).equals(password)) {
@@ -175,13 +181,13 @@ public class GUIManager {
                 } catch (IOException ex) {
                     Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
-                  
-                  Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+
+                    Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (NullPointerException nex) {
                     // nothing
                     System.out.println("Null pointer exx");
                 }
-                
+
                 navigator.navigate(loginScreen);
                 splash.dispose();
             }
@@ -193,7 +199,7 @@ public class GUIManager {
             }
         });
     }
-    
+
     private void toggleButtonEnable(String[] values, JButton button) {
         for (String value : values) {
             if (value.isEmpty()) {
@@ -207,56 +213,57 @@ public class GUIManager {
     private void updateLoginInfo() throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException {
         updateLoginInfo("admin", "admin");
     }
-    
+
     private void updateLoginInfo(String username, String password) throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException {
         dbManager.setLoginInfo(new LoginInfo(username, password));
         dbManager.updateLoginInfo();
     }
-    
+
     private void toggleLoginButton() {
         String[] data = new String[2];
         data[0] = loginScreen.getUsername().getText();
         data[1] = new String(loginScreen.getPassword().getPassword());
         toggleButtonEnable(data, loginScreen.getLoginButton());
     }
+
     private void setLoginScreenListeners() {
         JButton loginButton = loginScreen.getLoginButton();
         JTextField username = loginScreen.getUsername();
         JPasswordField password = loginScreen.getPassword();
-        
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     dbManager.loadCredentialDB();
-                    
+
                     HashMap<String, String> mp = dbManager.getCredentialDB();
                     System.out.println("Here::   " + mp);
                     String username = loginScreen.getUsername().getText();
                     char[] password = loginScreen.getPassword().getPassword();
                     char[] adminPass = {'a', 'd', 'm', 'i', 'n'};
-                    
+
                     if (username.equals("admin") && Arrays.equals(password, adminPass)) {
                         updateLoginInfo();
                         navigator.navigate(managerHomepage);
                         return;
                     }
-                    
+
                     if (username.equals("admin") && !Arrays.equals(password, adminPass)) {
                         JOptionPane.showMessageDialog(loginScreen, "Wrong Password!", "Invalid password", 0);
                         return;
                     }
-                    
+
                     if (!mp.containsKey(username)) {
                         JOptionPane.showMessageDialog(loginScreen, "username not found!", "Invalid username", 0);
                         return;
                     }
-                    
+
                     if (!Arrays.equals(mp.get(username).toCharArray(), password)) {
                         JOptionPane.showMessageDialog(loginScreen, "Wrong Password!.", "Invalid password!", 0);
                         return;
                     }
-                    
+
                     System.out.println();
                     updateLoginInfo(username, password.toString());
                     navigator.navigate(clientProfile);
@@ -267,7 +274,7 @@ public class GUIManager {
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-            }   
+            }
         });
 
         DocumentListener documentListener = new DocumentListener() {
@@ -275,47 +282,47 @@ public class GUIManager {
             public void insertUpdate(DocumentEvent e) {
                 toggleLoginButton();
             }
-            
+
             @Override
             public void removeUpdate(DocumentEvent e) {
                 toggleLoginButton();
             }
-            
+
             @Override
             public void changedUpdate(DocumentEvent e) {
-                
+
             }
-            
+
         };
-        
+
         ActionListener enterPressListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 loginButton.doClick();
             }
-            
-        }; 
-        
+
+        };
+
         username.getDocument().addDocumentListener(documentListener);
         username.addActionListener(enterPressListener);
         password.getDocument().addDocumentListener(documentListener);
         password.addActionListener(enterPressListener);
-        
+
         setMinimizeButtonAction(loginScreen, loginScreen.getMinimizeButton());
         setCloseButtonAction(loginScreen.getCloseButton());
     }
-    
+
     private void navigateOnButtonAction(JButton button, JFrameBase navigateTo) {
         button.addActionListener(new ActionListener() {
-            
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 navigator.navigate(navigateTo);
             }
-            
+
         });
     }
-    
+
     private void navigateOnMouseAction(JComponent component, JFrameBase navigateTo) {
         component.addMouseListener(new MouseAdapter() {
             @Override
@@ -324,7 +331,7 @@ public class GUIManager {
             }
         });
     }
-    
+
     void setManagerHomepageListeners() {
         JButton clientInfoMenu = managerHomepage.getClientInfoMenu();
         JButton dashboardMenu = managerHomepage.getDashboardMenu();
@@ -332,26 +339,26 @@ public class GUIManager {
         JPanel clientInfoPanel = managerHomepage.getClientInfoPanel();
         JPanel dashboardPanel = managerHomepage.getDashboardPanel();
         JPanel complainPanel = managerHomepage.getComplainPanel();
-        
+
         navigateOnButtonAction(clientInfoMenu, managerClientInfo);
         navigateOnButtonAction(dashboardMenu, managerDashboard);
         navigateOnButtonAction(complainMenu, complains);
-        
+
         navigateOnMouseAction(clientInfoPanel, managerClientInfo);
         navigateOnMouseAction(dashboardPanel, managerDashboard);
         navigateOnMouseAction(complainPanel, complains);
-        
+
         setBackButtonAction(managerHomepage, managerHomepage.getBackButton());
         setMinimizeButtonAction(managerHomepage, managerHomepage.getMinimizeButton());
         setLogoutButtonAction(managerHomepage.getLogoutButton());
         setCloseButtonAction(managerHomepage.getCloseButton());
     }
-    
+
     private void setManagerDashboardListeners() {
         JButton clientInfoMenu = managerDashboard.getClientInfoMenu();
         JButton homepageMenu = managerDashboard.getHomepageMenu();
         JButton complainMenu = managerDashboard.getComplainsMenu();
-        
+
         navigateOnButtonAction(clientInfoMenu, managerClientInfo);
         navigateOnButtonAction(homepageMenu, managerHomepage);
         navigateOnButtonAction(complainMenu, complains);
@@ -359,7 +366,7 @@ public class GUIManager {
         setMinimizeButtonAction(managerDashboard, managerDashboard.getMinimizeButton());
         setLogoutButtonAction(managerDashboard.getLogoutButton());
         setCloseButtonAction(managerDashboard.getCloseButton());
-        
+
     }
 
     private void toggleRegisterButton() {
@@ -373,7 +380,7 @@ public class GUIManager {
         data[6] = managerClientInfo.getBalance().getText();
         toggleButtonEnable(data, managerClientInfo.getRegisterClientButton());
     }
-    
+
     private void registerNewClient(JButton button) {
         button.addActionListener(new ActionListener() {
 
@@ -386,7 +393,7 @@ public class GUIManager {
                 JTextField username = managerClientInfo.getUsername();
                 JTextField password = managerClientInfo.getPassword();
                 JTextField balance = managerClientInfo.getBalance();
-                
+
                 HashMap<String, String> credentialDB = dbManager.getCredentialDB();
                 if (credentialDB.containsKey(username)) {
                     JOptionPane.showMessageDialog(managerClientInfo, "Username already exists!", "Error", 0);
@@ -430,7 +437,6 @@ public class GUIManager {
         });
     }
 
-
     private void setManagerClientInfoListeners() {
         JButton dashboardMenu = managerClientInfo.getDashboardMenu();
         JButton homepageMenu = managerClientInfo.getHomepageMenu();
@@ -444,15 +450,15 @@ public class GUIManager {
         JTextField username = managerClientInfo.getUsername();
         JTextField password = managerClientInfo.getPassword();
         JTextField balance = managerClientInfo.getBalance();
-        
+
         registerNewClient(registerClientButton);
-        
+
         ActionListener enterPressListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 registerClientButton.doClick();
             }
-            
+
         };
         DocumentListener documentListener = new DocumentListener() {
 
@@ -468,9 +474,9 @@ public class GUIManager {
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                
+
             }
-            
+
         };
 
         name.getDocument().addDocumentListener(documentListener);
@@ -496,12 +502,12 @@ public class GUIManager {
         setLogoutButtonAction(managerClientInfo.getLogoutButton());
         setCloseButtonAction(managerClientInfo.getCloseButton());
     }
-    
+
     private void setComplainsListeners() {
         JButton dashboardMenu = complains.getDashboardMenu();
         JButton homepageMenu = complains.getHomepageMenu();
         JButton clientInfoMenu = complains.getClientInfoMenu();
-        
+
         navigateOnButtonAction(dashboardMenu, managerDashboard);
         navigateOnButtonAction(homepageMenu, managerHomepage);
         navigateOnButtonAction(clientInfoMenu, managerClientInfo);
@@ -510,11 +516,7 @@ public class GUIManager {
         setLogoutButtonAction(complains.getLogoutButton());
         setCloseButtonAction(complains.getCloseButton());
     }
-    
-    
-    
-    
-    
+
     private void loadManagerClientInfoData() {
         JTable table = managerClientInfo.getDataTable();
         TableModel model = table.getModel();
@@ -523,7 +525,7 @@ public class GUIManager {
             ArrayList<Client> clientDB = dbManager.getClientDB();
             for (int i = 0; i < clientDB.size(); i++) {
                 Client client = clientDB.get(i);
-                model.setValueAt(i+1, i, 0);
+                model.setValueAt(i + 1, i, 0);
                 model.setValueAt(client.getAccountNo(), i, 1);
                 model.setValueAt(client.getName(), i, 2);
                 model.setValueAt(client.getPhone(), i, 3);
@@ -531,7 +533,7 @@ public class GUIManager {
                 model.setValueAt(client.getUsername(), i, 5);
                 model.setValueAt(client.getBalance(), i, 6);
             }
-        } catch (FileNotFoundException e) {          
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -543,11 +545,127 @@ public class GUIManager {
     }
 
     private void setClientComplainPageListener() {
-        
+
         navigateOnButtonAction(clientComplainPage.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientComplainPage.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientComplainPage.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientComplainPage.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientComplainPage.getMobileRechargeButton(), clientMobileRecharge);
+        navigateOnButtonAction(clientComplainPage.getWithdrawFundButton(), clientWithdrawCash);
+
         setMinimizeButtonAction(clientComplainPage, clientComplainPage.getMinimizeButton());
         setLogoutButtonAction(clientComplainPage.getLogoutButton());
         setCloseButtonAction(clientComplainPage.getCloseButton());
+        setLogoutButtonAction(clientComplainPage.getLogoutButton());
     }
-    
+
+    private void setClientFundTransferPageListener() {
+
+        navigateOnButtonAction(clientFundTransfer.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientFundTransfer.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientFundTransfer.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientFundTransfer.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientFundTransfer.getMobileRechargeButton(), clientMobileRecharge);
+        navigateOnButtonAction(clientFundTransfer.getWithdrawFundButton(), clientWithdrawCash);
+
+        setMinimizeButtonAction(clientFundTransfer, clientFundTransfer.getMinimizeButton());
+        setLogoutButtonAction(clientFundTransfer.getLogoutButton());
+        setCloseButtonAction(clientFundTransfer.getCloseButton());
+        setLogoutButtonAction(clientFundTransfer.getLogoutButton());
+    }
+
+    private void setClientMobileRechargePageListener() {
+
+        navigateOnButtonAction(clientMobileRecharge.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientMobileRecharge.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientMobileRecharge.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientMobileRecharge.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientMobileRecharge.getMobileRechargeButton(), clientMobileRecharge);
+        navigateOnButtonAction(clientMobileRecharge.getWithdrawFundButton(), clientWithdrawCash);
+
+        setMinimizeButtonAction(clientMobileRecharge, clientMobileRecharge.getMinimizeButton());
+        setLogoutButtonAction(clientMobileRecharge.getLogoutButton());
+        setCloseButtonAction(clientMobileRecharge.getCloseButton());
+        setLogoutButtonAction(clientMobileRecharge.getLogoutButton());
+    }
+
+    private void setClientStatementPageListener() {
+
+        navigateOnButtonAction(clientStatement.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientStatement.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientStatement.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientStatement.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientStatement.getMobileRechargeButton(), clientMobileRecharge);
+        navigateOnButtonAction(clientStatement.getWithdrawFundButton(), clientWithdrawCash);
+
+        setMinimizeButtonAction(clientStatement, clientStatement.getMinimizeButton());
+        setLogoutButtonAction(clientStatement.getLogoutButton());
+        setCloseButtonAction(clientStatement.getCloseButton());
+        setLogoutButtonAction(clientStatement.getLogoutButton());
+    }
+
+    private void setClientUtilityBillPageListener() {
+
+        navigateOnButtonAction(clientUtilityBill.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientUtilityBill.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientUtilityBill.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientUtilityBill.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientUtilityBill.getMobileRechargeButton(), clientMobileRecharge);
+        navigateOnButtonAction(clientUtilityBill.getWithdrawFundButton(), clientWithdrawCash);
+
+        setMinimizeButtonAction(clientUtilityBill, clientUtilityBill.getMinimizeButton());
+        setLogoutButtonAction(clientUtilityBill.getLogoutButton());
+        setCloseButtonAction(clientUtilityBill.getCloseButton());
+        setLogoutButtonAction(clientUtilityBill.getLogoutButton());
+    }
+
+    private void setClientWithdrawCashPageListener() {
+
+        navigateOnButtonAction(clientWithdrawCash.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientWithdrawCash.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientWithdrawCash.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientWithdrawCash.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientWithdrawCash.getMobileRechargeButton(), clientMobileRecharge);
+
+        setMinimizeButtonAction(clientWithdrawCash, clientWithdrawCash.getMinimizeButton());
+        setLogoutButtonAction(clientWithdrawCash.getLogoutButton());
+        setCloseButtonAction(clientWithdrawCash.getCloseButton());
+        setLogoutButtonAction(clientWithdrawCash.getLogoutButton());
+    }
+
+    //getFundTransferButton      clientFundTransfer
+    //getComplainBoxButton       clientComplainPage
+    //getStatementButton         clientStatement
+    //getPayBillButton           clientUtilityBill
+    //getMobileRechargeButton    clientMobileRecharge   
+    //getWithdrawFundButton      clientWithdrawCash
+    private void setClientProfilePageListener() {
+
+        JPanel fundTrasnferPanel = clientProfile.getFundTrasnferPanel();
+        JPanel complainBoxPanel = clientProfile.getComplainBoxPanel();
+        JPanel mobileRechargePanel = clientProfile.getMobileRechargePanel();
+        JPanel statementPanel = clientProfile.getStatementPanel();
+        JPanel utilityBillPanel = clientProfile.getUtilityBillPanel();
+        JPanel withdrawCashPanel = clientProfile.getWithdrawCashPanel();
+
+        navigateOnMouseAction(fundTrasnferPanel, clientFundTransfer);
+        navigateOnMouseAction(complainBoxPanel, clientComplainPage);
+        navigateOnMouseAction(statementPanel, clientStatement);
+        navigateOnMouseAction(utilityBillPanel, clientUtilityBill);
+        navigateOnMouseAction(mobileRechargePanel, clientMobileRecharge);
+        navigateOnMouseAction(withdrawCashPanel, clientWithdrawCash);
+
+        navigateOnButtonAction(clientProfile.getFundTransferButton(), clientFundTransfer);
+        navigateOnButtonAction(clientProfile.getComplainBoxButton(), clientComplainPage);
+        navigateOnButtonAction(clientProfile.getStatementButton(), clientStatement);
+        navigateOnButtonAction(clientProfile.getPayBillButton(), clientUtilityBill);
+        navigateOnButtonAction(clientProfile.getMobileRechargeButton(), clientMobileRecharge);
+        navigateOnButtonAction(clientProfile.getWithdrawFundButton(), clientWithdrawCash);
+
+        setMinimizeButtonAction(clientProfile, clientProfile.getMinimizeButton());
+        setLogoutButtonAction(clientProfile.getLogoutButton());
+        setCloseButtonAction(clientProfile.getCloseButton());
+        setLogoutButtonAction(clientProfile.getLogoutButton());
+    }
+
 }

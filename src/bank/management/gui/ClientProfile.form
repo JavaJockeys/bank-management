@@ -72,21 +72,21 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel3" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="minimizeButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton3" max="32767" attributes="0"/>
-                              <Component id="jButton4" max="32767" attributes="0"/>
-                              <Component id="jButton5" alignment="1" pref="239" max="32767" attributes="0"/>
-                              <Component id="jButton6" alignment="1" pref="239" max="32767" attributes="0"/>
-                              <Component id="jButton7" alignment="1" pref="239" max="32767" attributes="0"/>
-                              <Component id="jButton8" alignment="1" pref="239" max="32767" attributes="0"/>
-                              <Component id="jButton9" alignment="1" pref="239" max="32767" attributes="0"/>
-                              <Component id="jButton10" alignment="0" pref="239" max="32767" attributes="0"/>
+                              <Component id="backButton" max="32767" attributes="0"/>
+                              <Component id="fundTransferButton" max="32767" attributes="0"/>
+                              <Component id="withdrawFundButton" alignment="1" pref="239" max="32767" attributes="0"/>
+                              <Component id="payBillButton" alignment="1" pref="239" max="32767" attributes="0"/>
+                              <Component id="statementButton" alignment="1" pref="239" max="32767" attributes="0"/>
+                              <Component id="complainBoxButton" alignment="1" pref="239" max="32767" attributes="0"/>
+                              <Component id="logoutButton" alignment="1" pref="239" max="32767" attributes="0"/>
+                              <Component id="mobileRechargeButton" alignment="0" pref="239" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -102,31 +102,31 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="minimizeButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="40" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="backButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="fundTransferButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          <Component id="withdrawFundButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                          <Component id="mobileRechargeButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <Component id="payBillButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                          <Component id="statementButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                          <Component id="complainBoxButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                          <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -157,18 +157,18 @@
                               <Component id="jLabel16" alignment="0" min="-2" pref="672" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jPanel12" max="32767" attributes="0"/>
-                                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="payBillPanel" max="32767" attributes="0"/>
+                                      <Component id="fundTransferPanel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                                      <Component id="withdrawFundPanel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="statementPanel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jPanel6" max="32767" attributes="0"/>
-                                      <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mobileRechargePanel" max="32767" attributes="0"/>
+                                      <Component id="complainBoxPanel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -188,15 +188,15 @@
                       </Group>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="fundTransferPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="mobileRechargePanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="withdrawFundPanel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel14" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanel12" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jPanel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="complainBoxPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="payBillPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="statementPanel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -204,7 +204,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="fundTransferPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -261,7 +261,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel5">
+            <Container class="javax.swing.JPanel" name="withdrawFundPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -319,7 +319,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel6">
+            <Container class="javax.swing.JPanel" name="mobileRechargePanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -377,7 +377,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel12">
+            <Container class="javax.swing.JPanel" name="payBillPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -435,7 +435,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel13">
+            <Container class="javax.swing.JPanel" name="statementPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -493,7 +493,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel14">
+            <Container class="javax.swing.JPanel" name="complainBoxPanel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -596,7 +596,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="closeButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -611,11 +611,11 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeButtonMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="minimizeButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="55" green="54" red="ea" type="rgb"/>
@@ -630,7 +630,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="minimizeButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -648,7 +648,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="backButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -662,7 +662,7 @@
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="fundTransferButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -676,10 +676,10 @@
             <Property name="text" type="java.lang.String" value="Fund Transfer"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fundTransferButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="withdrawFundButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -694,10 +694,10 @@
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="withdrawFundButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="payBillButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -712,10 +712,10 @@
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="payBillButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton7">
+        <Component class="javax.swing.JButton" name="statementButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -730,10 +730,10 @@
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statementButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton8">
+        <Component class="javax.swing.JButton" name="complainBoxButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -748,10 +748,10 @@
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="complainBoxButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton9">
+        <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -766,10 +766,10 @@
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton10">
+        <Component class="javax.swing.JButton" name="mobileRechargeButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -784,7 +784,7 @@
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mobileRechargeButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
