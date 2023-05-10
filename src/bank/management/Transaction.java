@@ -7,7 +7,11 @@ public class Transaction implements Serializable {
     private int slNo;
 
     public static enum TransactionType implements Serializable {
-        CLIENT_TO_CLIENT
+        CLIENT_TO_CLIENT,
+        BILL_PAYMENT,
+        FUND_TRANSFER,
+        MOBILE_RECHARGE,
+        WITHDRAW_CASH
     }
     private String id;
     private TransactionParty sender;
@@ -15,9 +19,8 @@ public class Transaction implements Serializable {
     private double amount;
     private TransactionType type;
     
-    public Transaction(int slNo, TransactionParty sender,
+    public Transaction(TransactionParty sender,
             TransactionParty receiver, double amount, TransactionType type) {
-        this.slNo = slNo;
         this.sender = sender;
         this.receiver = receiver;
         this.amount = amount;
