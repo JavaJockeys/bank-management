@@ -175,7 +175,7 @@
                                   <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sendButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -188,7 +188,7 @@
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="170" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                          <Component id="sendButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -202,11 +202,11 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextPane" name="jTextPane1">
+                    <Component class="javax.swing.JTextPane" name="complainBox">
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButton10">
+                <Component class="javax.swing.JButton" name="sendButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="60" green="d4" red="ff" type="rgb"/>
@@ -219,9 +219,10 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Send"/>
                     <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendButtonActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

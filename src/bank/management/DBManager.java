@@ -7,17 +7,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DBManager {
     private final String currentDir = System.getProperty("user.dir");
     private final String clientPath = currentDir + "\\DB\\clients.db";
-    private final String transactionPath = currentDir + "\\DB\\ransactions.db";
+    private final String transactionPath = currentDir + "\\DB\\transactions.db";
     private final String complainPath = currentDir + "\\DB\\complains.db";
     private final String credentialsPath = currentDir + "\\DB\\credentials.db";
     private final String cachedLogin = currentDir + "\\DB\\cached_login.db";
@@ -181,12 +178,12 @@ public class DBManager {
         return complainDB;
     }
     
-    public static void main(String[] args) throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException {
-        DBManager db = new DBManager();
-        // db.setLoginInfo(new LoginInfo("Osama", "bolbona"));
-        // db.updateLoginInfo();
-        db.loadLoginInfo();
-        System.out.println(db.getLoginInfo());
-    }
+//    public static void main(String[] args) throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException {
+//        DBManager db = new DBManager();
+//        // db.setLoginInfo(new LoginInfo("Osama", "bolbona"));
+//        // db.updateLoginInfo();
+//        db.loadLoginInfo();
+//        System.out.println(db.getLoginInfo());
+//    }
     
 }

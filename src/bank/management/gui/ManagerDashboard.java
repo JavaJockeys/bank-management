@@ -8,6 +8,7 @@ import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JTable;
 
 /**
  *
@@ -22,6 +23,10 @@ public class ManagerDashboard extends JFrameBase {
         super(navigator);
         initComponents();
         this.placeOnCenter();
+    }
+
+    public JTable getTransactionList() {
+        return transactionList;
     }
 
     public JButton getBackButton() {
@@ -66,7 +71,7 @@ public class ManagerDashboard extends JFrameBase {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        transactionList = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
@@ -88,22 +93,22 @@ public class ManagerDashboard extends JFrameBase {
 
         jPanel3.setBackground(new java.awt.Color(240, 123, 63));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        transactionList.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        transactionList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "SL.", "ID", "Name", "TXN Date", "Amount", "Reciever", "TXN Type"
+                "SL.", "Name", "TXN Date", "Amount", "Reciever", "TXN Type"
             }
         ));
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        transactionList.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        transactionList.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(transactionList);
+        transactionList.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -330,8 +335,8 @@ public class ManagerDashboard extends JFrameBase {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
+    private javax.swing.JTable transactionList;
     // End of variables declaration//GEN-END:variables
 }

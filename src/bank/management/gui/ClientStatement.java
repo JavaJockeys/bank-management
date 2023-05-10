@@ -124,6 +124,7 @@ public class ClientStatement extends JFrameBase {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Current Balance:");
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
 
         jButton12.setBackground(new java.awt.Color(255, 212, 96));

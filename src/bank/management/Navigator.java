@@ -45,11 +45,11 @@ public class Navigator {
         if (i != this.framePointer) found = true;
         while (i < this.framePointer) frames[i] = frames[++i];
         this.frames[(found? this.framePointer : ++this.framePointer)] = frame;
-        current.dispose();
+        current.setVisible(false);
         current = this.frames[this.framePointer];
-        current.toFront();
         if (!found && defaultLocation != null) current.setLocation(defaultLocation);
         current.setVisible(true);
+        current.toFront();
 //        for (JFrameBase e: frames) 
 //            if (e != null) System.out.println(e.getClass());
 //        System.out.println();

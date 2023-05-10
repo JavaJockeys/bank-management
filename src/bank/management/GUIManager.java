@@ -28,6 +28,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.TableModel;
@@ -54,6 +55,8 @@ public class GUIManager {
     final ManagerClientInfo managerClientInfo;
     final ManagerDashboard managerDashboard;
     final ManagerHomepage managerHomepage;
+    
+    private Client userClient;
 
     private final DBManager dbManager;
 
@@ -80,9 +83,9 @@ public class GUIManager {
         setManagerDashboardListeners();
         setManagerClientInfoListeners();
         setComplainsListeners();
-        // loadManagerDashboardData();
+        loadTransactions();
         loadManagerClientInfoData();
-        //loadComplainsData();
+        loadComplains();
 
         setClientProfilePageListener();
         setClientComplainPageListener();
@@ -264,8 +267,12 @@ public class GUIManager {
                         return;
                     }
 
-                    System.out.println();
                     updateLoginInfo(username, password.toString());
+                    dbManager.getClientDB().forEach((Client client) -> {
+                        if (client.getUsername().equals(username)) {
+                            userClient = client;
+                        }
+                    });
                     navigator.navigate(clientProfile);
                 } catch (IOException ex) {
                     System.out.println(ex);
@@ -516,6 +523,51 @@ public class GUIManager {
         setLogoutButtonAction(complains.getLogoutButton());
         setCloseButtonAction(complains.getCloseButton());
     }
+    
+    private void loadComplains() {
+        try {
+            dbManager.loadComplainDB();
+        } catch (IOException ex) {
+            Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String complainListString = new String();
+        for (Complain complain : dbManager.getComplainDB()) {
+            complainListString += "--------------------------------------------------------------------------\n"
+                    + complain.getOwner().getName() + ":\n"
+                    + complain.getBody() + "\n\n"
+                    + "--------------------------------------------------------------------------\n";
+        }
+        System.out.println("Complains:\n" + complainListString);
+        complains.getComplainList().setText(complainListString);
+    }
+    
+    private void loadTransactions() {
+        JTable table = managerDashboard.getTransactionList();
+        TableModel model = table.getModel();
+        try {
+            dbManager.loadTransactionDB();
+            ArrayList<Transaction> transactionDB = dbManager.getTransactionDB();
+            for (int i = 0; i < transactionDB.size(); i++) {
+                Transaction transaction = transactionDB.get(i);
+                model.setValueAt(i + 1, i, 0);
+                model.setValueAt(transaction.getSender().getName(), i, 1);
+                model.setValueAt(transaction.getDate(), i, 2);
+                model.setValueAt(transaction.getAmount(), i, 3);
+                model.setValueAt(transaction.getReceiver().getName(), i, 4);
+                model.setValueAt(transaction.getType(), i, 5);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void loadManagerClientInfoData() {
         JTable table = managerClientInfo.getDataTable();
@@ -551,7 +603,49 @@ public class GUIManager {
         navigateOnButtonAction(clientComplainPage.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientComplainPage.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientComplainPage.getWithdrawFundButton(), clientWithdrawCash);
+        
+        clientComplainPage.getSendButton().addActionListener((ActionEvent e) -> {
+            String body = clientComplainPage.getComplainBox().getText();
+            Complain complain = new Complain(userClient, body);
+            try {
+                dbManager.getComplainDB().add(complain);
+                dbManager.updateComplainDB();
+                loadComplains();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        JTextPane complainBox = clientComplainPage.getComplainBox();
+        DocumentListener documentListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String[] data = new String[1];
+                data[0] = complainBox.getText();
+                toggleButtonEnable(data, clientComplainPage.getSendButton());
+            }
 
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String[] data = new String[1];
+                data[0] = complainBox.getText();
+                toggleButtonEnable(data, clientComplainPage.getSendButton());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //
+            }
+            
+        };
+        
+        complainBox.getDocument().addDocumentListener(documentListener);
+
+        // toggleButtonEnable(clientComplainPage.getSendButton());
         setBackButtonAction(clientComplainPage, clientComplainPage.getBackButton());
         setMinimizeButtonAction(clientComplainPage, clientComplainPage.getMinimizeButton());
         setLogoutButtonAction(clientComplainPage.getLogoutButton());

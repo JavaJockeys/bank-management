@@ -88,8 +88,7 @@ public class ClientProfile extends JFrameBase {
     public ClientProfile(Navigator navigator) {
         super(navigator);
         initComponents();
-        closeButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-
+        placeOnCenter();
     }
 
     /**
@@ -609,6 +608,8 @@ public class ClientProfile extends JFrameBase {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
         );
+
+        getAccessibleContext().setAccessibleParent(this);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -8,6 +8,7 @@ import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -17,6 +18,14 @@ public class ClientComplainPage extends JFrameBase {
 
     public JButton getBackButton() {
         return backButton;
+    }
+
+    public JTextPane getComplainBox() {
+        return complainBox;
+    }
+
+    public JButton getSendButton() {
+        return sendButton;
     }
 
     public JButton getLogoutButton() {
@@ -76,8 +85,8 @@ public class ClientComplainPage extends JFrameBase {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jButton10 = new javax.swing.JButton();
+        complainBox = new javax.swing.JTextPane();
+        sendButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
@@ -101,16 +110,17 @@ public class ClientComplainPage extends JFrameBase {
 
         jPanel3.setBackground(new java.awt.Color(234, 84, 85));
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(complainBox);
 
-        jButton10.setBackground(new java.awt.Color(255, 212, 96));
-        jButton10.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(234, 84, 85));
-        jButton10.setText("Send");
-        jButton10.setActionCommand("Withdraw");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        sendButton.setBackground(new java.awt.Color(255, 212, 96));
+        sendButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        sendButton.setForeground(new java.awt.Color(234, 84, 85));
+        sendButton.setText("Send");
+        sendButton.setActionCommand("Withdraw");
+        sendButton.setEnabled(false);
+        sendButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                sendButtonActionPerformed(evt);
             }
         });
 
@@ -125,7 +135,7 @@ public class ClientComplainPage extends JFrameBase {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(129, 129, 129))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton10)
+                        .addComponent(sendButton)
                         .addGap(327, 327, 327))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -134,7 +144,7 @@ public class ClientComplainPage extends JFrameBase {
                 .addGap(90, 90, 90)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jButton10)
+                .addComponent(sendButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -384,15 +394,15 @@ public class ClientComplainPage extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_sendButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JButton closeButton;
+    private javax.swing.JTextPane complainBox;
     private javax.swing.JButton fundTransferButton;
-    private javax.swing.JButton jButton10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
@@ -400,11 +410,11 @@ public class ClientComplainPage extends JFrameBase {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     private javax.swing.JButton mobileRechargeButton;
     private javax.swing.JButton payBillButton;
+    private javax.swing.JButton sendButton;
     private javax.swing.JButton statementButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables

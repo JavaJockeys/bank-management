@@ -2,10 +2,10 @@ package bank.management;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Transaction implements Serializable {
-    private int slNo;
-
+    
     public static enum TransactionType implements Serializable {
         CLIENT_TO_CLIENT,
         BILL_PAYMENT,
@@ -13,10 +13,10 @@ public class Transaction implements Serializable {
         MOBILE_RECHARGE,
         WITHDRAW_CASH
     }
-    private String id;
     private TransactionParty sender;
     private TransactionParty receiver;
     private double amount;
+    private Date date;
     private TransactionType type;
     
     public Transaction(TransactionParty sender,
@@ -25,56 +25,32 @@ public class Transaction implements Serializable {
         this.receiver = receiver;
         this.amount = amount;
         this.type = type;
+        this.date = new Date();
     }
-    public int getSlNo() {
-        return slNo;
-    }
-
-    public void setSlNo(int slNo) {
-        this.slNo = slNo;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    
 
     public TransactionParty getSender() {
         return sender;
     }
 
-    public void setSender(TransactionParty sender) {
-        this.sender = sender;
-    }
 
     public TransactionParty getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(TransactionParty receiver) {
-        this.receiver = receiver;
+    public Date getDate() {
+        return date;
     }
+
 
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
 
     public TransactionType getType() {
         return type;
     }
 
-    public void setType(TransactionType type) {
-        this.type = type;
-    }
 
-    public void generateReceipt() {
-
-    }
 }

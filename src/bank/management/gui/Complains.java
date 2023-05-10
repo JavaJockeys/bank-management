@@ -8,6 +8,7 @@ import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -24,6 +25,10 @@ public class Complains extends JFrameBase {
         initComponents();
         this.placeOnCenter();
          //jTextArea1.setEditable(false) ;
+    }
+
+    public JTextArea getComplainList() {
+        return ComplainList;
     }
 
     public JButton getLogoutButton() {
@@ -67,7 +72,7 @@ public class Complains extends JFrameBase {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ComplainList = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
@@ -89,10 +94,10 @@ public class Complains extends JFrameBase {
 
         jPanel3.setBackground(new java.awt.Color(240, 123, 63));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-        jTextArea1. setEditable(false) ;
+        ComplainList.setColumns(20);
+        ComplainList.setRows(5);
+        jScrollPane1.setViewportView(ComplainList);
+        ComplainList. setEditable(false) ;
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -316,6 +321,7 @@ public class Complains extends JFrameBase {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea ComplainList;
     private javax.swing.JButton backButton;
     private javax.swing.JButton clientInfoMenu;
     private javax.swing.JButton closeButton;
@@ -328,7 +334,6 @@ public class Complains extends JFrameBase {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     // End of variables declaration//GEN-END:variables
