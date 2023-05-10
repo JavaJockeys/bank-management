@@ -553,6 +553,7 @@ public class GUIManager {
         navigateOnButtonAction(clientComplainPage.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientComplainPage.getWithdrawFundButton(), clientWithdrawCash);
 
+        setBackButtonAction(clientComplainPage, clientComplainPage.getBackButton());
         setMinimizeButtonAction(clientComplainPage, clientComplainPage.getMinimizeButton());
         setLogoutButtonAction(clientComplainPage.getLogoutButton());
         setCloseButtonAction(clientComplainPage.getCloseButton());
@@ -568,6 +569,7 @@ public class GUIManager {
         navigateOnButtonAction(clientFundTransfer.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientFundTransfer.getWithdrawFundButton(), clientWithdrawCash);
 
+        setBackButtonAction(clientFundTransfer, clientFundTransfer.getBackButton());
         setMinimizeButtonAction(clientFundTransfer, clientFundTransfer.getMinimizeButton());
         setLogoutButtonAction(clientFundTransfer.getLogoutButton());
         setCloseButtonAction(clientFundTransfer.getCloseButton());
@@ -583,6 +585,7 @@ public class GUIManager {
         navigateOnButtonAction(clientMobileRecharge.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientMobileRecharge.getWithdrawFundButton(), clientWithdrawCash);
 
+        setBackButtonAction(clientMobileRecharge, clientMobileRecharge.getBackButton());
         setMinimizeButtonAction(clientMobileRecharge, clientMobileRecharge.getMinimizeButton());
         setLogoutButtonAction(clientMobileRecharge.getLogoutButton());
         setCloseButtonAction(clientMobileRecharge.getCloseButton());
@@ -598,6 +601,7 @@ public class GUIManager {
         navigateOnButtonAction(clientStatement.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientStatement.getWithdrawFundButton(), clientWithdrawCash);
 
+        setBackButtonAction(clientStatement, clientStatement.getBackButton());
         setMinimizeButtonAction(clientStatement, clientStatement.getMinimizeButton());
         setLogoutButtonAction(clientStatement.getLogoutButton());
         setCloseButtonAction(clientStatement.getCloseButton());
@@ -613,6 +617,7 @@ public class GUIManager {
         navigateOnButtonAction(clientUtilityBill.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientUtilityBill.getWithdrawFundButton(), clientWithdrawCash);
 
+        setBackButtonAction(clientUtilityBill, clientUtilityBill.getBackButton());
         setMinimizeButtonAction(clientUtilityBill, clientUtilityBill.getMinimizeButton());
         setLogoutButtonAction(clientUtilityBill.getLogoutButton());
         setCloseButtonAction(clientUtilityBill.getCloseButton());
@@ -627,6 +632,7 @@ public class GUIManager {
         navigateOnButtonAction(clientWithdrawCash.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientWithdrawCash.getMobileRechargeButton(), clientMobileRecharge);
 
+        setBackButtonAction(clientWithdrawCash, clientWithdrawCash.getBackButton());
         setMinimizeButtonAction(clientWithdrawCash, clientWithdrawCash.getMinimizeButton());
         setLogoutButtonAction(clientWithdrawCash.getLogoutButton());
         setCloseButtonAction(clientWithdrawCash.getCloseButton());
@@ -662,6 +668,7 @@ public class GUIManager {
         navigateOnButtonAction(clientProfile.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientProfile.getWithdrawFundButton(), clientWithdrawCash);
 
+        setBackButtonAction(clientProfile, clientProfile.getBackButton());
         setMinimizeButtonAction(clientProfile, clientProfile.getMinimizeButton());
         setLogoutButtonAction(clientProfile.getLogoutButton());
         setCloseButtonAction(clientProfile.getCloseButton());
