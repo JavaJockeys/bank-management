@@ -40,9 +40,6 @@ public class ClientUtilityBill extends JFrameBase {
      public JButton getStatementButton() {
         return statementButton;
     }
-      public JButton getPayBillButton() {
-        return  payBillButton;
-    }
        public JButton getMobileRechargeButton() {
         return mobileRechargeButton;
     }
@@ -91,7 +88,6 @@ public class ClientUtilityBill extends JFrameBase {
         backButton = new javax.swing.JButton();
         fundTransferButton = new javax.swing.JButton();
         mobileRechargeButton = new javax.swing.JButton();
-        payBillButton = new javax.swing.JButton();
         statementButton = new javax.swing.JButton();
         complainBoxButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
@@ -322,17 +318,6 @@ public class ClientUtilityBill extends JFrameBase {
             }
         });
 
-        payBillButton.setBackground(new java.awt.Color(255, 212, 96));
-        payBillButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        payBillButton.setForeground(new java.awt.Color(234, 84, 85));
-        payBillButton.setText("Pay Bill");
-        payBillButton.setActionCommand("Withdraw");
-        payBillButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payBillButtonActionPerformed(evt);
-            }
-        });
-
         statementButton.setBackground(new java.awt.Color(255, 212, 96));
         statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         statementButton.setForeground(new java.awt.Color(234, 84, 85));
@@ -391,7 +376,6 @@ public class ClientUtilityBill extends JFrameBase {
                             .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(fundTransferButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mobileRechargeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(payBillButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(statementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(complainBoxButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -420,12 +404,10 @@ public class ClientUtilityBill extends JFrameBase {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mobileRechargeButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(payBillButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(statementButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(complainBoxButton)
-                        .addGap(344, 344, 344)
+                        .addGap(382, 382, 382)
                         .addComponent(logoutButton)
                         .addGap(31, 31, 31))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -478,10 +460,6 @@ public class ClientUtilityBill extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_mobileRechargeButtonActionPerformed
 
-    private void payBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBillButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_payBillButtonActionPerformed
-
     private void statementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_statementButtonActionPerformed
@@ -525,7 +503,6 @@ public class ClientUtilityBill extends JFrameBase {
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     private javax.swing.JButton mobileRechargeButton;
-    private javax.swing.JButton payBillButton;
     private javax.swing.JButton statementButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables

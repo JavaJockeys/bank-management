@@ -38,9 +38,7 @@ public class ClientStatement extends JFrameBase {
     public JButton getComplainBoxButton() {
         return complainBoxButton;
     }
-     public JButton getStatementButton() {
-        return statementButton;
-    }
+
       public JButton getPayBillButton() {
         return  payBillButton;
     }
@@ -87,7 +85,6 @@ public class ClientStatement extends JFrameBase {
         fundTransferButton = new javax.swing.JButton();
         mobileRechargeButton = new javax.swing.JButton();
         payBillButton = new javax.swing.JButton();
-        statementButton = new javax.swing.JButton();
         complainBoxButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         withdrawFundButton = new javax.swing.JButton();
@@ -281,17 +278,6 @@ public class ClientStatement extends JFrameBase {
             }
         });
 
-        statementButton.setBackground(new java.awt.Color(255, 212, 96));
-        statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        statementButton.setForeground(new java.awt.Color(234, 84, 85));
-        statementButton.setText("Statement");
-        statementButton.setActionCommand("Withdraw");
-        statementButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statementButtonActionPerformed(evt);
-            }
-        });
-
         complainBoxButton.setBackground(new java.awt.Color(255, 212, 96));
         complainBoxButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         complainBoxButton.setForeground(new java.awt.Color(234, 84, 85));
@@ -345,7 +331,6 @@ public class ClientStatement extends JFrameBase {
                             .addComponent(fundTransferButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mobileRechargeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                             .addComponent(payBillButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(statementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(complainBoxButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(withdrawFundButton, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
@@ -375,10 +360,8 @@ public class ClientStatement extends JFrameBase {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(payBillButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(statementButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(complainBoxButton)
-                        .addGap(344, 344, 344)
+                        .addGap(382, 382, 382)
                         .addComponent(logoutButton)
                         .addGap(31, 31, 31))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -431,10 +414,6 @@ public class ClientStatement extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_payBillButtonActionPerformed
 
-    private void statementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statementButtonActionPerformed
-
     private void complainBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainBoxButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_complainBoxButtonActionPerformed
@@ -472,7 +451,6 @@ public class ClientStatement extends JFrameBase {
     private javax.swing.JButton minimizeButton;
     private javax.swing.JButton mobileRechargeButton;
     private javax.swing.JButton payBillButton;
-    private javax.swing.JButton statementButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables
 }

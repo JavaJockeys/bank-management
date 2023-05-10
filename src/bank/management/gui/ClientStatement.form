@@ -64,7 +64,6 @@
                               <Component id="fundTransferButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="mobileRechargeButton" alignment="1" pref="228" max="32767" attributes="0"/>
                               <Component id="payBillButton" alignment="1" max="32767" attributes="0"/>
-                              <Component id="statementButton" alignment="1" max="32767" attributes="0"/>
                               <Component id="complainBoxButton" alignment="1" max="32767" attributes="0"/>
                               <Component id="logoutButton" alignment="1" max="32767" attributes="0"/>
                               <Component id="withdrawFundButton" alignment="0" pref="228" max="32767" attributes="0"/>
@@ -102,10 +101,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="payBillButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="statementButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="complainBoxButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="382" max="-2" attributes="0"/>
                           <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
@@ -455,24 +452,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="payBillButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="statementButton">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="60" green="d4" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Semilight" size="18" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="55" green="54" red="ea" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Statement"/>
-            <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statementButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="complainBoxButton">
