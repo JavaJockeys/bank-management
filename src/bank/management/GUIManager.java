@@ -547,7 +547,6 @@ public class GUIManager {
     private void setClientComplainPageListener() {
 
         navigateOnButtonAction(clientComplainPage.getFundTransferButton(), clientFundTransfer);
-        navigateOnButtonAction(clientComplainPage.getComplainBoxButton(), clientComplainPage);
         navigateOnButtonAction(clientComplainPage.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientComplainPage.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientComplainPage.getMobileRechargeButton(), clientMobileRecharge);
@@ -562,7 +561,6 @@ public class GUIManager {
 
     private void setClientFundTransferPageListener() {
 
-        navigateOnButtonAction(clientFundTransfer.getFundTransferButton(), clientFundTransfer);
         navigateOnButtonAction(clientFundTransfer.getComplainBoxButton(), clientComplainPage);
         navigateOnButtonAction(clientFundTransfer.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientFundTransfer.getPayBillButton(), clientUtilityBill);
@@ -582,7 +580,6 @@ public class GUIManager {
         navigateOnButtonAction(clientMobileRecharge.getComplainBoxButton(), clientComplainPage);
         navigateOnButtonAction(clientMobileRecharge.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientMobileRecharge.getPayBillButton(), clientUtilityBill);
-        navigateOnButtonAction(clientMobileRecharge.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientMobileRecharge.getWithdrawFundButton(), clientWithdrawCash);
 
         setBackButtonAction(clientMobileRecharge, clientMobileRecharge.getBackButton());
@@ -596,7 +593,6 @@ public class GUIManager {
 
         navigateOnButtonAction(clientStatement.getFundTransferButton(), clientFundTransfer);
         navigateOnButtonAction(clientStatement.getComplainBoxButton(), clientComplainPage);
-        navigateOnButtonAction(clientStatement.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientStatement.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientStatement.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientStatement.getWithdrawFundButton(), clientWithdrawCash);
@@ -613,7 +609,6 @@ public class GUIManager {
         navigateOnButtonAction(clientUtilityBill.getFundTransferButton(), clientFundTransfer);
         navigateOnButtonAction(clientUtilityBill.getComplainBoxButton(), clientComplainPage);
         navigateOnButtonAction(clientUtilityBill.getStatementButton(), clientStatement);
-        navigateOnButtonAction(clientUtilityBill.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientUtilityBill.getMobileRechargeButton(), clientMobileRecharge);
         navigateOnButtonAction(clientUtilityBill.getWithdrawFundButton(), clientWithdrawCash);
 

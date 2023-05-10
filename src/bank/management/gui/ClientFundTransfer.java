@@ -31,9 +31,6 @@ public class ClientFundTransfer extends JFrameBase {
         return minimizeButton;
     }
 
-    public JButton getFundTransferButton() {
-        return fundTransferButton;
-    }
 
     public JButton getComplainBoxButton() {
         return complainBoxButton;
@@ -96,7 +93,6 @@ public class ClientFundTransfer extends JFrameBase {
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
-        fundTransferButton = new javax.swing.JButton();
         mobileRechargeButton = new javax.swing.JButton();
         payBillButton = new javax.swing.JButton();
         statementButton = new javax.swing.JButton();
@@ -309,16 +305,6 @@ public class ClientFundTransfer extends JFrameBase {
         backButton.setForeground(new java.awt.Color(234, 84, 85));
         backButton.setText("Back");
 
-        fundTransferButton.setBackground(new java.awt.Color(255, 212, 96));
-        fundTransferButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        fundTransferButton.setForeground(new java.awt.Color(234, 84, 85));
-        fundTransferButton.setText("Fund Transfer");
-        fundTransferButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fundTransferButtonActionPerformed(evt);
-            }
-        });
-
         mobileRechargeButton.setBackground(new java.awt.Color(255, 212, 96));
         mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         mobileRechargeButton.setForeground(new java.awt.Color(234, 84, 85));
@@ -397,7 +383,6 @@ public class ClientFundTransfer extends JFrameBase {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(fundTransferButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mobileRechargeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                             .addComponent(payBillButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(statementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -422,8 +407,6 @@ public class ClientFundTransfer extends JFrameBase {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(backButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fundTransferButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(withdrawFundButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mobileRechargeButton)
@@ -433,7 +416,7 @@ public class ClientFundTransfer extends JFrameBase {
                         .addComponent(statementButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(complainBoxButton)
-                        .addGap(324, 324, 324)
+                        .addGap(362, 362, 362)
                         .addComponent(logoutButton)
                         .addGap(31, 31, 31))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -476,10 +459,6 @@ public class ClientFundTransfer extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_minimizeButtonActionPerformed
 
-    private void fundTransferButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fundTransferButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fundTransferButtonActionPerformed
-
     private void mobileRechargeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileRechargeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mobileRechargeButtonActionPerformed
@@ -513,7 +492,6 @@ public class ClientFundTransfer extends JFrameBase {
     private javax.swing.JButton backButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton complainBoxButton;
-    private javax.swing.JButton fundTransferButton;
     private javax.swing.JButton jButton10;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;

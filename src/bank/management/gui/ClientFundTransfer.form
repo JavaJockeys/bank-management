@@ -64,7 +64,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="backButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="fundTransferButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="mobileRechargeButton" alignment="1" pref="229" max="32767" attributes="0"/>
                               <Component id="payBillButton" alignment="1" max="32767" attributes="0"/>
                               <Component id="statementButton" alignment="1" max="32767" attributes="0"/>
@@ -97,8 +96,6 @@
                           <EmptySpace pref="13" max="32767" attributes="0"/>
                           <Component id="backButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fundTransferButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="withdrawFundButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="mobileRechargeButton" min="-2" max="-2" attributes="0"/>
@@ -108,7 +105,7 @@
                           <Component id="statementButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="complainBoxButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
                           <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
@@ -493,23 +490,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="fundTransferButton">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="60" green="d4" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Semilight" size="18" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="55" green="54" red="ea" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Fund Transfer"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fundTransferButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="mobileRechargeButton">
           <Properties>
