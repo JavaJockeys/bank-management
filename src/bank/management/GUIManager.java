@@ -239,6 +239,21 @@ public class GUIManager {
         data[1] = new String(loginScreen.getPassword().getPassword());
         toggleButtonEnable(data, loginScreen.getLoginButton());
     }
+    
+    private void loginUser(String username, String password) throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException, UserNotFoundException {
+        updateLoginInfo(username, password);
+        boolean notFound = true;
+        for (Client client : dbManager.getClientDB()) {
+            if (client.getUsername().equals(username)) {
+                userClient = client;
+                notFound = false;
+            }
+        }
+        if (notFound) throw new UserNotFoundException();
+        loadClientTransactions();
+        updateCurrentBalance();
+        navigator.navigate(clientProfile);
+    }
 
     private void setLoginScreenListeners() {
         JButton loginButton = loginScreen.getLoginButton();
@@ -278,20 +293,14 @@ public class GUIManager {
                         return;
                     }
 
-                    updateLoginInfo(username, password.toString());
-                    dbManager.getClientDB().forEach((Client client) -> {
-                        if (client.getUsername().equals(username)) {
-                            userClient = client;
-                        } else System.out.println(client.getUsername());
-                    });
-                    loadClientTransactions();
-                    updateCurrentBalance();
-                    navigator.navigate(clientProfile);
+                    loginUser(username, password.toString());
                 } catch (IOException ex) {
                     System.out.println(ex);
                 } catch (ClassNotFoundException ex) {
                     System.out.println(ex);
-                } catch (Exception ex) {
+                } catch (UserNotFoundException unf) {
+                    JOptionPane.showMessageDialog(loginScreen, "User not found!");
+                }catch (Exception ex) {
                     System.out.println(ex);
                 }
             }
@@ -420,7 +429,7 @@ public class GUIManager {
                     return;
                 }
                 ArrayList<Client> clientDB = dbManager.getClientDB();
-                String accountNo = "EWUBL0000" + (1000 + clientDB.size());
+                String accountNo = "EWUBL0" + (1000 + clientDB.size());
                 Client newClient = new Client(
                         name.getText(),
                         phone.getText(),
@@ -583,7 +592,7 @@ public class GUIManager {
     }
     
     private void loadClientTransactions() {
-        JTable table = clientStatement.getClientTransactions();
+        JTable table = clientStatement.getClientTransactionsTable();
         TableModel model = table.getModel();
         ArrayList<Transaction> transactions = userClient.getTransactionList();
         for (int i = 0; i < transactions.size(); i++) {
@@ -963,6 +972,12 @@ public class GUIManager {
         setLogoutButtonAction(clientProfile.getLogoutButton());
         setCloseButtonAction(clientProfile.getCloseButton());
         setLogoutButtonAction(clientProfile.getLogoutButton());
+    }
+
+    private static class UserNotFoundException extends Exception {
+
+        public UserNotFoundException() {
+        }
     }
 
 }

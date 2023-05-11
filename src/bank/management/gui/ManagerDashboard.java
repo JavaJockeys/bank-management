@@ -93,7 +93,7 @@ public class ManagerDashboard extends JFrameBase {
 
         jPanel3.setBackground(new java.awt.Color(240, 123, 63));
 
-        transactionList.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        transactionList.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         transactionList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

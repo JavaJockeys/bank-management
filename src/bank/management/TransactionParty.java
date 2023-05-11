@@ -1,7 +1,9 @@
 package bank.management;
 
+import java.io.Serializable;
 
-public class TransactionParty {
+
+public class TransactionParty implements Serializable {
     
     protected String name;
     

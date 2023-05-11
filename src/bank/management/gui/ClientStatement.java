@@ -8,6 +8,7 @@ import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -77,7 +78,7 @@ public class ClientStatement extends JFrameBase {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        clientTransactionsTable = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         currentBalance = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -103,8 +104,8 @@ public class ClientStatement extends JFrameBase {
 
         jPanel3.setBackground(new java.awt.Color(234, 84, 85));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clientTransactionsTable.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        clientTransactionsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -115,12 +116,12 @@ public class ClientStatement extends JFrameBase {
                 "SL.", "TXN Date", "Amount", "Reciever", "TXN Type"
             }
         ));
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        clientTransactionsTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        clientTransactionsTable.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(clientTransactionsTable);
+        clientTransactionsTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (clientTransactionsTable.getColumnModel().getColumnCount() > 0) {
+            clientTransactionsTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
@@ -417,6 +418,7 @@ public class ClientStatement extends JFrameBase {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JTable clientTransactionsTable;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton complainBoxButton;
     private javax.swing.JTextField currentBalance;
@@ -429,11 +431,14 @@ public class ClientStatement extends JFrameBase {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     private javax.swing.JButton mobileRechargeButton;
     private javax.swing.JButton payBillButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getClientTransactionsTable() {
+        return this.clientTransactionsTable;
+    }
 }
