@@ -4,13 +4,25 @@
  */
 package bank.management.gui;
 
+import bank.management.DBManager;
+import bank.management.GUIManager;
 import bank.management.Navigator;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -20,12 +32,12 @@ public class LoginScreen extends JFrameBase {
 
     /**
      * Creates new form Login_Screen
-     * @param navigator
+     * @param guiManager
      */
-    public LoginScreen(Navigator navigator) {
-        super(navigator);
+    public LoginScreen(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
-        this.placeOnCenter();
+        placeOnCenter();
     }
 
     public JButton getMinimizeButton() {
@@ -291,4 +303,102 @@ public class LoginScreen extends JFrameBase {
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        DBManager dbManager = guiManager.getDBManager();
+        Navigator navigator = guiManager.getNavigator();
+        ManagerHomepage managerHomepage = guiManager.getManagerHomepage();
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    dbManager.loadCredentialDB();
+                    dbManager.loadClientDB();
+                    HashMap<String, String> mp = dbManager.getCredentialDB();
+                    System.out.println("Here::   " + mp);
+                    String usernameValue = username.getText();
+                    char[] passwordValue = password.getPassword();
+                    char[] adminPass = {'a', 'd', 'm', 'i', 'n'};
+
+                    if (usernameValue.equals("admin") && Arrays.equals(passwordValue, adminPass)) {
+                        guiManager.updateLoginInfo();
+                        navigator.navigate(managerHomepage);
+                        return;
+                    }
+
+                    if (usernameValue.equals("admin") && !Arrays.equals(passwordValue, adminPass)) {
+                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "Wrong Password!", "Invalid password", 0);
+                        return;
+                    }
+
+                    if (!mp.containsKey(usernameValue)) {
+                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "username not found!", "Invalid username", 0);
+                        return;
+                    }
+
+                    if (!Arrays.equals(mp.get(usernameValue).toCharArray(), passwordValue)) {
+                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "Wrong Password!.", "Invalid password!", 0);
+                        return;
+                    }
+
+                    guiManager.loginUser(usernameValue, passwordValue.toString());
+                } catch (IOException ex) {
+                    System.out.println(ex);
+                } catch (ClassNotFoundException ex) {
+                    System.out.println(ex);
+                } catch (GUIManager.UserNotFoundException unf) {
+                    try {
+                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "User not found!");
+                    } catch (Navigator.nullFrameException ex) {
+                        Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }catch (Exception ex) {
+                    System.out.println(ex);
+                }
+            }
+        });
+
+        DocumentListener documentListener = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                toggleLoginButton();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                toggleLoginButton();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+
+            }
+
+        };
+
+        ActionListener enterPressListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loginButton.doClick();
+            }
+
+        };
+
+        username.getDocument().addDocumentListener(documentListener);
+        username.addActionListener(enterPressListener);
+        password.getDocument().addDocumentListener(documentListener);
+        password.addActionListener(enterPressListener);
+
+        setMinimizeButtonAction(minimizeButton);
+        setCloseButtonAction(closeButton);
+    }
+    
+    private void toggleLoginButton() {
+        String[] data = new String[2];
+        data[0] = username.getText();
+        data[1] = new String(password.getPassword());
+        toggleButtonEnable(data, loginButton);
+    }
 }

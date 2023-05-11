@@ -4,7 +4,7 @@
  */
 package bank.management.gui;
 
-import bank.management.Navigator;
+import bank.management.GUIManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -18,12 +18,12 @@ public class ManagerHomepage extends JFrameBase {
 
     /**
      * Creates new form Manager_Homepage
-     * @param navigator
+     * @param guiManager
      */
-    public ManagerHomepage(Navigator navigator) {
-        super(navigator);
+    public ManagerHomepage(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
-        this.placeOnCenter();
+        placeOnCenter();
     }
 
     public JButton getBackButton() {
@@ -465,4 +465,24 @@ public class ManagerHomepage extends JFrameBase {
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ManagerClientInfo managerClientInfo = guiManager.getManagerClientInfo();
+        ManagerDashboard managerDashboard = guiManager.getManagerDashboard();
+        Complains complains = guiManager.getComplains();
+        
+        navigateOnButtonAction(clientInfoMenu, managerClientInfo);
+        navigateOnButtonAction(dashboardMenu, managerDashboard);
+        navigateOnButtonAction(complainMenu, complains);
+
+        navigateOnMouseAction(clientInfoPanel, managerClientInfo);
+        navigateOnMouseAction(dashboardPanel, managerDashboard);
+        navigateOnMouseAction(complainPanel, complains);
+
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
 }

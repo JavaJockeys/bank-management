@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.GUIManager;
 import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -83,10 +84,10 @@ public class ClientProfile extends JFrameBase {
     /**
      * Creates new form Client_Profile
      *
-     * @param navigator
+     * @param guiManager
      */
-    public ClientProfile(Navigator navigator) {
-        super(navigator);
+    public ClientProfile(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
         placeOnCenter();
     }
@@ -725,4 +726,32 @@ public class ClientProfile extends JFrameBase {
     private javax.swing.JButton withdrawFundButton;
     private javax.swing.JPanel withdrawFundPanel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ClientFundTransfer clientFundTransfer = guiManager.getClientFundTransfer();
+        ClientComplainPage clientComplainPage = guiManager.getClientComplainPage();
+        ClientStatement clientStatement = guiManager.getClientStatement();
+        ClientMobileRecharge clientMobileRecharge = guiManager.getClientMobileRecharge();
+        ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
+        ClientUtilityBill clientUtilityBill = guiManager.getClientUtilityBill();
+        
+        navigateOnMouseAction(fundTransferPanel, clientFundTransfer);
+        navigateOnMouseAction(complainBoxPanel, clientComplainPage);
+        navigateOnMouseAction(statementPanel, clientStatement);
+        navigateOnMouseAction(payBillPanel, clientUtilityBill);
+        navigateOnMouseAction(mobileRechargePanel, clientMobileRecharge);
+        navigateOnMouseAction(withdrawFundPanel, clientWithdrawCash);
+        
+        navigateOnButtonAction(fundTransferButton, clientFundTransfer);
+        navigateOnButtonAction(complainBoxButton, clientComplainPage);
+        navigateOnButtonAction(statementButton, clientStatement);
+        navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
+        navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
 }

@@ -4,11 +4,21 @@
  */
 package bank.management.gui;
 
+import bank.management.Complain;
+import bank.management.DBManager;
+import bank.management.GUIManager;
 import bank.management.Navigator;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -64,10 +74,10 @@ public class ClientComplainPage extends JFrameBase {
     /**
      * Creates new form Client_Complaint_Page
      *
-     * @param navigator
+     * @param guiManager
      */
-    public ClientComplainPage(Navigator navigator) {
-        super(navigator);
+    public ClientComplainPage(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
         placeOnCenter();
     }
@@ -418,4 +428,68 @@ public class ClientComplainPage extends JFrameBase {
     private javax.swing.JButton statementButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ClientFundTransfer clientFundTransfer = guiManager.getClientFundTransfer();
+        ClientMobileRecharge clientMobileRecharge = guiManager.getClientMobileRecharge();
+        ClientStatement clientStatement = guiManager.getClientStatement();
+        ClientUtilityBill clientUtilityBill = guiManager.getClientUtilityBill();
+        ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
+        
+        navigateOnButtonAction(fundTransferButton, clientFundTransfer);
+        navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
+        navigateOnButtonAction(statementButton, clientStatement);
+        navigateOnButtonAction(mobileRechargeButton, clientUtilityBill);
+        navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+        
+        sendButton.addActionListener((ActionEvent e) -> {
+            DBManager dbManager = guiManager.getDBManager();
+            
+            String body = complainBox.getText();
+            Complain complain = new Complain(guiManager.getUserClient(), body);
+            try {
+                dbManager.getComplainDB().add(complain);
+                dbManager.updateComplainDB();
+                guiManager.loadComplains();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        DocumentListener documentListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                toggleSendButton();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                toggleSendButton();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //
+            }
+            
+        };
+        
+        complainBox.getDocument().addDocumentListener(documentListener);
+
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
+    
+    private void toggleSendButton() {
+        String[] data = new String[1];
+        data[0] = complainBox.getText();
+        toggleButtonEnable(data, sendButton);
+    }
 }

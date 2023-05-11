@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.GUIManager;
 import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -57,12 +58,12 @@ public class ClientStatement extends JFrameBase {
 
     /**
      * Creates new form Client_Statement
-     * @param navigator
+     * @param guiManager
      */
-    public ClientStatement(Navigator navigator) {
-        super(navigator);
+    public ClientStatement(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
-        
+        placeOnCenter();
     }
 
     /**
@@ -440,5 +441,25 @@ public class ClientStatement extends JFrameBase {
 
     public JTable getClientTransactionsTable() {
         return this.clientTransactionsTable;
+    }
+
+    @Override
+    public void setAllListeners() {
+        ClientFundTransfer clientFundTransfer = guiManager.getClientFundTransfer();
+        ClientComplainPage clientComplainPage = guiManager.getClientComplainPage();
+        ClientUtilityBill clientUtilityBill = guiManager.getClientUtilityBill();
+        ClientMobileRecharge clientMobileRecharge = guiManager.getClientMobileRecharge();
+        ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
+        
+        navigateOnButtonAction(fundTransferButton, clientFundTransfer);
+        navigateOnButtonAction(complainBoxButton, clientComplainPage);
+        navigateOnButtonAction(payBillButton, clientUtilityBill);
+        navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
+        navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
     }
 }

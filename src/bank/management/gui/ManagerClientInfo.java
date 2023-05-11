@@ -4,10 +4,25 @@
  */
 package bank.management.gui;
 
+import bank.management.Client;
+import bank.management.DBManager;
+import bank.management.GUIManager;
 import bank.management.Navigator;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -17,12 +32,12 @@ public class ManagerClientInfo extends JFrameBase {
 
     /**
      * Creates new form Manager_Client_Info
-     * @param navigator
+     * @param guiManager
      */
-    public ManagerClientInfo(Navigator navigator) {
-        super(navigator);
+    public ManagerClientInfo(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
-        this.placeOnCenter();
+        placeOnCenter();
     }
 
     public JTextField getAddress() {
@@ -565,4 +580,117 @@ public class ManagerClientInfo extends JFrameBase {
     private javax.swing.JButton registerClientButton;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ManagerDashboard managerDashboard = guiManager.getManagerDashboard();
+        ManagerHomepage managerHomepage = guiManager.getManagerHomepage();
+        Complains complains = guiManager.getComplains();
+
+
+        registerNewClient(registerClientButton);
+
+        ActionListener enterPressListener = (ActionEvent e) -> registerClientButton.doClick();
+        DocumentListener documentListener = new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                toggleRegisterButton();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                toggleRegisterButton();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+
+            }
+
+        };
+
+        clientName.getDocument().addDocumentListener(documentListener);
+        clientName.addActionListener(enterPressListener);
+        nationalID.getDocument().addDocumentListener(documentListener);
+        nationalID.addActionListener(enterPressListener);
+        username.getDocument().addDocumentListener(documentListener);
+        username.addActionListener(enterPressListener);
+        password.getDocument().addDocumentListener(documentListener);
+        password.addActionListener(enterPressListener);
+        phone.getDocument().addDocumentListener(documentListener);
+        phone.addActionListener(enterPressListener);
+        balance.getDocument().addDocumentListener(documentListener);
+        balance.addActionListener(enterPressListener);
+        address.getDocument().addDocumentListener(documentListener);
+        address.addActionListener(enterPressListener);
+
+        navigateOnButtonAction(dashboardMenu, managerDashboard);
+        navigateOnButtonAction(homepageMenu, managerHomepage);
+        navigateOnButtonAction(complainsMenu, complains);
+        
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
+    
+    
+    private void toggleRegisterButton() {
+        String[] data = new String[7];
+        data[0] = clientName.getText();
+        data[1] = address.getText();
+        data[2] = nationalID.getText();
+        data[3] = phone.getText();
+        data[4] = username.getText();
+        data[5] = password.getText();
+        data[6] = balance.getText();
+        toggleButtonEnable(data, registerClientButton);
+    }
+    
+    private void registerNewClient(JButton button) {
+        DBManager dbManager = guiManager.getDBManager();
+        
+        button.addActionListener((ActionEvent e) -> {
+            
+            HashMap<String, String> credentialDB = dbManager.getCredentialDB();
+            if (credentialDB.containsKey(username.getText())) {
+                try {
+                    JOptionPane.showMessageDialog(guiManager.getNavigator().getCurrentFrame(), "Username already exists!", "Error", 0);
+                } catch (Navigator.nullFrameException ex) {
+                    Logger.getLogger(ManagerClientInfo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                return;
+            }
+            ArrayList<Client> clientDB = dbManager.getClientDB();
+            String accountNo = "EWUBL0" + (1000 + clientDB.size());
+            Client newClient = new Client(clientName.getText(), phone.getText(), accountNo, address.getText(), nationalID.getText(), username.getText(), password.getText(), Double.parseDouble(balance.getText()));
+            clientDB.add(newClient);
+            credentialDB.put(username.getText(), password.getText());
+            try {
+                dbManager.updateClientDB();
+                clearAllFields();
+                dbManager.updateCredentialDB();
+                guiManager.loadManagerClientInfoData();
+            }catch (UnsupportedEncodingException e1) {
+                e1.printStackTrace();
+            }catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }catch (ClassNotFoundException e1) {
+                e1.printStackTrace();
+            }catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+    }
+    
+    private void clearAllFields() {
+        clientName.setText("");
+        address.setText("");
+        phone.setText("");
+        nationalID.setText("");
+        username.setText("");
+        password.setText("");
+        balance.setText("");
+    }
 }

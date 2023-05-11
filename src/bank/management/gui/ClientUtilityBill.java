@@ -4,12 +4,20 @@
  */
 package bank.management.gui;
 
-import bank.management.Navigator;
+import bank.management.Client;
+import bank.management.DBManager;
+import bank.management.GUIManager;
+import bank.management.Organization;
+import bank.management.transaction.BillPaymentHandler;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -48,10 +56,10 @@ public class ClientUtilityBill extends JFrameBase {
 
     /**
      * Creates new form Client_Utility_Bill
-     * @param navigator
+     * @param guiManager
      */
-    public ClientUtilityBill(Navigator navigator) {
-        super(navigator);
+    public ClientUtilityBill(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
         placeOnCenter();
     }
@@ -501,5 +509,67 @@ public class ClientUtilityBill extends JFrameBase {
     private javax.swing.JButton statementButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ClientFundTransfer clientFundTransfer = guiManager.getClientFundTransfer();
+        ClientComplainPage clientComplainPage = guiManager.getClientComplainPage();
+        ClientStatement clientStatement = guiManager.getClientStatement();
+        ClientMobileRecharge clientMobileRecharge = guiManager.getClientMobileRecharge();
+        ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
+        
+        navigateOnButtonAction(fundTransferButton, clientFundTransfer);
+        navigateOnButtonAction(complainBoxButton, clientComplainPage);
+        navigateOnButtonAction(statementButton, clientStatement);
+        navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
+        navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+
+        payBillButton.addActionListener((ActionEvent e) -> {
+            DBManager dbManager = guiManager.getDBManager();
+            
+            try {
+                String organizationName = (String) organization.getSelectedItem();
+                String amountValue = amount.getText();
+                BillPaymentHandler bph = new BillPaymentHandler(dbManager, guiManager.getUserClient(), new Organization(organizationName));
+                bph.makeTransaction(Double.parseDouble(amountValue));
+                guiManager.updateCurrentBalance();
+            } catch (Client.InsufficientBalanceException ex) {
+                JOptionPane.showMessageDialog(guiManager.getClientUtilityBill(), "Insufficient Balance!");
+            }
+        });
+
+        DocumentListener documentListener = new DocumentListener(){
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                togglePayBillButton();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                togglePayBillButton();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //
+            }
+            
+        };
+        
+        billNumber.getDocument().addDocumentListener(documentListener);
+        amount.getDocument().addDocumentListener(documentListener);
+
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
+    
+    private void togglePayBillButton() {
+        String[] data = new String[2];
+        data[0] = amount.getText();
+        data[1] = billNumber.getText();
+        toggleButtonEnable(data, payBillButton);
+    }
 
 }

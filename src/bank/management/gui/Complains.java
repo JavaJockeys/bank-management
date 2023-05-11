@@ -4,6 +4,7 @@
  */
 package bank.management.gui;
 
+import bank.management.GUIManager;
 import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,12 +19,12 @@ public class Complains extends JFrameBase {
 
     /**
      * Creates new form Complains
-     * @param navigator
+     * @param guiManager
      */
-    public Complains(Navigator navigator) {
-        super(navigator);
+    public Complains(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
-        this.placeOnCenter();
+        placeOnCenter();
          //jTextArea1.setEditable(false) ;
     }
 
@@ -337,4 +338,20 @@ public class Complains extends JFrameBase {
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ManagerDashboard managerDashboard = guiManager.getManagerDashboard();
+        ManagerHomepage managerHomepage = guiManager.getManagerHomepage();
+        ManagerClientInfo managerClientInfo = guiManager.getManagerClientInfo();
+
+        navigateOnButtonAction(dashboardMenu, managerDashboard);
+        navigateOnButtonAction(homepageMenu, managerHomepage);
+        navigateOnButtonAction(clientInfoMenu, managerClientInfo);
+        
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
 }

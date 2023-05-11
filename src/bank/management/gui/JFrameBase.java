@@ -1,5 +1,6 @@
 package bank.management.gui;
 
+import bank.management.GUIManager;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -11,6 +12,12 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import bank.management.Navigator;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JComponent;
 
 /**
  *
@@ -18,17 +25,20 @@ import bank.management.Navigator;
  */
 public abstract class JFrameBase extends JFrame {
     final private int titleBarHeight = 50;
-    private Navigator navigator;
+    final protected GUIManager guiManager;
     private boolean isDraggable;
     private int prevMouseX;
     private int prevMouseY;
 
-    public Navigator getNavigator() {
-        return navigator;
+    
+    JFrameBase(GUIManager guiManager) {
+        this.guiManager = guiManager;
+        makeDraggable();
     }
     
-    JFrameBase(Navigator navigator) {
-        this.navigator = navigator;
+    abstract public void setAllListeners();
+    
+    private void makeDraggable() {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -53,13 +63,13 @@ public abstract class JFrameBase extends JFrame {
                      location.x + (e.getX() - prevMouseX),
                      location.y + (e.getY() - prevMouseY)
                 );
-                getNavigator().setLocation(newLocation);
+                guiManager.getNavigator().setLocation(newLocation);
             }
         });
     }
     
-    public void placeOnCenter() {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public void placeOnCenter() {    // must be invoked after all of the inner components are added 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
         double width = screenSize.getWidth();
         double height = screenSize.getHeight();
         int posX = (int) (width-this.getWidth())/2;
@@ -67,18 +77,66 @@ public abstract class JFrameBase extends JFrame {
         this.setLocation(posX, posY);
     }
     
-    public void back() {
-        try {
-            if (navigator.getCurrentFrame() == this)
-                navigator.back();
-        } catch (Navigator.nullFrameException ex) {
-            
-        }
-    }
-    
-    private void updateMouse(MouseEvent e) {
+    private void updateMouse(MouseEvent e) { // update mouse position while dragging
         isDraggable = e.getY() <= titleBarHeight;
         prevMouseX = e.getX();
         prevMouseY = e.getY();
+    }
+    
+    protected void setCloseButtonAction(JButton closeButton) {
+        closeButton.addActionListener((ActionEvent e) -> {
+            try {
+                guiManager.getDBManager().updateAllDB();
+            } catch (IOException ex) {
+                Logger.getLogger(JFrameBase.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(JFrameBase.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                System.exit(0);
+            }
+        });
+    }
+    
+    protected void setBackButtonAction(JButton backButton) {
+        backButton.addActionListener((ActionEvent e) -> {
+            guiManager.getNavigator().back();
+        });
+    }
+    
+    protected void setMinimizeButtonAction(JButton minimizeButton) {
+        minimizeButton.addActionListener((ActionEvent e) -> {
+            setExtendedState(Frame.ICONIFIED);
+        });
+    }
+    
+    protected void setLogoutButtonAction(JButton button) {
+        button.addActionListener((ActionEvent e) -> {
+            guiManager.getNavigator().navigate(guiManager.getLoginScreen());
+        });
+    }
+    
+    protected void toggleButtonEnable(String[] values, JButton button) {
+        for (String value : values) {
+            if (value.isEmpty()) {
+                button.setEnabled(false);
+                return;
+            }
+        }
+        button.setEnabled(true);
+    }
+    
+    protected void navigateOnButtonAction(JButton button, JFrameBase navigateTo) {
+        button.addActionListener((ActionEvent e) -> {
+            guiManager.getNavigator().navigate(navigateTo);
+        });
+    }
+
+    protected void navigateOnMouseAction(JComponent component, JFrameBase navigateTo) {
+        component.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                guiManager.getNavigator().navigate(navigateTo);
+            }
+        });
     }
 }

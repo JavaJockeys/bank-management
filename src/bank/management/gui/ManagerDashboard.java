@@ -4,9 +4,7 @@
  */
 package bank.management.gui;
 
-import bank.management.Navigator;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import bank.management.GUIManager;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -18,11 +16,12 @@ public class ManagerDashboard extends JFrameBase {
 
     /**
      * Creates new form Manager_Dashboard
+     * @param guiManager
      */
-    public ManagerDashboard(Navigator navigator) {
-        super(navigator);
+    public ManagerDashboard(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
-        this.placeOnCenter();
+        placeOnCenter();
     }
 
     public JTable getTransactionList() {
@@ -339,4 +338,20 @@ public class ManagerDashboard extends JFrameBase {
     private javax.swing.JButton minimizeButton;
     private javax.swing.JTable transactionList;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ManagerClientInfo managerClientInfo = guiManager.getManagerClientInfo();
+        ManagerHomepage managerHomepage = guiManager.getManagerHomepage();
+        Complains complains = guiManager.getComplains();
+        
+        navigateOnButtonAction(clientInfoMenu, managerClientInfo);
+        navigateOnButtonAction(homepageMenu, managerHomepage);
+        navigateOnButtonAction(complainsMenu, complains);
+        
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
 }

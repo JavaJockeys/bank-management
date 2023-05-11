@@ -1,13 +1,25 @@
 
 package bank.management.gui;
 
+import bank.management.Client;
+import bank.management.DBManager;
+import bank.management.GUIManager;
+import bank.management.LoginInfo;
 import bank.management.Navigator;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JProgressBar;
 
 public class Splash extends JFrameBase {
 
-    public Splash(Navigator navigator) {
-        super(navigator);
+    public Splash(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
         this.placeOnCenter();
     }
@@ -169,5 +181,85 @@ public class Splash extends JFrameBase {
 
     public JProgressBar getjProgressBar1() {
         return jProgressBar1;
+    }
+
+    @Override
+    public void setAllListeners() {
+        DBManager dbManager = guiManager.getDBManager();
+        Navigator navigator = guiManager.getNavigator();
+        ManagerHomepage managerHomepage = guiManager.getManagerHomepage();
+        LoginScreen loginScreen = guiManager.getLoginScreen();
+        ClientProfile clientProfile = guiManager.getClientProfile();
+        
+        
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Random random = new Random();
+                int progress = 0;
+                while (progress < 100) {
+                    try {
+                        Thread.sleep(130);
+                    } catch (InterruptedException ex) {
+                        System.out.println(ex);
+                    }
+                    progress += random.nextInt(10) + 5;
+                    jProgressBar1.setValue(progress);
+                }
+                jProgressBar1.setValue(100);
+
+                try {
+                    dbManager.loadLoginInfo();
+                    dbManager.loadClientDB();
+                    LoginInfo loginInfo = dbManager.getLoginInfo();
+                    Date prev = loginInfo.getDate();
+                    Date now = new Date();
+                    long timeDiff = now.getTime() - prev.getTime();
+                    if (timeDiff <= GUIManager.LOGIN_CACHE_TIME) {
+                        String username = loginInfo.getUsername();
+                        String password = loginInfo.getPassword();
+
+                        if (username.equals("admin") && password.equals("admin")) {
+                            guiManager.updateLoginInfo();
+                            navigator.navigate(managerHomepage);
+                            dispose();
+                            return;
+                        }
+
+                        dbManager.loadCredentialDB();
+                        HashMap<String, String> mp = dbManager.getCredentialDB();
+                        if (mp.get(username).equals(password)) {
+                            navigator.navigate(clientProfile);
+                            dbManager.getClientDB().forEach((Client client) -> {
+                                if (client.getUsername().equals(username)) {
+                                    guiManager.setUserClient(client);
+                                }
+                            });
+                            guiManager.loadClientTransactions();
+                            guiManager.updateCurrentBalance();
+                            dispose();
+                            return;
+                        }
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+
+                    Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (NullPointerException nex) {
+                    // nothing
+                    System.out.println("Null pointer exx");
+                }
+
+                navigator.navigate(loginScreen);
+                dispose();
+            }
+        });
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                t.start();
+            }
+        });
     }
 }

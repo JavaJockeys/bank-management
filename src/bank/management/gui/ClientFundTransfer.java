@@ -4,11 +4,22 @@
  */
 package bank.management.gui;
 
+import bank.management.Client;
+import bank.management.DBManager;
+import bank.management.GUIManager;
 import bank.management.Navigator;
+import bank.management.transaction.FundTransferHandler;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -25,11 +36,11 @@ public class ClientFundTransfer extends JFrameBase {
     }
 
     public JTextField getAccountNoField() {
-        return accountNoField;
+        return accountNo;
     }
 
     public JTextField getAmountField() {
-        return amountField;
+        return amount;
     }
 
     public JButton getSendButton() {
@@ -72,10 +83,10 @@ public class ClientFundTransfer extends JFrameBase {
     /**
      * Creates new form Client_Fund_Transfer
      *
-     * @param navigator
+     * @param guiManager
      */
-    public ClientFundTransfer(Navigator navigator) {
-        super(navigator);
+    public ClientFundTransfer(GUIManager guiManager) {
+        super(guiManager);
         initComponents();
         placeOnCenter();
     }
@@ -95,9 +106,9 @@ public class ClientFundTransfer extends JFrameBase {
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        accountNoField = new javax.swing.JTextField();
+        accountNo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        amountField = new javax.swing.JTextField();
+        amount = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         currentBalance = new javax.swing.JTextField();
@@ -139,11 +150,11 @@ public class ClientFundTransfer extends JFrameBase {
         jLabel6.setForeground(new java.awt.Color(255, 212, 96));
         jLabel6.setText("Transfer Type:");
 
-        accountNoField.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        accountNo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
 
-        amountField.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        amount.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 212, 96));
@@ -187,11 +198,11 @@ public class ClientFundTransfer extends JFrameBase {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(accountNoField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(accountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,11 +224,11 @@ public class ClientFundTransfer extends JFrameBase {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(accountNoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(accountNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(sendButton)
                 .addGap(65, 65, 65)
@@ -480,8 +491,8 @@ public class ClientFundTransfer extends JFrameBase {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField accountNoField;
-    private javax.swing.JTextField amountField;
+    private javax.swing.JTextField accountNo;
+    private javax.swing.JTextField amount;
     private javax.swing.JButton backButton;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton complainBoxButton;
@@ -506,4 +517,76 @@ public class ClientFundTransfer extends JFrameBase {
     private javax.swing.JButton statementButton;
     private javax.swing.JButton withdrawFundButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void setAllListeners() {
+        ClientComplainPage clientComplainPage = guiManager.getClientComplainPage();
+        ClientMobileRecharge clientMobileRecharge = guiManager.getClientMobileRecharge();
+        ClientStatement clientStatement = guiManager.getClientStatement();
+        ClientUtilityBill clientUtilityBill = guiManager.getClientUtilityBill();
+        ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
+        
+        navigateOnButtonAction(complainBoxButton, clientComplainPage);
+        navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
+        navigateOnButtonAction(statementButton, clientStatement);
+        navigateOnButtonAction(mobileRechargeButton, clientUtilityBill);
+        navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+        
+        
+        sendButton.addActionListener((ActionEvent e) -> {
+            DBManager dbManager = guiManager.getDBManager();
+            
+            String accountNoValue = accountNo.getText();
+            String amountValue = amount.getText();
+            try {
+                dbManager.loadClientDB();
+                for (Client client : dbManager.getClientDB()) {
+                    if (client.getAccountNo().equals(accountNoValue)) {
+                        FundTransferHandler fth = new FundTransferHandler(dbManager, guiManager.getUserClient(), client);
+                        fth.makeTransaction(Double.parseDouble(amountValue));
+                        guiManager.loadTransactions();
+                        guiManager.loadManagerClientInfoData();
+                        guiManager.updateCurrentBalance();
+                        return;
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Client.InsufficientBalanceException ex) {
+                JOptionPane.showMessageDialog(guiManager.getClientFundTransfer(), "Insufficient Balance!");
+            }
+        });
+        
+        DocumentListener documentListener = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                toggleSendButton();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                toggleSendButton();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {}
+        };
+        
+        amount.getDocument().addDocumentListener(documentListener);
+        accountNo.getDocument().addDocumentListener(documentListener);
+
+        setBackButtonAction(backButton);
+        setMinimizeButtonAction(minimizeButton);
+        setLogoutButtonAction(logoutButton);
+        setCloseButtonAction(closeButton);
+    }
+    
+    private void toggleSendButton() {
+        String data[] = new String[2];
+        data[0] = amount.getText();
+        data[1] = accountNo.getText();
+        toggleButtonEnable(data, sendButton);
+    }
 }
