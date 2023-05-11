@@ -4,6 +4,7 @@ import bank.management.gui.*;
 import bank.management.transaction.BillPaymentHandler;
 import bank.management.transaction.FundTransferHandler;
 import bank.management.transaction.MoblieRechargeHandler;
+import bank.management.transaction.WithdrawHandler;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -160,11 +161,11 @@ public class GUIManager {
 
                 try {
                     dbManager.loadLoginInfo();
+                    dbManager.loadClientDB();
                     LoginInfo loginInfo = dbManager.getLoginInfo();
                     Date prev = loginInfo.getDate();
                     Date now = new Date();
                     long timeDiff = now.getTime() - prev.getTime();
-                    System.out.println(prev.getTime());
                     if (timeDiff <= GUIManager.LOGIN_CACHE_TIME) {
                         String username = loginInfo.getUsername();
                         String password = loginInfo.getPassword();
@@ -185,6 +186,7 @@ public class GUIManager {
                                     userClient = client;
                                 }
                             });
+                            loadClientTransactions();
                             updateCurrentBalance();
                             splash.dispose();
                             return;
@@ -248,7 +250,7 @@ public class GUIManager {
             public void actionPerformed(ActionEvent e) {
                 try {
                     dbManager.loadCredentialDB();
-
+                    dbManager.loadClientDB();
                     HashMap<String, String> mp = dbManager.getCredentialDB();
                     System.out.println("Here::   " + mp);
                     String username = loginScreen.getUsername().getText();
@@ -280,8 +282,9 @@ public class GUIManager {
                     dbManager.getClientDB().forEach((Client client) -> {
                         if (client.getUsername().equals(username)) {
                             userClient = client;
-                        }
+                        } else System.out.println(client.getUsername());
                     });
+                    loadClientTransactions();
                     updateCurrentBalance();
                     navigator.navigate(clientProfile);
                 } catch (IOException ex) {
@@ -578,7 +581,22 @@ public class GUIManager {
             e.printStackTrace();
         }
     }
-
+    
+    private void loadClientTransactions() {
+        JTable table = clientStatement.getClientTransactions();
+        TableModel model = table.getModel();
+        ArrayList<Transaction> transactions = userClient.getTransactionList();
+        for (int i = 0; i < transactions.size(); i++) {
+            Transaction transaction = transactions.get(i);
+            model.setValueAt(i + 1, i, 0);
+            model.setValueAt(transaction.getSender().getName(), i, 1);
+            model.setValueAt(transaction.getDate(), i, 2);
+            model.setValueAt(transaction.getAmount(), i, 3);
+            model.setValueAt(transaction.getReceiver().getName(), i, 4);
+            model.setValueAt(transaction.getType(), i, 5);
+        }
+    }
+    
     private void loadManagerClientInfoData() {
         JTable table = managerClientInfo.getDataTable();
         TableModel model = table.getModel();
@@ -814,8 +832,8 @@ public class GUIManager {
 
         clientUtilityBill.getPayBillButton().addActionListener((ActionEvent e) -> {
             try {
-                String organization = (String) clientMobileRecharge.getOperator().getSelectedItem();
-                String amount = clientMobileRecharge.getAmount().getText();
+                String organization = (String) clientUtilityBill.getOrganization().getSelectedItem();
+                String amount = clientUtilityBill.getAmount().getText();
                 BillPaymentHandler bph = new BillPaymentHandler(dbManager, userClient, new Organization(organization));
                 bph.makeTransaction(Double.parseDouble(amount));
                 updateCurrentBalance();
@@ -865,6 +883,17 @@ public class GUIManager {
         navigateOnButtonAction(clientWithdrawCash.getStatementButton(), clientStatement);
         navigateOnButtonAction(clientWithdrawCash.getPayBillButton(), clientUtilityBill);
         navigateOnButtonAction(clientWithdrawCash.getMobileRechargeButton(), clientMobileRecharge);
+        
+        clientWithdrawCash.getWithdrawButton().addActionListener((ActionEvent e) -> {
+            String amount = clientWithdrawCash.getAmount().getText();
+            WithdrawHandler wh = new WithdrawHandler(dbManager, userClient);
+            try {
+                wh.makeTransaction(Double.parseDouble(amount));
+                updateCurrentBalance();
+            } catch (Client.InsufficientBalanceException ex) {
+                JOptionPane.showMessageDialog(clientWithdrawCash, "Insufficient Balance!");
+            }
+        });
 
         DocumentListener documentListener = new DocumentListener(){
             @Override

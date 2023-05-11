@@ -19,7 +19,7 @@ public class Navigator {
   
     public Navigator() {
         this.framePointer = -1;
-        this.frames = new JFrameBase[10];
+        this.frames = new JFrameBase[20];
     }
     
     public void back() {
