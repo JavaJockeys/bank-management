@@ -655,11 +655,7 @@ public class ManagerClientInfo extends JFrameBase {
             
             HashMap<String, String> credentialDB = dbManager.getCredentialDB();
             if (credentialDB.containsKey(username.getText())) {
-                try {
-                    JOptionPane.showMessageDialog(guiManager.getNavigator().getCurrentFrame(), "Username already exists!", "Error", 0);
-                } catch (Navigator.nullFrameException ex) {
-                    Logger.getLogger(ManagerClientInfo.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                JOptionPane.showMessageDialog(ManagerClientInfo.this, "Username already exists!", "Error", 0);   
                 return;
             }
             ArrayList<Client> clientDB = dbManager.getClientDB();

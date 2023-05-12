@@ -529,7 +529,7 @@ public class ClientFundTransfer extends JFrameBase {
         navigateOnButtonAction(complainBoxButton, clientComplainPage);
         navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
         navigateOnButtonAction(statementButton, clientStatement);
-        navigateOnButtonAction(mobileRechargeButton, clientUtilityBill);
+        navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
         
         

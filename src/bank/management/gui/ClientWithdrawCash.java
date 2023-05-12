@@ -14,6 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
@@ -43,6 +44,10 @@ public class ClientWithdrawCash extends JFrameBase {
 
     public JComboBox<String> getWithdrawType() {
         return withdrawType;
+    }
+
+    public JLabel getClientName() {
+        return clientName;
     }
 
     public JButton getLogoutButton() {
@@ -113,6 +118,7 @@ public class ClientWithdrawCash extends JFrameBase {
         withdrawButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        clientName = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -242,6 +248,8 @@ public class ClientWithdrawCash extends JFrameBase {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Withdraw Cash Menu");
 
+        clientName.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -249,7 +257,10 @@ public class ClientWithdrawCash extends JFrameBase {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(clientName))
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -262,7 +273,9 @@ public class ClientWithdrawCash extends JFrameBase {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(clientName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -488,6 +501,7 @@ public class ClientWithdrawCash extends JFrameBase {
     private javax.swing.JTextField agentCode;
     private javax.swing.JTextField amount;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel clientName;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton complainBoxButton;
     private javax.swing.JTextField currentBalance;

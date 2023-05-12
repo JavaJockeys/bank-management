@@ -182,6 +182,21 @@ public class Splash extends JFrameBase {
     public JProgressBar getjProgressBar1() {
         return jProgressBar1;
     }
+    
+    private void loadProgressBar() {
+        Random random = new Random();
+        int progress = 0;
+        while (progress < 100) {
+            try {
+                Thread.sleep(130);
+            } catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+            progress += random.nextInt(10) + 5;
+            jProgressBar1.setValue(progress);
+        }
+        jProgressBar1.setValue(100);
+    }
 
     @Override
     public void setAllListeners() {
@@ -195,66 +210,18 @@ public class Splash extends JFrameBase {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                Random random = new Random();
-                int progress = 0;
-                while (progress < 100) {
-                    try {
-                        Thread.sleep(130);
-                    } catch (InterruptedException ex) {
-                        System.out.println(ex);
-                    }
-                    progress += random.nextInt(10) + 5;
-                    jProgressBar1.setValue(progress);
-                }
-                jProgressBar1.setValue(100);
-
+                loadProgressBar();
+                System.out.println("doneeeeeeeee");
                 try {
-                    dbManager.loadLoginInfo();
-                    dbManager.loadClientDB();
-                    LoginInfo loginInfo = dbManager.getLoginInfo();
-                    Date prev = loginInfo.getDate();
-                    Date now = new Date();
-                    long timeDiff = now.getTime() - prev.getTime();
-                    if (timeDiff <= GUIManager.LOGIN_CACHE_TIME) {
-                        String username = loginInfo.getUsername();
-                        String password = loginInfo.getPassword();
-
-                        if (username.equals("admin") && password.equals("admin")) {
-                            guiManager.updateLoginInfo();
-                            navigator.navigate(managerHomepage);
-                            dispose();
-                            return;
-                        }
-
-                        dbManager.loadCredentialDB();
-                        HashMap<String, String> mp = dbManager.getCredentialDB();
-                        if (mp.get(username).equals(password)) {
-                            navigator.navigate(clientProfile);
-                            dbManager.getClientDB().forEach((Client client) -> {
-                                if (client.getUsername().equals(username)) {
-                                    guiManager.setUserClient(client);
-                                }
-                            });
-                            guiManager.loadClientTransactions();
-                            guiManager.updateCurrentBalance();
-                            dispose();
-                            return;
-                        }
-                    }
+                    guiManager.loadCachedLoginInfo();
                 } catch (IOException ex) {
-                    Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Splash.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
-
-                    Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (NullPointerException nex) {
-                    // nothing
-                    System.out.println("Null pointer exx");
+                    Logger.getLogger(Splash.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-                navigator.navigate(loginScreen);
-                dispose();
             }
         });
+        
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowOpened(WindowEvent e) {

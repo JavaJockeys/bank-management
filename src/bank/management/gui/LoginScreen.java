@@ -325,6 +325,7 @@ public class LoginScreen extends JFrameBase {
                     if (usernameValue.equals("admin") && Arrays.equals(passwordValue, adminPass)) {
                         guiManager.updateLoginInfo();
                         navigator.navigate(managerHomepage);
+                        clearAllFields();
                         return;
                     }
 
@@ -342,8 +343,9 @@ public class LoginScreen extends JFrameBase {
                         JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "Wrong Password!.", "Invalid password!", 0);
                         return;
                     }
-
+                    
                     guiManager.loginUser(usernameValue, passwordValue.toString());
+                    clearAllFields();
                 } catch (IOException ex) {
                     System.out.println(ex);
                 } catch (ClassNotFoundException ex) {
@@ -400,5 +402,10 @@ public class LoginScreen extends JFrameBase {
         data[0] = username.getText();
         data[1] = new String(password.getPassword());
         toggleButtonEnable(data, loginButton);
+    }
+    
+    private void clearAllFields() {
+        username.setText("");
+        password.setText("");
     }
 }

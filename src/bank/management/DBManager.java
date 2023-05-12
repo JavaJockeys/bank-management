@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,14 +40,12 @@ public class DBManager {
         return loginInfo;
     }
     
-    private <T extends Object> T loadDB(String path) throws FileNotFoundException, IOException, ClassNotFoundException {
-        System.out.println(path);
+    private <T extends Serializable> T loadDB(String path) throws FileNotFoundException, IOException, ClassNotFoundException {;
         T db = null;
         FileInputStream fis = new FileInputStream(path);
         if (fis.getChannel().size() != 0) {
             ObjectInputStream ois = new ObjectInputStream(fis);
             db = (T) ois.readObject();
-            System.out.println(db);
             ois.close();
         }
         fis.close();
@@ -86,40 +85,13 @@ public class DBManager {
         loadTransactionDB();
         loadComplainDB();
         loadCredentialDB();
-//        FileInputStream cfis = new FileInputStream(URLDecoder.decode(clientPath.getPath(), "UTF-8"));
-//        FileInputStream tfis = new FileInputStream(URLDecoder.decode(transactionPath.getPath(), "UTF-8"));
-//        FileInputStream cmfis = new FileInputStream(URLDecoder.decode(complainPath.getPath(), "UTF-8"));
-//        
-//        
-//        if (cfis.getChannel().size() != 0) {
-//            ObjectInputStream cis = new ObjectInputStream(cfis);
-//            this.clientDB = (ArrayList<Client>) cis.readObject();
-//            cis.close();
-//        }
-//        
-//        if (tfis.getChannel().size() != 0) {
-//            ObjectInputStream tis = new ObjectInputStream(tfis);
-//            this.transactionDB = (ArrayList<Transaction>) tis.readObject();
-//            tis.close();
-//        }
-//        
-//        if (cmfis.getChannel().size() != 0) {
-//            ObjectInputStream cmis = new ObjectInputStream(cmfis);
-//            this.complainDB = (ArrayList<Complain>) cmis.readObject();
-//            cmis.close();
-//        }
-//        
-//        cfis.close();
-//        tfis.close();
-//        cmfis.close();
-  
     }
 
     public void setLoginInfo(LoginInfo loginInfo) {
         this.loginInfo = loginInfo;
     }
     
-    private <T extends Object> void updateDB(String path, T db) throws UnsupportedEncodingException, FileNotFoundException, IOException, ClassNotFoundException {
+    private <T extends Serializable> void updateDB(String path, T db) throws UnsupportedEncodingException, FileNotFoundException, IOException, ClassNotFoundException {
         //System.out.println(db.getDate());
         System.out.println(db + " is being written in " + path);
         FileOutputStream fos = new FileOutputStream(path);
@@ -152,18 +124,7 @@ public class DBManager {
         updateComplainDB();
         updateTransactionDB();
         updateCredentialDB();
-        
-//        FileOutputStream cfos = new FileOutputStream(URLDecoder.decode(clientPath.getPath(), "UTF-8"));
-//        FileOutputStream tfos = new FileOutputStream(URLDecoder.decode(transactionPath.getPath(), "UTF-8"));
-//        FileOutputStream cmfos = new FileOutputStream(URLDecoder.decode(complainPath.getPath(), "UTF-8"));
-//        
-//        ObjectOutputStream cos = new ObjectOutputStream(cfos);
-//        ObjectOutputStream tos = new ObjectOutputStream(tfos);
-//        ObjectOutputStream cmos = new ObjectOutputStream(cmfos);
-//        
-//        cos.writeObject(this.clientDB);
-//        tos.writeObject(this.transactionDB);
-//        cmos.writeObject(this.complainDB);
+
     }
 
     public ArrayList<Client> getClientDB() {

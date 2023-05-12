@@ -81,19 +81,7 @@ public class GUIManager {
         this.managerClientInfo = new ManagerClientInfo(this);
         this.managerDashboard = new ManagerDashboard(this);
         this.managerHomepage = new ManagerHomepage(this);     
-        
-        // setLoginScreenListeners();
-        // setManagerHomepageListeners();
-        // setManagerDashboardListeners();
-        // setManagerClientInfoListeners();
-        // setComplainsListeners();
-        // setClientProfilePageListener();
-        // setClientComplainPageListener();
-        // setClientFundTransferPageListener();
-        // setClientMobileRechargePageListener();
-        // setClientStatementPageListener();
-        // setClientUtilityBillPageListener();
-        // setClientWithdrawCashPageListener();
+
         this.splash.setAllListeners();
         this.clientComplainPage.setAllListeners();
         this.clientFundTransfer.setAllListeners();
@@ -112,6 +100,9 @@ public class GUIManager {
         loadManagerClientInfoData();
         loadComplains();
         
+    }
+    
+    public void init() {
         navigator.navigate(splash);
     }
 
@@ -185,6 +176,37 @@ public class GUIManager {
         return managerHomepage;
     }
 
+    public void loadCachedLoginInfo() throws IOException, FileNotFoundException, ClassNotFoundException, UnsupportedEncodingException {     
+        dbManager.loadLoginInfo();
+        LoginInfo loginInfo = dbManager.getLoginInfo();
+        Date prev = loginInfo.getDate();
+        Date now = new Date();
+        long timeDiff = now.getTime() - prev.getTime();
+        if (timeDiff <= GUIManager.LOGIN_CACHE_TIME) {
+            String username = loginInfo.getUsername();
+            String password = loginInfo.getPassword();
+            
+            System.out.println(username+ " " + password);
+            
+            if (username.equals("admin") && password.equals("admin")) {
+                updateLoginInfo();
+                navigator.navigate(managerHomepage);
+                splash.dispose();
+                return;
+            }
+
+            try {
+                loginUser(username, password);
+            } catch (UserNotFoundException ex) {
+                navigator.navigate(loginScreen);
+                splash.dispose();
+            }
+        } else {
+            navigator.navigate(loginScreen);
+            splash.dispose();
+        }
+    }
+    
     public void updateLoginInfo() throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException {
         updateLoginInfo("admin", "admin");
     }
@@ -194,8 +216,9 @@ public class GUIManager {
         dbManager.updateLoginInfo();
     }
     
-    public void loginUser(String username, String password) throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException, UserNotFoundException {
-        updateLoginInfo(username, password);
+    public void loginUser(String username, String password) throws IOException, FileNotFoundException, ClassNotFoundException, UserNotFoundException {
+        dbManager.loadClientDB();
+        
         boolean notFound = true;
         for (Client client : dbManager.getClientDB()) {
             if (client.getUsername().equals(username)) {
@@ -206,7 +229,18 @@ public class GUIManager {
         if (notFound) throw new UserNotFoundException();
         loadClientTransactions();
         updateCurrentBalance();
+        loadClientName();
         navigator.navigate(clientProfile);
+        updateLoginInfo(username, password);
+    }
+    
+    public void loadClientName() {
+        clientProfile.getClientName().setText(userClient.getName());
+        clientStatement.getClientName().setText(userClient.getName());
+        clientMobileRecharge.getClientName().setText(userClient.getName());
+        clientUtilityBill.getClientName().setText(userClient.getName());
+        clientWithdrawCash.getClientName().setText(userClient.getName());
+        clientComplainPage.getClientName().setText(userClient.getName());
     }
     
     public void loadComplains() {

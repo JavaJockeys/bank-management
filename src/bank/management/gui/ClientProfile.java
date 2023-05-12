@@ -9,6 +9,7 @@ import bank.management.Navigator;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +24,10 @@ public class ClientProfile extends JFrameBase {
 
     public JButton getLogoutButton() {
         return logoutButton;
+    }
+
+    public JLabel getClientName() {
+        return clientName;
     }
 
     public JButton getCloseButton() {
@@ -124,7 +129,7 @@ public class ClientProfile extends JFrameBase {
         jButton15 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        clientName = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -373,10 +378,10 @@ public class ClientProfile extends JFrameBase {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Homepage");
 
-        jLabel13.setBackground(new java.awt.Color(255, 212, 96));
-        jLabel13.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(45, 64, 89));
-        jLabel13.setText("---");
+        clientName.setBackground(new java.awt.Color(255, 212, 96));
+        clientName.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        clientName.setForeground(new java.awt.Color(45, 64, 89));
+        clientName.setText("---");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -388,7 +393,7 @@ public class ClientProfile extends JFrameBase {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel13))
+                        .addComponent(clientName))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -412,7 +417,7 @@ public class ClientProfile extends JFrameBase {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jLabel13))
+                    .addComponent(clientName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fundTransferPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -691,6 +696,7 @@ public class ClientProfile extends JFrameBase {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel clientName;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton complainBoxButton;
     private javax.swing.JPanel complainBoxPanel;
@@ -704,7 +710,6 @@ public class ClientProfile extends JFrameBase {
     private javax.swing.JButton jButton16;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -746,6 +751,7 @@ public class ClientProfile extends JFrameBase {
         navigateOnButtonAction(fundTransferButton, clientFundTransfer);
         navigateOnButtonAction(complainBoxButton, clientComplainPage);
         navigateOnButtonAction(statementButton, clientStatement);
+        navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
 
