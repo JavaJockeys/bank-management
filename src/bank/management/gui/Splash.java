@@ -229,4 +229,9 @@ public class Splash extends JFrameBase {
             }
         });
     }
+
+    @Override
+    public void loadVisibleData() {
+        
+    }
 }

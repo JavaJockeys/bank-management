@@ -7,13 +7,9 @@ package bank.management.gui;
 import bank.management.DBManager;
 import bank.management.GUIManager;
 import bank.management.Navigator;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -314,37 +310,34 @@ public class LoginScreen extends JFrameBase {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    dbManager.loadCredentialDB();
-                    dbManager.loadClientDB();
                     HashMap<String, String> mp = dbManager.getCredentialDB();
                     System.out.println("Here::   " + mp);
                     String usernameValue = username.getText();
-                    char[] passwordValue = password.getPassword();
-                    char[] adminPass = {'a', 'd', 'm', 'i', 'n'};
+                    String passwordValue = new String(password.getPassword());
 
-                    if (usernameValue.equals("admin") && Arrays.equals(passwordValue, adminPass)) {
+                    if (usernameValue.equals("admin") && passwordValue.equals("admin")) {
                         guiManager.updateLoginInfo();
                         navigator.navigate(managerHomepage);
                         clearAllFields();
                         return;
                     }
 
-                    if (usernameValue.equals("admin") && !Arrays.equals(passwordValue, adminPass)) {
-                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "Wrong Password!", "Invalid password", 0);
+                    if (usernameValue.equals("admin") && !passwordValue.equals("admin")) {
+                        JOptionPane.showMessageDialog(LoginScreen.this, "Wrong Password!", "Invalid password", 0);
                         return;
                     }
 
                     if (!mp.containsKey(usernameValue)) {
-                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "username not found!", "Invalid username", 0);
+                        JOptionPane.showMessageDialog(LoginScreen.this, "username not found!", "Invalid username", 0);
                         return;
                     }
 
-                    if (!Arrays.equals(mp.get(usernameValue).toCharArray(), passwordValue)) {
-                        JOptionPane.showMessageDialog(navigator.getCurrentFrame(), "Wrong Password!.", "Invalid password!", 0);
+                    if (!mp.get(usernameValue).equals(passwordValue)) {
+                        JOptionPane.showMessageDialog(LoginScreen.this, "Wrong Password!.", "Invalid password!", 0);
                         return;
                     }
                     
-                    guiManager.loginUser(usernameValue, passwordValue.toString());
+                    guiManager.loginUser(usernameValue, passwordValue);
                     clearAllFields();
                 } catch (IOException ex) {
                     System.out.println(ex);
@@ -407,5 +400,10 @@ public class LoginScreen extends JFrameBase {
     private void clearAllFields() {
         username.setText("");
         password.setText("");
+    }
+
+    @Override
+    public void loadVisibleData() {
+        
     }
 }

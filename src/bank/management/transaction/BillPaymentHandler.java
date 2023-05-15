@@ -30,16 +30,6 @@ public class BillPaymentHandler extends TransactionHandler {
         Transaction transaction = new Transaction(sender, receiver, amount, Transaction.TransactionType.BILL_PAYMENT);
         db.getTransactionDB().add(transaction);
         sender.getTransactionList().add(transaction);
-        try {
-            db.updateClientDB();
-            db.updateTransactionDB();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BillPaymentHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BillPaymentHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(BillPaymentHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
 }

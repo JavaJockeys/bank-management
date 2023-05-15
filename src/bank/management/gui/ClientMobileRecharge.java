@@ -7,13 +7,14 @@ package bank.management.gui;
 import bank.management.Client;
 import bank.management.DBManager;
 import bank.management.GUIManager;
-import bank.management.Navigator;
 import bank.management.Organization;
 import bank.management.transaction.MoblieRechargeHandler;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -368,7 +369,7 @@ public class ClientMobileRecharge extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,6 +541,14 @@ public class ClientMobileRecharge extends JFrameBase {
         navigateOnButtonAction(statementButton, clientStatement);
         navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+        
+        ActionListener enterPressListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mobileRechargeButton.doClick();
+            }
+
+        };
 
         mobileRechargeButton.addActionListener((ActionEvent e) -> {
             DBManager dbManager = guiManager.getDBManager();
@@ -549,10 +558,20 @@ public class ClientMobileRecharge extends JFrameBase {
             MoblieRechargeHandler mrh = new MoblieRechargeHandler(dbManager, guiManager.getUserClient(), new Organization(operatorName));
             try {
                 mrh.makeTransaction(Double.parseDouble(amountValue));
+                clearAllFields();
+                loadVisibleData();
+            } catch(NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(ClientMobileRecharge.this, "Invalid amount!");
             } catch (Client.InsufficientBalanceException ex) {
-                JOptionPane.showMessageDialog(guiManager.getClientMobileRecharge(), "Insufficient Balance!");
+                JOptionPane.showMessageDialog(ClientMobileRecharge.this, "Insufficient Balance!");
             }
-            guiManager.updateCurrentBalance();
+        });
+        
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
         });
         
         DocumentListener documentListener = new DocumentListener(){
@@ -576,7 +595,9 @@ public class ClientMobileRecharge extends JFrameBase {
         };
         
         phoneNumber.getDocument().addDocumentListener(documentListener);
+        phoneNumber.addActionListener(enterPressListener);
         amount.getDocument().addDocumentListener(documentListener);
+        amount.addActionListener(enterPressListener);
         
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);
@@ -589,5 +610,17 @@ public class ClientMobileRecharge extends JFrameBase {
         data[0] = amount.getText();
         data[1] = phoneNumber.getText();
         toggleButtonEnable(data, mobileRechargeButton);     
+    }
+    
+    private void clearAllFields() {
+        phoneNumber.setText("");
+        amount.setText("");
+    }
+
+    @Override
+    public void loadVisibleData() {
+        Client userClient = guiManager.getUserClient();
+        clientName.setText(userClient.getName());
+        currentBalance.setText(Double.toString(userClient.getBalance()));
     }
 }

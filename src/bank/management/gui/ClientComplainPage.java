@@ -9,8 +9,12 @@ import bank.management.DBManager;
 import bank.management.GUIManager;
 import bank.management.Navigator;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -290,7 +294,7 @@ public class ClientComplainPage extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,22 +461,21 @@ public class ClientComplainPage extends JFrameBase {
         navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
         
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
+        });
+        
         sendButton.addActionListener((ActionEvent e) -> {
             DBManager dbManager = guiManager.getDBManager();
             
             String body = complainBox.getText();
             Complain complain = new Complain(guiManager.getUserClient(), body);
-            try {
-                dbManager.getComplainDB().add(complain);
-                dbManager.updateComplainDB();
-                guiManager.loadComplains();
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            dbManager.getComplainDB().add(complain);
+            clearAllFields();
+            
         });
         
         DocumentListener documentListener = new DocumentListener(){
@@ -505,5 +508,14 @@ public class ClientComplainPage extends JFrameBase {
         String[] data = new String[1];
         data[0] = complainBox.getText();
         toggleButtonEnable(data, sendButton);
+    }
+    
+    private void clearAllFields() {
+        complainBox.setText("");
+    }
+
+    @Override
+    public void loadVisibleData() {
+        clientName.setText(guiManager.getUserClient().getName());
     }
 }

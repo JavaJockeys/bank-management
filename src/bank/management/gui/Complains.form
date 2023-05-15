@@ -62,7 +62,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="backButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="clientInfoMenu" alignment="0" max="32767" attributes="0"/>
-                              <Component id="dashboardMenu" alignment="1" pref="271" max="32767" attributes="0"/>
+                              <Component id="dashboardMenu" alignment="1" pref="290" max="32767" attributes="0"/>
                               <Component id="homepageMenu" alignment="1" max="32767" attributes="0"/>
                               <Component id="logoutButton" alignment="1" max="32767" attributes="0"/>
                           </Group>
@@ -122,11 +122,6 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="525" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -135,6 +130,11 @@
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="jLabel12" min="-2" pref="176" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -210,7 +210,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="59" green="40" red="2d" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Manager name"/>
+                <Property name="text" type="java.lang.String" value="Manager "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -359,7 +359,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="55" green="54" red="ea" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Log-Out"/>
+            <Property name="text" type="java.lang.String" value="Log Out"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
           <Events>

@@ -10,6 +10,9 @@ import bank.management.GUIManager;
 import bank.management.Organization;
 import bank.management.transaction.BillPaymentHandler;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -341,7 +344,7 @@ public class ClientUtilityBill extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -537,6 +540,22 @@ public class ClientUtilityBill extends JFrameBase {
         navigateOnButtonAction(statementButton, clientStatement);
         navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+        
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
+            
+        });
+        
+        ActionListener enterPressListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                payBillButton.doClick();
+            }
+
+        };
 
         payBillButton.addActionListener((ActionEvent e) -> {
             DBManager dbManager = guiManager.getDBManager();
@@ -546,9 +565,12 @@ public class ClientUtilityBill extends JFrameBase {
                 String amountValue = amount.getText();
                 BillPaymentHandler bph = new BillPaymentHandler(dbManager, guiManager.getUserClient(), new Organization(organizationName));
                 bph.makeTransaction(Double.parseDouble(amountValue));
-                guiManager.updateCurrentBalance();
+                clearAllFields();
+                loadVisibleData();
+            } catch(NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(ClientUtilityBill.this, "Invalid amount!");
             } catch (Client.InsufficientBalanceException ex) {
-                JOptionPane.showMessageDialog(guiManager.getClientUtilityBill(), "Insufficient Balance!");
+                JOptionPane.showMessageDialog(ClientUtilityBill.this, "Insufficient Balance!");
             }
         });
 
@@ -571,7 +593,9 @@ public class ClientUtilityBill extends JFrameBase {
         };
         
         billNumber.getDocument().addDocumentListener(documentListener);
+        billNumber.addActionListener(enterPressListener);
         amount.getDocument().addDocumentListener(documentListener);
+        amount.addActionListener(enterPressListener);
 
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);
@@ -584,6 +608,17 @@ public class ClientUtilityBill extends JFrameBase {
         data[0] = amount.getText();
         data[1] = billNumber.getText();
         toggleButtonEnable(data, payBillButton);
+    }
+
+    private void clearAllFields() {
+        billNumber.setText("");
+        amount.setText("");
+    }
+    @Override
+    public void loadVisibleData() {
+        Client userClient = guiManager.getUserClient();
+        clientName.setText(userClient.getName());
+        currentBalance.setText(Double.toString(userClient.getBalance()));
     }
 
 }

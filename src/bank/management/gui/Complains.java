@@ -6,8 +6,12 @@ package bank.management.gui;
 
 import bank.management.GUIManager;
 import bank.management.Navigator;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
@@ -120,7 +124,7 @@ public class Complains extends JFrameBase {
         jLabel12.setBackground(new java.awt.Color(255, 212, 96));
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(45, 64, 89));
-        jLabel12.setText("Manager name");
+        jLabel12.setText("Manager ");
 
         jLabel16.setBackground(new java.awt.Color(255, 212, 96));
         jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -133,16 +137,16 @@ public class Complains extends JFrameBase {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(525, 525, 525))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +226,7 @@ public class Complains extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +252,7 @@ public class Complains extends JFrameBase {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(clientInfoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dashboardMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                            .addComponent(dashboardMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                             .addComponent(homepageMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -349,9 +353,21 @@ public class Complains extends JFrameBase {
         navigateOnButtonAction(homepageMenu, managerHomepage);
         navigateOnButtonAction(clientInfoMenu, managerClientInfo);
         
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
+        });
+        
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);
         setLogoutButtonAction(logoutButton);
         setCloseButtonAction(closeButton);
+    }
+
+    @Override
+    public void loadVisibleData() {
+        guiManager.loadComplains();
     }
 }

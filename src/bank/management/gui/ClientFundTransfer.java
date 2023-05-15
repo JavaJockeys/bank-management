@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package bank.management.gui;
 
 import bank.management.Client;
@@ -10,8 +7,13 @@ import bank.management.GUIManager;
 import bank.management.Navigator;
 import bank.management.transaction.FundTransferHandler;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -115,6 +117,7 @@ public class ClientFundTransfer extends JFrameBase {
         sendButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        clientName = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -249,26 +252,34 @@ public class ClientFundTransfer extends JFrameBase {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Fund Transfer Menu");
 
+        clientName.setText("client name");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 33, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(clientName)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(clientName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -358,7 +369,7 @@ public class ClientFundTransfer extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -494,6 +505,7 @@ public class ClientFundTransfer extends JFrameBase {
     private javax.swing.JTextField accountNo;
     private javax.swing.JTextField amount;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel clientName;
     private javax.swing.JButton closeButton;
     private javax.swing.JButton complainBoxButton;
     private javax.swing.JTextField currentBalance;
@@ -538,24 +550,36 @@ public class ClientFundTransfer extends JFrameBase {
             
             String accountNoValue = accountNo.getText();
             String amountValue = amount.getText();
-            try {
-                dbManager.loadClientDB();
-                for (Client client : dbManager.getClientDB()) {
-                    if (client.getAccountNo().equals(accountNoValue)) {
-                        FundTransferHandler fth = new FundTransferHandler(dbManager, guiManager.getUserClient(), client);
+            for (Client client : dbManager.getClientDB()) {
+                if (client.getAccountNo().equals(accountNoValue)) {
+                    FundTransferHandler fth = new FundTransferHandler(dbManager, guiManager.getUserClient(), client);
+                    try {
                         fth.makeTransaction(Double.parseDouble(amountValue));
-                        guiManager.loadTransactions();
-                        guiManager.loadManagerClientInfoData();
-                        guiManager.updateCurrentBalance();
-                        return;
+                    } catch(NumberFormatException nfe) {
+                        JOptionPane.showMessageDialog(ClientFundTransfer.this, "Invalid amount!");
+                    } catch (Client.InsufficientBalanceException ex) {
+                        JOptionPane.showMessageDialog(ClientFundTransfer.this, "Insufficient Balance!");
                     }
+                    clearAllFields();
+                    loadVisibleData();
+                    return;
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Client.InsufficientBalanceException ex) {
-                JOptionPane.showMessageDialog(guiManager.getClientFundTransfer(), "Insufficient Balance!");
+            }
+            JOptionPane.showMessageDialog(ClientFundTransfer.this, "No account found!");
+        });
+        
+        ActionListener enterPressListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sendButton.doClick();
+            }
+
+        };
+        
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
             }
         });
         
@@ -575,7 +599,9 @@ public class ClientFundTransfer extends JFrameBase {
         };
         
         amount.getDocument().addDocumentListener(documentListener);
+        amount.addActionListener(enterPressListener);
         accountNo.getDocument().addDocumentListener(documentListener);
+        accountNo.addActionListener(enterPressListener);
 
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);
@@ -588,5 +614,17 @@ public class ClientFundTransfer extends JFrameBase {
         data[0] = amount.getText();
         data[1] = accountNo.getText();
         toggleButtonEnable(data, sendButton);
+    }
+
+    @Override
+    public void loadVisibleData() {
+        Client userClient = guiManager.getUserClient();
+        clientName.setText(userClient.getName());
+        currentBalance.setText(Double.toString(userClient.getBalance()));
+    }
+    
+    private void clearAllFields() {
+        amount.setText("");
+        accountNo.setText("");
     }
 }

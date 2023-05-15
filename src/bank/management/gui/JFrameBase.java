@@ -10,11 +10,9 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import bank.management.Navigator;
+import java.awt.Cursor;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -37,6 +35,7 @@ public abstract class JFrameBase extends JFrame {
     }
     
     abstract public void setAllListeners();
+    abstract public void loadVisibleData();
     
     private void makeDraggable() {
         addMouseListener(new MouseAdapter() {
@@ -86,14 +85,13 @@ public abstract class JFrameBase extends JFrame {
     protected void setCloseButtonAction(JButton closeButton) {
         closeButton.addActionListener((ActionEvent e) -> {
             try {
-                guiManager.getDBManager().updateAllDB();
+                guiManager.getDBManager().requestDBUpdate();
             } catch (IOException ex) {
                 Logger.getLogger(JFrameBase.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(JFrameBase.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                System.exit(0);
             }
+            System.exit(0);
         });
     }
     

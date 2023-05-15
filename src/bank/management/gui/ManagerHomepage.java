@@ -312,7 +312,7 @@ public class ManagerHomepage extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -484,5 +484,10 @@ public class ManagerHomepage extends JFrameBase {
         setMinimizeButtonAction(minimizeButton);
         setLogoutButtonAction(logoutButton);
         setCloseButtonAction(closeButton);
+    }
+
+    @Override
+    public void loadVisibleData() {
+        
     }
 }

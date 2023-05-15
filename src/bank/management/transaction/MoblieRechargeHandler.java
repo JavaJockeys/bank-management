@@ -30,16 +30,6 @@ public class MoblieRechargeHandler extends TransactionHandler {
         Transaction transaction = new Transaction(sender, receiver, amount, Transaction.TransactionType.MOBILE_RECHARGE);
         db.getTransactionDB().add(transaction);
         sender.getTransactionList().add(transaction);
-        try {
-            db.updateClientDB();
-            db.updateTransactionDB();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BillPaymentHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(BillPaymentHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(BillPaymentHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
 }

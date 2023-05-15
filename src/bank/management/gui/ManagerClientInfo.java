@@ -7,16 +7,12 @@ package bank.management.gui;
 import bank.management.Client;
 import bank.management.DBManager;
 import bank.management.GUIManager;
-import bank.management.Navigator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -203,6 +199,102 @@ public class ManagerClientInfo extends JFrameBase {
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -429,7 +521,7 @@ public class ManagerClientInfo extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -589,6 +681,13 @@ public class ManagerClientInfo extends JFrameBase {
 
 
         registerNewClient(registerClientButton);
+        
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
+        });
 
         ActionListener enterPressListener = (ActionEvent e) -> registerClientButton.doClick();
         DocumentListener documentListener = new DocumentListener() {
@@ -658,24 +757,16 @@ public class ManagerClientInfo extends JFrameBase {
                 JOptionPane.showMessageDialog(ManagerClientInfo.this, "Username already exists!", "Error", 0);   
                 return;
             }
-            ArrayList<Client> clientDB = dbManager.getClientDB();
-            String accountNo = "EWUBL0" + (1000 + clientDB.size());
-            Client newClient = new Client(clientName.getText(), phone.getText(), accountNo, address.getText(), nationalID.getText(), username.getText(), password.getText(), Double.parseDouble(balance.getText()));
-            clientDB.add(newClient);
-            credentialDB.put(username.getText(), password.getText());
             try {
-                dbManager.updateClientDB();
+                ArrayList<Client> clientDB = dbManager.getClientDB();
+                String accountNo = "EWUBL0" + (1000 + clientDB.size());
+                Client newClient = new Client(clientName.getText(), phone.getText(), accountNo, address.getText(), nationalID.getText(), username.getText(), password.getText(), Double.parseDouble(balance.getText()));
+                clientDB.add(newClient);
+                credentialDB.put(username.getText(), password.getText());
                 clearAllFields();
-                dbManager.updateCredentialDB();
-                guiManager.loadManagerClientInfoData();
-            }catch (UnsupportedEncodingException e1) {
-                e1.printStackTrace();
-            }catch (FileNotFoundException e1) {
-                e1.printStackTrace();
-            }catch (ClassNotFoundException e1) {
-                e1.printStackTrace();
-            }catch (IOException e1) {
-                e1.printStackTrace();
+                loadVisibleData();
+            } catch(NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(ManagerClientInfo.this, "Invalid amount!");
             }
         });
     }
@@ -688,5 +779,10 @@ public class ManagerClientInfo extends JFrameBase {
         username.setText("");
         password.setText("");
         balance.setText("");
+    }
+
+    @Override
+    public void loadVisibleData() {
+        guiManager.loadManagerClientInfoData();
     }
 }

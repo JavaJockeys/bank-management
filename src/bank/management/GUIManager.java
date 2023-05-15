@@ -1,40 +1,12 @@
 package bank.management;
 
 import bank.management.gui.*;
-import bank.management.transaction.BillPaymentHandler;
-import bank.management.transaction.FundTransferHandler;
-import bank.management.transaction.MoblieRechargeHandler;
-import bank.management.transaction.WithdrawHandler;
-
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JProgressBar;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.table.TableModel;
 
 /**
@@ -64,7 +36,7 @@ public class GUIManager {
 
     private final DBManager dbManager;
 
-    public GUIManager() throws InterruptedException {
+    public GUIManager() throws InterruptedException, IOException, FileNotFoundException, ClassNotFoundException {
         this.navigator = new Navigator();
         this.dbManager = new DBManager();
 
@@ -95,10 +67,8 @@ public class GUIManager {
         this.managerDashboard.setAllListeners();
         this.managerHomepage.setAllListeners();
         this.loginScreen.setAllListeners();
-
-        loadTransactions();
-        loadManagerClientInfoData();
-        loadComplains();
+        
+        System.out.println(clientProfile.getType());
         
     }
     
@@ -177,31 +147,35 @@ public class GUIManager {
     }
 
     public void loadCachedLoginInfo() throws IOException, FileNotFoundException, ClassNotFoundException, UnsupportedEncodingException {     
-        dbManager.loadLoginInfo();
         LoginInfo loginInfo = dbManager.getLoginInfo();
+        if (loginInfo == null) {
+            navigator.navigate(loginScreen);
+            splash.dispose();
+            return;
+        }
         Date prev = loginInfo.getDate();
         Date now = new Date();
         long timeDiff = now.getTime() - prev.getTime();
-        if (timeDiff <= GUIManager.LOGIN_CACHE_TIME) {
-            String username = loginInfo.getUsername();
-            String password = loginInfo.getPassword();
-            
-            System.out.println(username+ " " + password);
-            
-            if (username.equals("admin") && password.equals("admin")) {
-                updateLoginInfo();
-                navigator.navigate(managerHomepage);
-                splash.dispose();
-                return;
-            }
+        if (timeDiff > GUIManager.LOGIN_CACHE_TIME) {
+            navigator.navigate(loginScreen);
+            splash.dispose();
+            return;
+        }
+        String username = loginInfo.getUsername();
+        String password = loginInfo.getPassword();
 
-            try {
-                loginUser(username, password);
-            } catch (UserNotFoundException ex) {
-                navigator.navigate(loginScreen);
-                splash.dispose();
-            }
-        } else {
+        System.out.println(username+ " " + password);
+
+        if (username.equals("admin") && password.equals("admin")) {
+            updateLoginInfo();
+            navigator.navigate(managerHomepage);
+            splash.dispose();
+            return;
+        }
+
+        try {
+            loginUser(username, password);
+        } catch (UserNotFoundException ex) {
             navigator.navigate(loginScreen);
             splash.dispose();
         }
@@ -213,11 +187,9 @@ public class GUIManager {
 
     public void updateLoginInfo(String username, String password) throws IOException, FileNotFoundException, UnsupportedEncodingException, ClassNotFoundException {
         dbManager.setLoginInfo(new LoginInfo(username, password));
-        dbManager.updateLoginInfo();
     }
     
     public void loginUser(String username, String password) throws IOException, FileNotFoundException, ClassNotFoundException, UserNotFoundException {
-        dbManager.loadClientDB();
         
         boolean notFound = true;
         for (Client client : dbManager.getClientDB()) {
@@ -227,30 +199,11 @@ public class GUIManager {
             }
         }
         if (notFound) throw new UserNotFoundException();
-        loadClientTransactions();
-        updateCurrentBalance();
-        loadClientName();
         navigator.navigate(clientProfile);
         updateLoginInfo(username, password);
     }
     
-    public void loadClientName() {
-        clientProfile.getClientName().setText(userClient.getName());
-        clientStatement.getClientName().setText(userClient.getName());
-        clientMobileRecharge.getClientName().setText(userClient.getName());
-        clientUtilityBill.getClientName().setText(userClient.getName());
-        clientWithdrawCash.getClientName().setText(userClient.getName());
-        clientComplainPage.getClientName().setText(userClient.getName());
-    }
-    
     public void loadComplains() {
-        try {
-            dbManager.loadComplainDB();
-        } catch (IOException ex) {
-            Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
         String complainListString = new String();
         for (Complain complain : dbManager.getComplainDB()) {
             complainListString += "-------------------------------------------------------------------------------\n"
@@ -265,26 +218,15 @@ public class GUIManager {
     public void loadTransactions() {
         JTable table = managerDashboard.getTransactionList();
         TableModel model = table.getModel();
-        try {
-            dbManager.loadTransactionDB();
-            ArrayList<Transaction> transactionDB = dbManager.getTransactionDB();
-            for (int i = 0; i < transactionDB.size(); i++) {
-                Transaction transaction = transactionDB.get(i);
-                model.setValueAt(i + 1, i, 0);
-                model.setValueAt(transaction.getSender().getName(), i, 1);
-                model.setValueAt(transaction.getDate(), i, 2);
-                model.setValueAt(transaction.getAmount(), i, 3);
-                model.setValueAt(transaction.getReceiver().getName(), i, 4);
-                model.setValueAt(transaction.getType(), i, 5);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        ArrayList<Transaction> transactionDB = dbManager.getTransactionDB();
+        for (int i = 0; i < transactionDB.size(); i++) {
+            Transaction transaction = transactionDB.get(i);
+            model.setValueAt(i + 1, i, 0);
+            model.setValueAt(transaction.getSender().getName(), i, 1);
+            model.setValueAt(transaction.getDate(), i, 2);
+            model.setValueAt(transaction.getAmount(), i, 3);
+            model.setValueAt(transaction.getReceiver() == null? "-" : transaction.getReceiver().getName(), i, 4);
+            model.setValueAt(transaction.getType(), i, 5);
         }
     }
     
@@ -295,54 +237,32 @@ public class GUIManager {
         for (int i = 0; i < transactions.size(); i++) {
             Transaction transaction = transactions.get(i);
             model.setValueAt(i + 1, i, 0);
-            model.setValueAt(transaction.getSender().getName(), i, 1);
-            model.setValueAt(transaction.getDate(), i, 2);
-            model.setValueAt(transaction.getAmount(), i, 3);
-            model.setValueAt(transaction.getReceiver().getName(), i, 4);
-            model.setValueAt(transaction.getType(), i, 5);
+            model.setValueAt(transaction.getDate(), i, 1);
+            model.setValueAt(transaction.getAmount(), i, 2);
+            model.setValueAt(transaction.getReceiver() == null? "-" : transaction.getReceiver().getName(), i, 3);
+            model.setValueAt(transaction.getType(), i, 4);
         }
     }
     
     public void loadManagerClientInfoData() {
         JTable table = managerClientInfo.getDataTable();
         TableModel model = table.getModel();
-        try {
-            dbManager.loadClientDB();
-            ArrayList<Client> clientDB = dbManager.getClientDB();
-            for (int i = 0; i < clientDB.size(); i++) {
-                Client client = clientDB.get(i);
-                model.setValueAt(i + 1, i, 0);
-                model.setValueAt(client.getAccountNo(), i, 1);
-                model.setValueAt(client.getName(), i, 2);
-                model.setValueAt(client.getPhone(), i, 3);
-                model.setValueAt(client.getNationalID(), i, 4);
-                model.setValueAt(client.getUsername(), i, 5);
-                model.setValueAt(client.getBalance(), i, 6);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        ArrayList<Client> clientDB = dbManager.getClientDB();
+        for (int i = 0; i < clientDB.size(); i++) {
+            Client client = clientDB.get(i);
+            model.setValueAt(i + 1, i, 0);
+            model.setValueAt(client.getAccountNo(), i, 1);
+            model.setValueAt(client.getName(), i, 2);
+            model.setValueAt(client.getPhone(), i, 3);
+            model.setValueAt(client.getNationalID(), i, 4);
+            model.setValueAt(client.getUsername(), i, 5);
+            model.setValueAt(client.getBalance(), i, 6);
         }
-    }
-    
-    public void updateCurrentBalance() {
-        String currentBalance = Double.toString(userClient.getBalance());
-        clientFundTransfer.getCurrentBalance().setText(currentBalance);
-        clientMobileRecharge.getCurrentBalance().setText(currentBalance);
-        clientUtilityBill.getCurrentBalance().setText(currentBalance);
-        clientStatement.getCurrentBalance().setText(currentBalance);
-        clientWithdrawCash.getCurrentBalance().setText(currentBalance);
     }
 
     public static class UserNotFoundException extends Exception {
-
-        public UserNotFoundException() {
-        }
+        public UserNotFoundException() {}
     }
 
 }

@@ -28,18 +28,9 @@ public class FundTransferHandler extends TransactionHandler {
         Transaction transaction = new Transaction(sender, receiver, amount, Transaction.TransactionType.CLIENT_TO_CLIENT);
         sender.withdraw(amount);
         receiver.deposit(amount);
+        db.getTransactionDB().add(transaction);
         sender.getTransactionList().add(transaction);
         receiver.getTransactionList().add(transaction);
-        try {
-            db.updateClientDB();
-            db.updateTransactionDB();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(FundTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FundTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FundTransferHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
 }

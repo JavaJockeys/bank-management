@@ -7,11 +7,11 @@ package bank.management.gui;
 import bank.management.Client;
 import bank.management.DBManager;
 import bank.management.GUIManager;
-import bank.management.Navigator;
 import bank.management.transaction.WithdrawHandler;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -375,7 +375,7 @@ public class ClientWithdrawCash extends JFrameBase {
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,15 +540,33 @@ public class ClientWithdrawCash extends JFrameBase {
         navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
         
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
+        });
+        
+        ActionListener enterPressListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                withdrawButton.doClick();
+            }
+
+        };
+        
         withdrawButton.addActionListener((ActionEvent e) -> {
             DBManager dbManager = guiManager.getDBManager();
             String amountValue = amount.getText();
             WithdrawHandler wh = new WithdrawHandler(dbManager, guiManager.getUserClient());
             try {
                 wh.makeTransaction(Double.parseDouble(amountValue));
-                guiManager.updateCurrentBalance();
+                clearAllFields();
+                loadVisibleData();
+            } catch(NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(ClientWithdrawCash.this, "Invalid amount!");
             } catch (Client.InsufficientBalanceException ex) {
-                JOptionPane.showMessageDialog(guiManager.getClientWithdrawCash(), "Insufficient Balance!");
+                JOptionPane.showMessageDialog(ClientWithdrawCash.this, "Insufficient Balance!");
             }
         });
 
@@ -571,7 +589,9 @@ public class ClientWithdrawCash extends JFrameBase {
         };
         
         agentCode.getDocument().addDocumentListener(documentListener);
+        agentCode.addActionListener(enterPressListener);
         amount.getDocument().addDocumentListener(documentListener);
+        amount.addActionListener(enterPressListener);
         
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);
@@ -584,5 +604,17 @@ public class ClientWithdrawCash extends JFrameBase {
         data[0] = amount.getText();
         data[1] = agentCode.getText();
         toggleButtonEnable(data, withdrawButton);
+    }
+    
+    private void clearAllFields() {
+        agentCode.setText("");
+        amount.setText("");
+    }
+
+    @Override
+    public void loadVisibleData() {
+        Client userClient = guiManager.getUserClient();
+        clientName.setText(userClient.getName());
+        currentBalance.setText(Double.toString(userClient.getBalance()));
     }
 }

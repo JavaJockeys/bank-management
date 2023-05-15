@@ -5,91 +5,17 @@
 package bank.management.gui;
 
 import bank.management.GUIManager;
-import bank.management.Navigator;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 /**
  *
- * @author Saif
+ * @author Osama
  */
 public class ClientProfile extends JFrameBase {
 
-    public JButton getBackButton() {
-        return backButton;
-    }
-
-    public JButton getLogoutButton() {
-        return logoutButton;
-    }
-
-    public JLabel getClientName() {
-        return clientName;
-    }
-
-    public JButton getCloseButton() {
-        return closeButton;
-    }
-
-    public JButton getMinimizeButton() {
-        return minimizeButton;
-    }
-
-    public JButton getFundTransferButton() {
-        return fundTransferButton;
-    }
-
-    public JButton getComplainBoxButton() {
-        return complainBoxButton;
-    }
-
-    public JButton getStatementButton() {
-        return statementButton;
-    }
-
-    public JButton getPayBillButton() {
-        return payBillButton;
-    }
-
-    public JButton getMobileRechargeButton() {
-        return mobileRechargeButton;
-    }
-
-    public JButton getWithdrawFundButton() {
-        return withdrawFundButton;
-    }
-
-    public JPanel getFundTrasnferPanel() {
-        return fundTransferPanel;
-    }
-
-    public JPanel getComplainBoxPanel() {
-        return complainBoxPanel;
-    }
-
-    public JPanel getMobileRechargePanel() {
-        return mobileRechargePanel;
-    }
-
-    public JPanel getStatementPanel() {
-        return statementPanel;
-    }
-
-    public JPanel getUtilityBillPanel() {
-        return payBillPanel;
-    }
-
-    public JPanel getWithdrawCashPanel() {
-        return withdrawFundPanel;
-    }
-
     /**
-     * Creates new form Client_Profile
-     *
-     * @param guiManager
+     * Creates new form ClientProfileCopy
      */
     public ClientProfile(GUIManager guiManager) {
         super(guiManager);
@@ -106,7 +32,6 @@ public class ClientProfile extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         fundTransferPanel = new javax.swing.JPanel();
@@ -132,33 +57,28 @@ public class ClientProfile extends JFrameBase {
         clientName = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         fundTransferButton = new javax.swing.JButton();
         withdrawFundButton = new javax.swing.JButton();
+        mobileRechargeButton = new javax.swing.JButton();
         payBillButton = new javax.swing.JButton();
         statementButton = new javax.swing.JButton();
         complainBoxButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        mobileRechargeButton = new javax.swing.JButton();
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 40)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel2.setText("East West University Bank Limited");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(234, 84, 85));
-        setFocusable(false);
-        setFocusableWindowState(false);
         setUndecorated(true);
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1024, 760));
 
         jPanel1.setBackground(new java.awt.Color(234, 84, 85));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 760));
 
         jPanel2.setBackground(new java.awt.Color(247, 209, 209));
+        jPanel2.setPreferredSize(new java.awt.Dimension(773, 660));
 
         fundTransferPanel.setBackground(new java.awt.Color(234, 84, 85));
+        fundTransferPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
 
@@ -193,6 +113,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         withdrawFundPanel.setBackground(new java.awt.Color(234, 84, 85));
+        withdrawFundPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/withdraw.gif"))); // NOI18N
 
@@ -228,6 +149,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         mobileRechargePanel.setBackground(new java.awt.Color(234, 84, 85));
+        mobileRechargePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/recharge.gif"))); // NOI18N
 
@@ -265,6 +187,7 @@ public class ClientProfile extends JFrameBase {
         payBillPanel.setBackground(new java.awt.Color(234, 84, 85));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/bill.gif"))); // NOI18N
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jButton13.setBackground(new java.awt.Color(255, 212, 96));
         jButton13.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
@@ -298,6 +221,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         statementPanel.setBackground(new java.awt.Color(234, 84, 85));
+        statementPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/statement.gif"))); // NOI18N
 
@@ -333,6 +257,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         complainBoxPanel.setBackground(new java.awt.Color(234, 84, 85));
+        complainBoxPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
 
@@ -436,16 +361,6 @@ public class ClientProfile extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -457,12 +372,6 @@ public class ClientProfile extends JFrameBase {
                 minimizeButtonActionPerformed(evt);
             }
         });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("East West University Bank Limited");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         backButton.setBackground(new java.awt.Color(255, 212, 96));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
@@ -487,6 +396,17 @@ public class ClientProfile extends JFrameBase {
         withdrawFundButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 withdrawFundButtonActionPerformed(evt);
+            }
+        });
+
+        mobileRechargeButton.setBackground(new java.awt.Color(255, 212, 96));
+        mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        mobileRechargeButton.setForeground(new java.awt.Color(234, 84, 85));
+        mobileRechargeButton.setText("Mobile Recharge");
+        mobileRechargeButton.setActionCommand("Withdraw");
+        mobileRechargeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mobileRechargeButtonActionPerformed(evt);
             }
         });
 
@@ -517,31 +437,27 @@ public class ClientProfile extends JFrameBase {
         complainBoxButton.setForeground(new java.awt.Color(234, 84, 85));
         complainBoxButton.setText("Complain Box");
         complainBoxButton.setActionCommand("Withdraw");
+        complainBoxButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         complainBoxButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 complainBoxButtonActionPerformed(evt);
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("East West University Bank Limited");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
-        logoutButton.setText("Log-Out");
+        logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
-            }
-        });
-
-        mobileRechargeButton.setBackground(new java.awt.Color(255, 212, 96));
-        mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        mobileRechargeButton.setForeground(new java.awt.Color(234, 84, 85));
-        mobileRechargeButton.setText("Mobile Recharge");
-        mobileRechargeButton.setActionCommand("Withdraw");
-        mobileRechargeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mobileRechargeButtonActionPerformed(evt);
             }
         });
 
@@ -552,14 +468,7 @@ public class ClientProfile extends JFrameBase {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(minimizeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(closeButton)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(fundTransferButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -567,21 +476,28 @@ public class ClientProfile extends JFrameBase {
                             .addComponent(payBillButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                             .addComponent(statementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                             .addComponent(complainBoxButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                            .addComponent(mobileRechargeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+                            .addComponent(mobileRechargeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
+                        .addComponent(minimizeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(closeButton)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(minimizeButton)
+                        .addComponent(closeButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(closeButton)
-                            .addComponent(jLabel3)))
-                    .addComponent(minimizeButton))
+                        .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -601,21 +517,23 @@ public class ClientProfile extends JFrameBase {
                         .addComponent(complainBoxButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(logoutButton)
-                        .addGap(31, 31, 31))))
+                        .addGap(34, 34, 34))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        getAccessibleContext().setAccessibleParent(this);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -624,10 +542,6 @@ public class ClientProfile extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_minimizeButtonActionPerformed
 
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeButtonActionPerformed
-
     private void fundTransferButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fundTransferButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fundTransferButtonActionPerformed
@@ -635,6 +549,10 @@ public class ClientProfile extends JFrameBase {
     private void withdrawFundButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawFundButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_withdrawFundButtonActionPerformed
+
+    private void mobileRechargeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileRechargeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mobileRechargeButtonActionPerformed
 
     private void payBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBillButtonActionPerformed
         // TODO add your handling code here:
@@ -648,23 +566,13 @@ public class ClientProfile extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_complainBoxButtonActionPerformed
 
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-        closeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.exit(0);
-            }
-        });
-    }//GEN-LAST:event_closeButtonMouseClicked
-
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
@@ -682,17 +590,10 @@ public class ClientProfile extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void mobileRechargeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileRechargeButtonActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mobileRechargeButtonActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
-//    public static void main(String[] args) {
-//        ClientProfile cp = new ClientProfile(new Navigator());
-//        cp.setVisible(true);
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -714,7 +615,6 @@ public class ClientProfile extends JFrameBase {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
@@ -741,6 +641,13 @@ public class ClientProfile extends JFrameBase {
         ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
         ClientUtilityBill clientUtilityBill = guiManager.getClientUtilityBill();
         
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                loadVisibleData();
+            }
+        });
+        
         navigateOnMouseAction(fundTransferPanel, clientFundTransfer);
         navigateOnMouseAction(complainBoxPanel, clientComplainPage);
         navigateOnMouseAction(statementPanel, clientStatement);
@@ -760,4 +667,11 @@ public class ClientProfile extends JFrameBase {
         setLogoutButtonAction(logoutButton);
         setCloseButtonAction(closeButton);
     }
+
+    @Override
+    public void loadVisibleData() {
+        clientName.setText(guiManager.getUserClient().getName());
+    }
+
+
 }
