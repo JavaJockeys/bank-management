@@ -6,6 +6,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
 
 public class Complains extends JFrameBase {
 
@@ -87,11 +88,16 @@ public class Complains extends JFrameBase {
 
         jPanel3.setBackground(new java.awt.Color(240, 123, 63));
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         ComplainList.setColumns(20);
-        ComplainList.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ComplainList.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         ComplainList.setRows(5);
         jScrollPane1.setViewportView(ComplainList);
-        ComplainList. setEditable(false) ;
+        ComplainList.setEditable(false) ;
+        ComplainList.setLineWrap(true);
+        ComplainList.setWrapStyleWord(true);
+        ComplainList.setBorder(new EmptyBorder(20, 20, 20, 20));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

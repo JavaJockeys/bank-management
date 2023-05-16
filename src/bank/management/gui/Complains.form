@@ -180,6 +180,9 @@
               </Layout>
               <SubComponents>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -190,12 +193,12 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Arial" size="14" style="0"/>
+                          <Font name="Arial" size="18" style="0"/>
                         </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ComplainList. setEditable(false) ;"/>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ComplainList.setEditable(false) ;&#xd;&#xa;ComplainList.setLineWrap(true);&#xd;&#xa;ComplainList.setWrapStyleWord(true);&#xd;&#xa;ComplainList.setBorder(new EmptyBorder(20, 20, 20, 20));&#xd;&#xa;"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>

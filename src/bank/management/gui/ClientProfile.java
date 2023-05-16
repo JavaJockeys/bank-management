@@ -70,7 +70,7 @@ public class ClientProfile extends JFrameBase {
         jPanel2.setPreferredSize(new java.awt.Dimension(773, 660));
 
         fundTransferPanel.setBackground(new java.awt.Color(234, 84, 85));
-        fundTransferPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fundTransferPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
 
@@ -100,7 +100,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         withdrawFundPanel.setBackground(new java.awt.Color(234, 84, 85));
-        withdrawFundPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        withdrawFundPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/withdraw.gif"))); // NOI18N
 
@@ -131,7 +131,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         mobileRechargePanel.setBackground(new java.awt.Color(234, 84, 85));
-        mobileRechargePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mobileRechargePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/recharge.gif"))); // NOI18N
 
@@ -162,6 +162,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         payBillPanel.setBackground(new java.awt.Color(234, 84, 85));
+        payBillPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/bill.gif"))); // NOI18N
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -193,7 +194,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         statementPanel.setBackground(new java.awt.Color(234, 84, 85));
-        statementPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        statementPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/statement.gif"))); // NOI18N
 
@@ -224,7 +225,7 @@ public class ClientProfile extends JFrameBase {
         );
 
         complainBoxPanel.setBackground(new java.awt.Color(234, 84, 85));
-        complainBoxPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        complainBoxPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
 
