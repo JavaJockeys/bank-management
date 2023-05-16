@@ -149,11 +149,6 @@ public class ClientUtilityBill extends JFrameBase {
         payBillButton.setForeground(new java.awt.Color(234, 84, 85));
         payBillButton.setText("Pay");
         payBillButton.setActionCommand("Withdraw");
-        payBillButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payBillButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -259,11 +254,6 @@ public class ClientUtilityBill extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -390,21 +380,6 @@ public class ClientUtilityBill extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-        closeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.exit(0);
-            }
-        });
-    }//GEN-LAST:event_closeButtonMouseClicked
-
-    private void payBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBillButtonActionPerformed
-        // TODO add your handling code here:
-         JOptionPane.showMessageDialog(this, "Bill paid!");
-    }//GEN-LAST:event_payBillButtonActionPerformed
-
     public JButton getMobileRechargeButton() {
         return mobileRechargeButton;
     }
@@ -497,6 +472,7 @@ public class ClientUtilityBill extends JFrameBase {
                 String amountValue = amount.getText();
                 BillPaymentHandler bph = new BillPaymentHandler(dbManager, guiManager.getUserClient(), new Organization(organizationName));
                 bph.makeTransaction(Double.parseDouble(amountValue));
+                 JOptionPane.showMessageDialog(this, "Bill paid!");
                 clearAllFields();
                 loadVisibleData();
             } catch(NumberFormatException nfe) {

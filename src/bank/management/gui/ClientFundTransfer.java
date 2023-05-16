@@ -168,11 +168,6 @@ public class ClientFundTransfer extends JFrameBase {
         sendButton.setText("Send");
         sendButton.setActionCommand("Withdraw");
         sendButton.setEnabled(false);
-        sendButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -280,11 +275,6 @@ public class ClientFundTransfer extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -414,21 +404,6 @@ public class ClientFundTransfer extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-        closeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.exit(0);
-            }
-        });
-    }//GEN-LAST:event_closeButtonMouseClicked
-
-    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-        // TODO add your handling code here:
-         JOptionPane.showMessageDialog(this, "Fund transfer successful!");
-    }//GEN-LAST:event_sendButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField accountNo;
@@ -489,6 +464,7 @@ public class ClientFundTransfer extends JFrameBase {
                     } catch (Client.InsufficientBalanceException ex) {
                         JOptionPane.showMessageDialog(ClientFundTransfer.this, "Insufficient Balance!");
                     }
+                    JOptionPane.showMessageDialog(this, "Fund transfer successful!");
                     clearAllFields();
                     loadVisibleData();
                     return;

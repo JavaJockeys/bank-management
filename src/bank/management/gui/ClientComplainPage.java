@@ -127,11 +127,6 @@ public class ClientComplainPage extends JFrameBase {
         sendButton.setText("Send");
         sendButton.setActionCommand("Withdraw");
         sendButton.setEnabled(false);
-        sendButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendButtonActionPerformed(evt);
-            }
-        });
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
 
@@ -211,11 +206,6 @@ public class ClientComplainPage extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -344,21 +334,6 @@ public class ClientComplainPage extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-        closeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.exit(0);
-            }
-        });
-    }//GEN-LAST:event_closeButtonMouseClicked
-
-    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-        // TODO add your handling code here:
-         JOptionPane.showMessageDialog(this, "Sorry to hear that! We will be in touch soon.");
-    }//GEN-LAST:event_sendButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JLabel clientName;
@@ -410,6 +385,7 @@ public class ClientComplainPage extends JFrameBase {
             Complain complain = new Complain(guiManager.getUserClient(), body);
             complain.setTXNDate(new Date());
             dbManager.getComplainDB().add(complain);
+            JOptionPane.showMessageDialog(this, "Sorry to hear that! We will be in touch soon.");
             clearAllFields();
             
         });

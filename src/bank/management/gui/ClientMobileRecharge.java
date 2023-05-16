@@ -284,11 +284,6 @@ public class ClientMobileRecharge extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -415,16 +410,6 @@ public class ClientMobileRecharge extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-        closeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.exit(0);
-            }
-        });
-    }//GEN-LAST:event_closeButtonMouseClicked
-
     private void mobileRechargeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileRechargeButtonActionPerformed
         // TODO add your handling code here:
          JOptionPane.showMessageDialog(this, "Mobile recharge successfull!");
@@ -490,6 +475,7 @@ public class ClientMobileRecharge extends JFrameBase {
             MoblieRechargeHandler mrh = new MoblieRechargeHandler(dbManager, guiManager.getUserClient(), new Organization(operatorName));
             try {
                 mrh.makeTransaction(Double.parseDouble(amountValue));
+                JOptionPane.showMessageDialog(this, "Mobile recharge successfull!");
                 clearAllFields();
                 loadVisibleData();
             } catch(NumberFormatException nfe) {

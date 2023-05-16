@@ -170,11 +170,6 @@ public class ClientWithdrawCash extends JFrameBase {
         withdrawButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         withdrawButton.setForeground(new java.awt.Color(234, 84, 85));
         withdrawButton.setText("Withdraw");
-        withdrawButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -279,11 +274,6 @@ public class ClientWithdrawCash extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -410,16 +400,6 @@ public class ClientWithdrawCash extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-       System.exit(0);
-    }//GEN-LAST:event_closeButtonMouseClicked
-
-    private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
-        // TODO add your handling code here:
-         JOptionPane.showMessageDialog(this, "Cash withdrawn successfully! Please count your cash.");
-    }//GEN-LAST:event_withdrawButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField agentCode;
     private javax.swing.JTextField amount;
@@ -484,6 +464,7 @@ public class ClientWithdrawCash extends JFrameBase {
             WithdrawHandler wh = new WithdrawHandler(dbManager, guiManager.getUserClient());
             try {
                 wh.makeTransaction(Double.parseDouble(amountValue));
+                JOptionPane.showMessageDialog(this, "Cash withdrawn successfully! Please count your cash.");
                 clearAllFields();
                 loadVisibleData();
             } catch(NumberFormatException nfe) {

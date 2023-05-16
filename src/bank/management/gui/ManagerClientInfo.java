@@ -329,11 +329,6 @@ public class ManagerClientInfo extends JFrameBase {
         registerClientButton.setText("Save");
         registerClientButton.setActionCommand("Withdraw");
         registerClientButton.setEnabled(false);
-        registerClientButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerClientButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -577,11 +572,6 @@ public class ManagerClientInfo extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registerClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerClientButtonActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "New client added!");
-    }//GEN-LAST:event_registerClientButtonActionPerformed
-
     private void clientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clientNameActionPerformed
@@ -710,6 +700,7 @@ public class ManagerClientInfo extends JFrameBase {
                 Client newClient = new Client(clientName.getText(), phone.getText(), accountNo, address.getText(), nationalID.getText(), username.getText(), password.getText(), Double.parseDouble(balance.getText()));
                 clientDB.add(newClient);
                 credentialDB.put(username.getText(), password.getText());
+                JOptionPane.showMessageDialog(this, "New client added!");
                 clearAllFields();
                 loadVisibleData();
             } catch(NumberFormatException nfe) {
