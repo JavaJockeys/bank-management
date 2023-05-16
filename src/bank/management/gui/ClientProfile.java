@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package bank.management.gui;
 
 import bank.management.GUIManager;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-/**
- *
- * @author Osama
- */
 public class ClientProfile extends JFrameBase {
 
     /**
@@ -36,22 +29,22 @@ public class ClientProfile extends JFrameBase {
         jPanel2 = new javax.swing.JPanel();
         fundTransferPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
+        profFTButton = new javax.swing.JButton();
         withdrawFundPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jButton16 = new javax.swing.JButton();
+        profWFButton = new javax.swing.JButton();
         mobileRechargePanel = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
+        profMRButton = new javax.swing.JButton();
         payBillPanel = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
+        profPBButton = new javax.swing.JButton();
         statementPanel = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        jButton14 = new javax.swing.JButton();
+        profSButton = new javax.swing.JButton();
         complainBoxPanel = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jButton15 = new javax.swing.JButton();
+        profCBButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         clientName = new javax.swing.JLabel();
@@ -69,7 +62,6 @@ public class ClientProfile extends JFrameBase {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1024, 760));
 
         jPanel1.setBackground(new java.awt.Color(234, 84, 85));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 760));
@@ -82,15 +74,10 @@ public class ClientProfile extends JFrameBase {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
 
-        jButton11.setBackground(new java.awt.Color(255, 212, 96));
-        jButton11.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(234, 84, 85));
-        jButton11.setText("Fund Transfer");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
+        profFTButton.setBackground(new java.awt.Color(255, 212, 96));
+        profFTButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profFTButton.setForeground(new java.awt.Color(234, 84, 85));
+        profFTButton.setText("Fund Transfer");
 
         javax.swing.GroupLayout fundTransferPanelLayout = new javax.swing.GroupLayout(fundTransferPanel);
         fundTransferPanel.setLayout(fundTransferPanelLayout);
@@ -100,7 +87,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
-            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profFTButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         fundTransferPanelLayout.setVerticalGroup(
             fundTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +95,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton11)
+                .addComponent(profFTButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -117,16 +104,11 @@ public class ClientProfile extends JFrameBase {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/withdraw.gif"))); // NOI18N
 
-        jButton16.setBackground(new java.awt.Color(255, 212, 96));
-        jButton16.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton16.setForeground(new java.awt.Color(234, 84, 85));
-        jButton16.setText("Withdraw Fund");
-        jButton16.setActionCommand("Withdraw");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
-            }
-        });
+        profWFButton.setBackground(new java.awt.Color(255, 212, 96));
+        profWFButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profWFButton.setForeground(new java.awt.Color(234, 84, 85));
+        profWFButton.setText("Withdraw Fund");
+        profWFButton.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout withdrawFundPanelLayout = new javax.swing.GroupLayout(withdrawFundPanel);
         withdrawFundPanel.setLayout(withdrawFundPanelLayout);
@@ -136,7 +118,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profWFButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         withdrawFundPanelLayout.setVerticalGroup(
             withdrawFundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +126,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addComponent(jButton16)
+                .addComponent(profWFButton)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -153,16 +135,11 @@ public class ClientProfile extends JFrameBase {
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/recharge.gif"))); // NOI18N
 
-        jButton12.setBackground(new java.awt.Color(255, 212, 96));
-        jButton12.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(234, 84, 85));
-        jButton12.setText("Mobile Recharge");
-        jButton12.setActionCommand("Withdraw");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
+        profMRButton.setBackground(new java.awt.Color(255, 212, 96));
+        profMRButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profMRButton.setForeground(new java.awt.Color(234, 84, 85));
+        profMRButton.setText("Mobile Recharge");
+        profMRButton.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout mobileRechargePanelLayout = new javax.swing.GroupLayout(mobileRechargePanel);
         mobileRechargePanel.setLayout(mobileRechargePanelLayout);
@@ -172,7 +149,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profMRButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         mobileRechargePanelLayout.setVerticalGroup(
             mobileRechargePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +157,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
-                .addComponent(jButton12)
+                .addComponent(profMRButton)
                 .addGap(19, 19, 19))
         );
 
@@ -189,16 +166,11 @@ public class ClientProfile extends JFrameBase {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/bill.gif"))); // NOI18N
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton13.setBackground(new java.awt.Color(255, 212, 96));
-        jButton13.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton13.setForeground(new java.awt.Color(234, 84, 85));
-        jButton13.setText("Pay Bill");
-        jButton13.setActionCommand("Withdraw");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
+        profPBButton.setBackground(new java.awt.Color(255, 212, 96));
+        profPBButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profPBButton.setForeground(new java.awt.Color(234, 84, 85));
+        profPBButton.setText("Pay Bill");
+        profPBButton.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout payBillPanelLayout = new javax.swing.GroupLayout(payBillPanel);
         payBillPanel.setLayout(payBillPanelLayout);
@@ -208,7 +180,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profPBButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         payBillPanelLayout.setVerticalGroup(
             payBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +188,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
-                .addComponent(jButton13)
+                .addComponent(profPBButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -225,16 +197,11 @@ public class ClientProfile extends JFrameBase {
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/statement.gif"))); // NOI18N
 
-        jButton14.setBackground(new java.awt.Color(255, 212, 96));
-        jButton14.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton14.setForeground(new java.awt.Color(234, 84, 85));
-        jButton14.setText("Statement");
-        jButton14.setActionCommand("Withdraw");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
+        profSButton.setBackground(new java.awt.Color(255, 212, 96));
+        profSButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profSButton.setForeground(new java.awt.Color(234, 84, 85));
+        profSButton.setText("Statement");
+        profSButton.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout statementPanelLayout = new javax.swing.GroupLayout(statementPanel);
         statementPanel.setLayout(statementPanelLayout);
@@ -244,7 +211,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jButton14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profSButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         statementPanelLayout.setVerticalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +219,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
-                .addComponent(jButton14)
+                .addComponent(profSButton)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -261,16 +228,11 @@ public class ClientProfile extends JFrameBase {
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
 
-        jButton15.setBackground(new java.awt.Color(255, 212, 96));
-        jButton15.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton15.setForeground(new java.awt.Color(234, 84, 85));
-        jButton15.setText("Complain Box");
-        jButton15.setActionCommand("Withdraw");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
+        profCBButton.setBackground(new java.awt.Color(255, 212, 96));
+        profCBButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profCBButton.setForeground(new java.awt.Color(234, 84, 85));
+        profCBButton.setText("Complain Box");
+        profCBButton.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout complainBoxPanelLayout = new javax.swing.GroupLayout(complainBoxPanel);
         complainBoxPanel.setLayout(complainBoxPanelLayout);
@@ -280,7 +242,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel23)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profCBButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         complainBoxPanelLayout.setVerticalGroup(
             complainBoxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,7 +250,7 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel23)
                 .addGap(18, 18, 18)
-                .addComponent(jButton15)
+                .addComponent(profCBButton)
                 .addGap(24, 24, 24))
         );
 
@@ -306,7 +268,6 @@ public class ClientProfile extends JFrameBase {
         clientName.setBackground(new java.awt.Color(255, 212, 96));
         clientName.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         clientName.setForeground(new java.awt.Color(45, 64, 89));
-        clientName.setText("---");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -315,10 +276,6 @@ public class ClientProfile extends JFrameBase {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(clientName))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -332,18 +289,24 @@ public class ClientProfile extends JFrameBase {
                             .addGap(18, 18, 18)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(mobileRechargePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(complainBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(44, 44, 44))
+                                .addComponent(complainBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(clientName, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(clientName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(clientName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fundTransferPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mobileRechargePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -367,11 +330,6 @@ public class ClientProfile extends JFrameBase {
         minimizeButton.setText("_");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
-        minimizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minimizeButtonActionPerformed(evt);
-            }
-        });
 
         backButton.setBackground(new java.awt.Color(255, 212, 96));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
@@ -382,55 +340,30 @@ public class ClientProfile extends JFrameBase {
         fundTransferButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         fundTransferButton.setForeground(new java.awt.Color(234, 84, 85));
         fundTransferButton.setText("Fund Transfer");
-        fundTransferButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fundTransferButtonActionPerformed(evt);
-            }
-        });
 
         withdrawFundButton.setBackground(new java.awt.Color(255, 212, 96));
         withdrawFundButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         withdrawFundButton.setForeground(new java.awt.Color(234, 84, 85));
         withdrawFundButton.setText("Withdraw Fund");
         withdrawFundButton.setActionCommand("Withdraw");
-        withdrawFundButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawFundButtonActionPerformed(evt);
-            }
-        });
 
         mobileRechargeButton.setBackground(new java.awt.Color(255, 212, 96));
         mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         mobileRechargeButton.setForeground(new java.awt.Color(234, 84, 85));
         mobileRechargeButton.setText("Mobile Recharge");
         mobileRechargeButton.setActionCommand("Withdraw");
-        mobileRechargeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mobileRechargeButtonActionPerformed(evt);
-            }
-        });
 
         payBillButton.setBackground(new java.awt.Color(255, 212, 96));
         payBillButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         payBillButton.setForeground(new java.awt.Color(234, 84, 85));
         payBillButton.setText("Pay Bill");
         payBillButton.setActionCommand("Withdraw");
-        payBillButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                payBillButtonActionPerformed(evt);
-            }
-        });
 
         statementButton.setBackground(new java.awt.Color(255, 212, 96));
         statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         statementButton.setForeground(new java.awt.Color(234, 84, 85));
         statementButton.setText("Statement");
         statementButton.setActionCommand("Withdraw");
-        statementButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statementButtonActionPerformed(evt);
-            }
-        });
 
         complainBoxButton.setBackground(new java.awt.Color(255, 212, 96));
         complainBoxButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
@@ -438,11 +371,6 @@ public class ClientProfile extends JFrameBase {
         complainBoxButton.setText("Complain Box");
         complainBoxButton.setActionCommand("Withdraw");
         complainBoxButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        complainBoxButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complainBoxButtonActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 212, 96));
@@ -455,11 +383,6 @@ public class ClientProfile extends JFrameBase {
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -538,62 +461,6 @@ public class ClientProfile extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void minimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimizeButtonActionPerformed
-
-    private void fundTransferButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fundTransferButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fundTransferButtonActionPerformed
-
-    private void withdrawFundButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawFundButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawFundButtonActionPerformed
-
-    private void mobileRechargeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileRechargeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mobileRechargeButtonActionPerformed
-
-    private void payBillButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBillButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_payBillButtonActionPerformed
-
-    private void statementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statementButtonActionPerformed
-
-    private void complainBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainBoxButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complainBoxButtonActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -603,12 +470,6 @@ public class ClientProfile extends JFrameBase {
     private javax.swing.JPanel complainBoxPanel;
     private javax.swing.JButton fundTransferButton;
     private javax.swing.JPanel fundTransferPanel;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -626,6 +487,12 @@ public class ClientProfile extends JFrameBase {
     private javax.swing.JPanel mobileRechargePanel;
     private javax.swing.JButton payBillButton;
     private javax.swing.JPanel payBillPanel;
+    private javax.swing.JButton profCBButton;
+    private javax.swing.JButton profFTButton;
+    private javax.swing.JButton profMRButton;
+    private javax.swing.JButton profPBButton;
+    private javax.swing.JButton profSButton;
+    private javax.swing.JButton profWFButton;
     private javax.swing.JButton statementButton;
     private javax.swing.JPanel statementPanel;
     private javax.swing.JButton withdrawFundButton;
@@ -648,6 +515,13 @@ public class ClientProfile extends JFrameBase {
             }
         });
         
+         navigateOnMouseAction(profFTButton, clientFundTransfer);
+        navigateOnMouseAction(profCBButton, clientComplainPage);
+        navigateOnMouseAction(profSButton, clientStatement);
+        navigateOnMouseAction(profPBButton, clientUtilityBill);
+        navigateOnMouseAction(profMRButton, clientMobileRecharge);
+        navigateOnMouseAction(profWFButton, clientWithdrawCash);
+        
         navigateOnMouseAction(fundTransferPanel, clientFundTransfer);
         navigateOnMouseAction(complainBoxPanel, clientComplainPage);
         navigateOnMouseAction(statementPanel, clientStatement);
@@ -661,6 +535,8 @@ public class ClientProfile extends JFrameBase {
         navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
+        
+        
 
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);

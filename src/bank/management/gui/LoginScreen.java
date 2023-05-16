@@ -196,11 +196,6 @@ public class LoginScreen extends JFrameBase {
         minimizeButton.setForeground(new java.awt.Color(255, 212, 96));
         minimizeButton.setText("_");
         minimizeButton.setBorder(null);
-        minimizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minimizeButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -261,10 +256,6 @@ public class LoginScreen extends JFrameBase {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
-    private void minimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimizeButtonActionPerformed
-
     public JPasswordField getPassword() {
         return password;
     }
@@ -311,7 +302,6 @@ public class LoginScreen extends JFrameBase {
             public void actionPerformed(ActionEvent e) {
                 try {
                     HashMap<String, String> mp = dbManager.getCredentialDB();
-                    System.out.println("Here::   " + mp);
                     String usernameValue = username.getText();
                     String passwordValue = new String(password.getPassword());
 

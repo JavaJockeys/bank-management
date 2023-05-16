@@ -368,11 +368,11 @@ public class ManagerClientInfo extends JFrameBase {
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(47, 47, 47)
-                                        .addComponent(password))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(password))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 3, Short.MAX_VALUE)
                                 .addComponent(jLabel11)
@@ -468,22 +468,12 @@ public class ManagerClientInfo extends JFrameBase {
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
         closeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(240, 123, 63));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         minimizeButton.setText("_");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
-        minimizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minimizeButtonActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 212, 96));
@@ -501,44 +491,24 @@ public class ManagerClientInfo extends JFrameBase {
         dashboardMenu.setForeground(new java.awt.Color(234, 84, 85));
         dashboardMenu.setText("Dashboard");
         dashboardMenu.setActionCommand("Withdraw");
-        dashboardMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardMenuActionPerformed(evt);
-            }
-        });
 
         homepageMenu.setBackground(new java.awt.Color(255, 212, 96));
         homepageMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         homepageMenu.setForeground(new java.awt.Color(234, 84, 85));
         homepageMenu.setText("Home");
         homepageMenu.setActionCommand("Withdraw");
-        homepageMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homepageMenuActionPerformed(evt);
-            }
-        });
 
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
 
         complainsMenu.setBackground(new java.awt.Color(255, 212, 96));
         complainsMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         complainsMenu.setForeground(new java.awt.Color(234, 84, 85));
         complainsMenu.setText("Complains");
         complainsMenu.setActionCommand("Withdraw");
-        complainsMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complainsMenuActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -607,33 +577,10 @@ public class ManagerClientInfo extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeButtonActionPerformed
-
-    private void minimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimizeButtonActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
     private void registerClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerClientButtonActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "New client added!");
     }//GEN-LAST:event_registerClientButtonActionPerformed
-
-    private void homepageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepageMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homepageMenuActionPerformed
-
-    private void dashboardMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashboardMenuActionPerformed
-
-    private void complainsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainsMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complainsMenuActionPerformed
 
     private void clientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientNameActionPerformed
         // TODO add your handling code here:

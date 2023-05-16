@@ -10,17 +10,11 @@ import java.awt.event.MouseMotionAdapter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import java.awt.Cursor;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-
-/**
- *
- * @author Osama
- */
 public abstract class JFrameBase extends JFrame {
     final private int titleBarHeight = 50;
     final protected GUIManager guiManager;

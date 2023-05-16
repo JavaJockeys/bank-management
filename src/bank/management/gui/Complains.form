@@ -244,9 +244,6 @@
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="minimizeButton">
           <Properties>
@@ -262,9 +259,6 @@
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="minimizeButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -308,9 +302,6 @@
             </Property>
             <Property name="label" type="java.lang.String" value="Client Info"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientInfoMenuActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="dashboardMenu">
           <Properties>
@@ -326,9 +317,6 @@
             <Property name="text" type="java.lang.String" value="Dashboard"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dashboardMenuActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="homepageMenu">
           <Properties>
@@ -344,9 +332,6 @@
             <Property name="text" type="java.lang.String" value="Home"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homepageMenuActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
@@ -362,9 +347,6 @@
             <Property name="text" type="java.lang.String" value="Log Out"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -163,22 +163,12 @@ public class Complains extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButtonActionPerformed(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(240, 123, 63));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         minimizeButton.setText("_");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
-        minimizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minimizeButtonActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 212, 96));
@@ -195,44 +185,24 @@ public class Complains extends JFrameBase {
         clientInfoMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         clientInfoMenu.setForeground(new java.awt.Color(234, 84, 85));
         clientInfoMenu.setLabel("Client Info");
-        clientInfoMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientInfoMenuActionPerformed(evt);
-            }
-        });
 
         dashboardMenu.setBackground(new java.awt.Color(255, 212, 96));
         dashboardMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         dashboardMenu.setForeground(new java.awt.Color(234, 84, 85));
         dashboardMenu.setText("Dashboard");
         dashboardMenu.setActionCommand("Withdraw");
-        dashboardMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardMenuActionPerformed(evt);
-            }
-        });
 
         homepageMenu.setBackground(new java.awt.Color(255, 212, 96));
         homepageMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         homepageMenu.setForeground(new java.awt.Color(234, 84, 85));
         homepageMenu.setText("Home");
         homepageMenu.setActionCommand("Withdraw");
-        homepageMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homepageMenuActionPerformed(evt);
-            }
-        });
 
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -300,30 +270,6 @@ public class Complains extends JFrameBase {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeButtonActionPerformed
-
-    private void minimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimizeButtonActionPerformed
-
-    private void clientInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientInfoMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clientInfoMenuActionPerformed
-
-    private void dashboardMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashboardMenuActionPerformed
-
-    private void homepageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepageMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homepageMenuActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ComplainList;

@@ -70,11 +70,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="0" min="-2" pref="206" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="200" max="-2" attributes="0"/>
@@ -145,6 +145,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="jProgressBar1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="60" green="d4" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -187,7 +192,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Osama Bin Qashem (2022-2-60-063)"/>
+            <Property name="text" type="java.lang.String" value="Osama Bin Qashem (2022-2-60-058&#x9;)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -195,7 +200,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Mahmudul Hasan Hamim (2022-2-60-063)"/>
+            <Property name="text" type="java.lang.String" value="Mahmudul Hasan Hamim (2022-2-60-079)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -203,7 +208,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Akash Shaha (2022-2-60-063)"/>
+            <Property name="text" type="java.lang.String" value="Akash Shaha (2022-2-60-081)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -211,7 +216,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="60" green="d4" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Shafuiqul Islam Fahim (2022-2-60-063)"/>
+            <Property name="text" type="java.lang.String" value="Shafuiqul Islam Fahim (2022-2-60-085)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">

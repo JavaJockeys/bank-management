@@ -9,10 +9,6 @@ import java.util.Date;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
-/**
- *
- * @author Osama
- */
 public class GUIManager {
 
     public static final long LOGIN_CACHE_TIME = 30 * 60 * 1000;

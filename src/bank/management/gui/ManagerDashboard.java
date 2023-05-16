@@ -381,11 +381,6 @@ public class ManagerDashboard extends JFrameBase {
         minimizeButton.setText("_");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
-        minimizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minimizeButtonActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 212, 96));
@@ -402,44 +397,24 @@ public class ManagerDashboard extends JFrameBase {
         clientInfoMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         clientInfoMenu.setForeground(new java.awt.Color(234, 84, 85));
         clientInfoMenu.setLabel("Client Info");
-        clientInfoMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientInfoMenuActionPerformed(evt);
-            }
-        });
 
         homepageMenu.setBackground(new java.awt.Color(255, 212, 96));
         homepageMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         homepageMenu.setForeground(new java.awt.Color(234, 84, 85));
         homepageMenu.setText("Home");
         homepageMenu.setActionCommand("Withdraw");
-        homepageMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homepageMenuActionPerformed(evt);
-            }
-        });
 
         complainsMenu.setBackground(new java.awt.Color(255, 212, 96));
         complainsMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         complainsMenu.setForeground(new java.awt.Color(234, 84, 85));
         complainsMenu.setText("Complains");
         complainsMenu.setActionCommand("Withdraw");
-        complainsMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complainsMenuActionPerformed(evt);
-            }
-        });
 
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -507,26 +482,6 @@ public class ManagerDashboard extends JFrameBase {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void minimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimizeButtonActionPerformed
-
-    private void clientInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientInfoMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clientInfoMenuActionPerformed
-
-    private void homepageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homepageMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homepageMenuActionPerformed
-
-    private void complainsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainsMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complainsMenuActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

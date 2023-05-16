@@ -5,10 +5,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-/**
- *
- * @author Osama
- */
 public class LoginInfo implements Serializable {
     private String username;
     private String password;

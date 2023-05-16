@@ -69,13 +69,13 @@ public class ManagerHomepage extends JFrameBase {
         jLabel16 = new javax.swing.JLabel();
         clientInfoPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
+        profCI = new javax.swing.JButton();
         dashboardPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jButton16 = new javax.swing.JButton();
+        profD = new javax.swing.JButton();
         complainPanel = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
+        profComp = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -108,15 +108,10 @@ public class ManagerHomepage extends JFrameBase {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/clientinfo.gif"))); // NOI18N
 
-        jButton11.setBackground(new java.awt.Color(255, 212, 96));
-        jButton11.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(234, 84, 85));
-        jButton11.setText("Client Info");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
+        profCI.setBackground(new java.awt.Color(255, 212, 96));
+        profCI.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profCI.setForeground(new java.awt.Color(234, 84, 85));
+        profCI.setText("Client Info");
 
         javax.swing.GroupLayout clientInfoPanelLayout = new javax.swing.GroupLayout(clientInfoPanel);
         clientInfoPanel.setLayout(clientInfoPanelLayout);
@@ -126,7 +121,7 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
-            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profCI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         clientInfoPanelLayout.setVerticalGroup(
             clientInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +129,7 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton11)
+                .addComponent(profCI)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -142,16 +137,11 @@ public class ManagerHomepage extends JFrameBase {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/dashboard.gif"))); // NOI18N
 
-        jButton16.setBackground(new java.awt.Color(255, 212, 96));
-        jButton16.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton16.setForeground(new java.awt.Color(234, 84, 85));
-        jButton16.setText("Dashboard");
-        jButton16.setActionCommand("Withdraw");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
-            }
-        });
+        profD.setBackground(new java.awt.Color(255, 212, 96));
+        profD.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profD.setForeground(new java.awt.Color(234, 84, 85));
+        profD.setText("Dashboard");
+        profD.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
         dashboardPanel.setLayout(dashboardPanelLayout);
@@ -161,7 +151,7 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         dashboardPanelLayout.setVerticalGroup(
             dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +159,7 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addComponent(jButton16)
+                .addComponent(profD)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -177,16 +167,11 @@ public class ManagerHomepage extends JFrameBase {
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
 
-        jButton12.setBackground(new java.awt.Color(255, 212, 96));
-        jButton12.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(234, 84, 85));
-        jButton12.setText("Complains");
-        jButton12.setActionCommand("Withdraw");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
+        profComp.setBackground(new java.awt.Color(255, 212, 96));
+        profComp.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profComp.setForeground(new java.awt.Color(234, 84, 85));
+        profComp.setText("Complains");
+        profComp.setActionCommand("Withdraw");
 
         javax.swing.GroupLayout complainPanelLayout = new javax.swing.GroupLayout(complainPanel);
         complainPanel.setLayout(complainPanelLayout);
@@ -196,7 +181,7 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap()
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profComp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         complainPanelLayout.setVerticalGroup(
             complainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +189,7 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
-                .addComponent(jButton12)
+                .addComponent(profComp)
                 .addGap(19, 19, 19))
         );
 
@@ -249,22 +234,12 @@ public class ManagerHomepage extends JFrameBase {
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
-        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeButtonMouseClicked(evt);
-            }
-        });
 
         minimizeButton.setBackground(new java.awt.Color(240, 123, 63));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         minimizeButton.setText("_");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
-        minimizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minimizeButtonActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 212, 96));
@@ -281,44 +256,24 @@ public class ManagerHomepage extends JFrameBase {
         clientInfoMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         clientInfoMenu.setForeground(new java.awt.Color(234, 84, 85));
         clientInfoMenu.setLabel("Client Info");
-        clientInfoMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientInfoMenuActionPerformed(evt);
-            }
-        });
 
         dashboardMenu.setBackground(new java.awt.Color(255, 212, 96));
         dashboardMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         dashboardMenu.setForeground(new java.awt.Color(234, 84, 85));
         dashboardMenu.setText("Dashboard");
         dashboardMenu.setActionCommand("Withdraw");
-        dashboardMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardMenuActionPerformed(evt);
-            }
-        });
 
         complainMenu.setBackground(new java.awt.Color(255, 212, 96));
         complainMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         complainMenu.setForeground(new java.awt.Color(234, 84, 85));
         complainMenu.setText("Complains");
         complainMenu.setActionCommand("Withdraw");
-        complainMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complainMenuActionPerformed(evt);
-            }
-        });
 
         logoutButton.setBackground(new java.awt.Color(255, 212, 96));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(234, 84, 85));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -387,20 +342,6 @@ public class ManagerHomepage extends JFrameBase {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
-        // TODO add your handling code here:
-        closeButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.exit(0);
-            }
-        });
-    }//GEN-LAST:event_closeButtonMouseClicked
-
-    private void minimizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimizeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minimizeButtonActionPerformed
-
     public JButton getCloseButton() {
         return closeButton;
     }
@@ -409,37 +350,9 @@ public class ManagerHomepage extends JFrameBase {
         return minimizeButton;
     }
 
-    private void clientInfoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientInfoMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clientInfoMenuActionPerformed
-
     public JButton getLogoutButton() {
         return logoutButton;
     }
-
-    private void dashboardMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashboardMenuActionPerformed
-
-    private void complainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complainMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_complainMenuActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -451,9 +364,6 @@ public class ManagerHomepage extends JFrameBase {
     private javax.swing.JPanel complainPanel;
     private javax.swing.JButton dashboardMenu;
     private javax.swing.JPanel dashboardPanel;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton16;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
@@ -464,6 +374,9 @@ public class ManagerHomepage extends JFrameBase {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
+    private javax.swing.JButton profCI;
+    private javax.swing.JButton profComp;
+    private javax.swing.JButton profD;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -475,6 +388,10 @@ public class ManagerHomepage extends JFrameBase {
         navigateOnButtonAction(clientInfoMenu, managerClientInfo);
         navigateOnButtonAction(dashboardMenu, managerDashboard);
         navigateOnButtonAction(complainMenu, complains);
+        
+         navigateOnButtonAction(profCI, managerClientInfo);
+        navigateOnButtonAction(profD, managerDashboard);
+        navigateOnButtonAction(profComp, complains);
 
         navigateOnMouseAction(clientInfoPanel, managerClientInfo);
         navigateOnMouseAction(dashboardPanel, managerDashboard);

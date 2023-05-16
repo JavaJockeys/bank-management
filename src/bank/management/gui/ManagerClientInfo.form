@@ -198,12 +198,12 @@
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                                  <Component id="password" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="username" min="-2" pref="190" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="password" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -553,9 +553,6 @@
               <Color id="Default Cursor"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="minimizeButton">
           <Properties>
@@ -571,9 +568,6 @@
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="minimizeButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -618,9 +612,6 @@
             <Property name="text" type="java.lang.String" value="Dashboard"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dashboardMenuActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="homepageMenu">
           <Properties>
@@ -636,9 +627,6 @@
             <Property name="text" type="java.lang.String" value="Home"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homepageMenuActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
@@ -654,9 +642,6 @@
             <Property name="text" type="java.lang.String" value="Log Out"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="complainsMenu">
           <Properties>
@@ -672,9 +657,6 @@
             <Property name="text" type="java.lang.String" value="Complains"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="complainsMenuActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

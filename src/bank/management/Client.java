@@ -14,7 +14,7 @@ public class Client extends TransactionParty implements Serializable {
     private ArrayList<Complain> complains;
     
     public Client() {
-        // for object serialization
+
     }
 
     public Client(String name, String phone, String accountNo, String address, String nationalID,

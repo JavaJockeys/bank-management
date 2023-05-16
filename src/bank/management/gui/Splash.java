@@ -61,6 +61,8 @@ public class Splash extends JFrameBase {
         jLabel1.setForeground(new java.awt.Color(255, 212, 96));
         jLabel1.setText("EWUBL");
 
+        jProgressBar1.setForeground(new java.awt.Color(255, 212, 96));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 40)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 212, 96));
         jLabel2.setText("East West University Bank Limited");
@@ -74,16 +76,16 @@ public class Splash extends JFrameBase {
         jLabel6.setText("Saif Khan (2022-2-60-063)");
 
         jLabel7.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel7.setText("Osama Bin Qashem (2022-2-60-063)");
+        jLabel7.setText("Osama Bin Qashem (2022-2-60-058\t)");
 
         jLabel8.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel8.setText("Mahmudul Hasan Hamim (2022-2-60-063)");
+        jLabel8.setText("Mahmudul Hasan Hamim (2022-2-60-079)");
 
         jLabel9.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel9.setText("Akash Shaha (2022-2-60-063)");
+        jLabel9.setText("Akash Shaha (2022-2-60-081)");
 
         jLabel10.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel10.setText("Shafuiqul Islam Fahim (2022-2-60-063)");
+        jLabel10.setText("Shafuiqul Islam Fahim (2022-2-60-085)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,11 +105,11 @@ public class Splash extends JFrameBase {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7)
                             .addComponent(jLabel5)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
