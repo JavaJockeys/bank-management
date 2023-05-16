@@ -103,14 +103,13 @@ public class DBManager {
     }
     
     private <T extends Serializable> void updateDB(String path, T db) throws UnsupportedEncodingException, FileNotFoundException, IOException, ClassNotFoundException {
-        //System.out.println(db.getDate());
-        System.out.println(db + " is being written in " + path);
+       
         FileOutputStream fos = new FileOutputStream(path);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(db);
         fos.close();
         oos.close();
-        System.out.println(db + " is written in the DB.");
+        
     }
     
     private void updateClientDB() throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, IOException {

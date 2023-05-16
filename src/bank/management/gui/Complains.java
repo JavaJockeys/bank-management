@@ -5,13 +5,8 @@
 package bank.management.gui;
 
 import bank.management.GUIManager;
-import bank.management.Navigator;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 

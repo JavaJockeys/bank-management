@@ -64,7 +64,7 @@ public class GUIManager {
         this.managerHomepage.setAllListeners();
         this.loginScreen.setAllListeners();
         
-        System.out.println(clientProfile.getType());
+       
         
     }
     
@@ -160,7 +160,7 @@ public class GUIManager {
         String username = loginInfo.getUsername();
         String password = loginInfo.getPassword();
 
-        System.out.println(username+ " " + password);
+        
 
         if (username.equals("admin") && password.equals("admin")) {
             updateLoginInfo();

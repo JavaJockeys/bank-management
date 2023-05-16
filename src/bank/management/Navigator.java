@@ -3,7 +3,6 @@ package bank.management;
 
 
 import bank.management.gui.JFrameBase;
-import bank.management.gui.Splash;
 import java.awt.Point;
 
 

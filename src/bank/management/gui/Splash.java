@@ -1,16 +1,12 @@
 
 package bank.management.gui;
 
-import bank.management.Client;
 import bank.management.DBManager;
 import bank.management.GUIManager;
-import bank.management.LoginInfo;
 import bank.management.Navigator;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -213,7 +209,6 @@ public class Splash extends JFrameBase {
             @Override
             public void run() {
                 loadProgressBar();
-                System.out.println("doneeeeeeeee");
                 try {
                     guiManager.loadCachedLoginInfo();
                 } catch (IOException ex) {

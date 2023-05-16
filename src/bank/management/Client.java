@@ -5,7 +5,6 @@ import java.util.*;
 public class Client extends TransactionParty implements Serializable {
     private String phone;
     private String accountNo;
-    private String address;
     private String nationalID;
     private String username;
     private String password;
@@ -22,7 +21,6 @@ public class Client extends TransactionParty implements Serializable {
         super(name);
         this.phone = phone;
         this.accountNo = accountNo;
-        this.address = address;
         this.nationalID = nationalID;
         this.username = username;
         this.password = password;
@@ -56,6 +54,7 @@ public class Client extends TransactionParty implements Serializable {
         return username;
     }
 
+    @Override
     public String getName() {
         return super.name;
     }
