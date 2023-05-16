@@ -9,6 +9,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -407,6 +408,7 @@ public class ClientComplainPage extends JFrameBase {
             
             String body = complainBox.getText();
             Complain complain = new Complain(guiManager.getUserClient(), body);
+            complain.setTXNDate(new Date());
             dbManager.getComplainDB().add(complain);
             clearAllFields();
             

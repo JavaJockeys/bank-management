@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package bank.management.gui;
 
 import bank.management.GUIManager;
@@ -10,10 +7,6 @@ import java.awt.event.ComponentEvent;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author Saif
- */
 public class Complains extends JFrameBase {
 
     /**
@@ -95,6 +88,7 @@ public class Complains extends JFrameBase {
         jPanel3.setBackground(new java.awt.Color(240, 123, 63));
 
         ComplainList.setColumns(20);
+        ComplainList.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         ComplainList.setRows(5);
         jScrollPane1.setViewportView(ComplainList);
         ComplainList. setEditable(false) ;

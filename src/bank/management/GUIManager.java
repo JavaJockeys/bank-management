@@ -203,6 +203,7 @@ public class GUIManager {
         String complainListString = new String();
         for (Complain complain : dbManager.getComplainDB()) {
             complainListString += "-------------------------------------------------------------------------------\n"
+                    +complain.getTXNDate()+ "\n"
                     + complain.getOwner().getName() + ":\n"
                     + complain.getBody() + "\n\n"
                     + "-------------------------------------------------------------------------------\n";
