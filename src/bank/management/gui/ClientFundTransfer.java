@@ -1,10 +1,10 @@
-
 package bank.management.gui;
 
 import bank.management.Client;
 import bank.management.DBManager;
 import bank.management.GUIManager;
 import bank.management.transaction.FundTransferHandler;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -51,7 +51,6 @@ public class ClientFundTransfer extends JFrameBase {
         return minimizeButton;
     }
 
-
     public JButton getComplainBoxButton() {
         return complainBoxButton;
     }
@@ -92,22 +91,7 @@ public class ClientFundTransfer extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        accountNo = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        amount = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        currentBalance = new javax.swing.JTextField();
-        sendButton = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        clientName = new javax.swing.JLabel();
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("ff0000", "ffff00", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM);
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -118,157 +102,25 @@ public class ClientFundTransfer extends JFrameBase {
         complainBoxButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         withdrawFundButton = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        amount = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        sendButton = new javax.swing.JButton();
+        currentBalance = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        accountNo = new javax.swing.JTextField();
+        clientName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(234, 84, 85));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 720));
-
-        jPanel2.setBackground(new java.awt.Color(247, 209, 209));
-
-        jPanel3.setBackground(new java.awt.Color(234, 84, 85));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel5.setText("Account no:");
-
-        jComboBox1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(45, 64, 89));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bank to Bank", "Bkash", "Nogod" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel6.setText("Transfer Type:");
-
-        accountNo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
-
-        amount.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel7.setText("Amount:");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 212, 96));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel9.setText("Current Balance:");
-
-        currentBalance.setEditable(false);
-        currentBalance.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-
-        sendButton.setBackground(new java.awt.Color(255, 212, 96));
-        sendButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        sendButton.setForeground(new java.awt.Color(234, 84, 85));
-        sendButton.setText("Send");
-        sendButton.setActionCommand("Withdraw");
-        sendButton.setEnabled(false);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(accountNo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(currentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(256, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(accountNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(sendButton)
-                .addGap(65, 65, 65)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(currentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
-        );
-
-        jLabel12.setBackground(new java.awt.Color(255, 212, 96));
-        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(45, 64, 89));
-        jLabel12.setText("Client name");
-
-        jLabel16.setBackground(new java.awt.Color(255, 212, 96));
-        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(45, 64, 89));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Fund Transfer Menu");
-
-        clientName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
-        clientName.setForeground(new java.awt.Color(45, 64, 89));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 33, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(clientName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(clientName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
 
         closeButton.setBackground(new java.awt.Color(234, 84, 85));
         closeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
@@ -278,7 +130,7 @@ public class ClientFundTransfer extends JFrameBase {
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        minimizeButton.setText("_");
+        minimizeButton.setText("-");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
 
@@ -329,6 +181,60 @@ public class ClientFundTransfer extends JFrameBase {
         withdrawFundButton.setText("Withdraw Fund");
         withdrawFundButton.setActionCommand("Withdraw");
 
+        jLabel16.setBackground(new java.awt.Color(255, 212, 96));
+        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Fund Transfer Menu");
+
+        jLabel12.setBackground(new java.awt.Color(255, 212, 96));
+        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel12.setText("Client name");
+
+        jComboBox1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(45, 64, 89));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bank to Bank", "Bkash", "Nogod" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel6.setText("Transfer Type:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("Organization:");
+
+        amount.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel7.setText("Amount:");
+
+        sendButton.setBackground(new java.awt.Color(255, 212, 96));
+        sendButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        sendButton.setForeground(new java.awt.Color(234, 84, 85));
+        sendButton.setText("Send");
+        sendButton.setActionCommand("Withdraw");
+        sendButton.setEnabled(false);
+
+        currentBalance.setEditable(false);
+        currentBalance.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel9.setText("Current Balance:");
+
+        accountNo.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
+
+        clientName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        clientName.setForeground(new java.awt.Color(255, 212, 96));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -344,30 +250,84 @@ public class ClientFundTransfer extends JFrameBase {
                         .addComponent(closeButton)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(mobileRechargeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                            .addComponent(payBillButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(statementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(complainBoxButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(withdrawFundButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel12)
+                        .addGap(223, 223, 223)
+                        .addComponent(jLabel16)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(statementButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(payBillButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(mobileRechargeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(withdrawFundButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(backButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(complainBoxButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(amount)
+                                            .addComponent(accountNo)
+                                            .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(263, 263, 263))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(currentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(clientName, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(10, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(closeButton)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(minimizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clientName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(closeButton)
-                            .addComponent(jLabel3)))
-                    .addComponent(minimizeButton))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(currentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(accountNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sendButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(backButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(withdrawFundButton)
@@ -379,13 +339,9 @@ public class ClientFundTransfer extends JFrameBase {
                         .addComponent(statementButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(complainBoxButton)
-                        .addGap(362, 362, 362)
-                        .addComponent(logoutButton)
-                        .addGap(31, 31, 31))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logoutButton)))
+                .addGap(192, 192, 192))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,12 +349,12 @@ public class ClientFundTransfer extends JFrameBase {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
 
         pack();
@@ -423,8 +379,6 @@ public class ClientFundTransfer extends JFrameBase {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     private javax.swing.JButton mobileRechargeButton;
@@ -441,17 +395,16 @@ public class ClientFundTransfer extends JFrameBase {
         ClientStatement clientStatement = guiManager.getClientStatement();
         ClientUtilityBill clientUtilityBill = guiManager.getClientUtilityBill();
         ClientWithdrawCash clientWithdrawCash = guiManager.getClientWithdrawCash();
-        
+
         navigateOnButtonAction(complainBoxButton, clientComplainPage);
         navigateOnButtonAction(mobileRechargeButton, clientMobileRecharge);
         navigateOnButtonAction(statementButton, clientStatement);
         navigateOnButtonAction(payBillButton, clientUtilityBill);
         navigateOnButtonAction(withdrawFundButton, clientWithdrawCash);
-        
-        
+
         sendButton.addActionListener((ActionEvent e) -> {
             DBManager dbManager = guiManager.getDBManager();
-            
+
             String accountNoValue = accountNo.getText();
             String amountValue = amount.getText();
             for (Client client : dbManager.getClientDB()) {
@@ -459,7 +412,7 @@ public class ClientFundTransfer extends JFrameBase {
                     FundTransferHandler fth = new FundTransferHandler(dbManager, guiManager.getUserClient(), client);
                     try {
                         fth.makeTransaction(Double.parseDouble(amountValue));
-                    } catch(NumberFormatException nfe) {
+                    } catch (NumberFormatException nfe) {
                         JOptionPane.showMessageDialog(ClientFundTransfer.this, "Invalid amount!");
                     } catch (Client.InsufficientBalanceException ex) {
                         JOptionPane.showMessageDialog(ClientFundTransfer.this, "Insufficient Balance!");
@@ -472,7 +425,7 @@ public class ClientFundTransfer extends JFrameBase {
             }
             JOptionPane.showMessageDialog(ClientFundTransfer.this, "No account found!");
         });
-        
+
         ActionListener enterPressListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -480,14 +433,14 @@ public class ClientFundTransfer extends JFrameBase {
             }
 
         };
-        
+
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentShown(ComponentEvent e) {
                 loadVisibleData();
             }
         });
-        
+
         DocumentListener documentListener = new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -500,20 +453,48 @@ public class ClientFundTransfer extends JFrameBase {
             }
 
             @Override
-            public void changedUpdate(DocumentEvent e) {}
+            public void changedUpdate(DocumentEvent e) {
+            }
         };
-        
+
         amount.getDocument().addDocumentListener(documentListener);
         amount.addActionListener(enterPressListener);
         accountNo.getDocument().addDocumentListener(documentListener);
         accountNo.addActionListener(enterPressListener);
 
+       
+        complainBoxButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        statementButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        payBillButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        mobileRechargeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        withdrawFundButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        minimizeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        logoutButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        closeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        sendButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+               
+        addColorChangeOnHover(complainBoxButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(statementButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(payBillButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(mobileRechargeButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(withdrawFundButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(minimizeButton,"FF1000","FFD460","FFD460","000000");
+        addColorChangeOnHover(closeButton,"FF1000","FFD460","FFD460","000000");
+        addColorChangeOnHover(backButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(logoutButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(sendButton,"FF1000","FFD460","FFD460","EA5455");
+        
+        
+        minimizeButton.setOpaque(false);
+        closeButton.setOpaque(false);
         setBackButtonAction(backButton);
         setMinimizeButtonAction(minimizeButton);
         setLogoutButtonAction(logoutButton);
         setCloseButtonAction(closeButton);
     }
-    
+
     private void toggleSendButton() {
         String data[] = new String[2];
         data[0] = amount.getText();
@@ -527,7 +508,7 @@ public class ClientFundTransfer extends JFrameBase {
         clientName.setText(userClient.getName());
         currentBalance.setText(Double.toString(userClient.getBalance()));
     }
-    
+
     private void clearAllFields() {
         amount.setText("");
         accountNo.setText("");

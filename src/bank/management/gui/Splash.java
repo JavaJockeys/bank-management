@@ -29,7 +29,8 @@ public class Splash extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("7B90C2", "2D4059", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM)
+        ;
         jLabel1 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();

@@ -1,7 +1,7 @@
-
 package bank.management.gui;
 
 import bank.management.GUIManager;
+import java.awt.Cursor;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -9,6 +9,7 @@ public class ManagerHomepage extends JFrameBase {
 
     /**
      * Creates new form Manager_Homepage
+     *
      * @param guiManager
      */
     public ManagerHomepage(GUIManager guiManager) {
@@ -54,8 +55,15 @@ public class ManagerHomepage extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("F07B3F", "ffff00", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM);
+        closeButton = new javax.swing.JButton();
+        minimizeButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        clientInfoMenu = new javax.swing.JButton();
+        dashboardMenu = new javax.swing.JButton();
+        complainMenu = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         clientInfoPanel = new javax.swing.JPanel();
@@ -67,156 +75,12 @@ public class ManagerHomepage extends JFrameBase {
         complainPanel = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         profComp = new javax.swing.JButton();
-        closeButton = new javax.swing.JButton();
-        minimizeButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        backButton = new javax.swing.JButton();
-        clientInfoMenu = new javax.swing.JButton();
-        dashboardMenu = new javax.swing.JButton();
-        complainMenu = new javax.swing.JButton();
-        logoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(240, 123, 63));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 720));
-
-        jPanel2.setBackground(new java.awt.Color(238, 190, 165));
-
-        jLabel12.setBackground(new java.awt.Color(255, 212, 96));
-        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(45, 64, 89));
-        jLabel12.setText("Manager");
-
-        jLabel16.setBackground(new java.awt.Color(255, 212, 96));
-        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(45, 64, 89));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Homepage");
-
-        clientInfoPanel.setBackground(new java.awt.Color(240, 123, 63));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/clientinfo.gif"))); // NOI18N
-
-        profCI.setBackground(new java.awt.Color(255, 212, 96));
-        profCI.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profCI.setForeground(new java.awt.Color(234, 84, 85));
-        profCI.setText("Client Info");
-
-        javax.swing.GroupLayout clientInfoPanelLayout = new javax.swing.GroupLayout(clientInfoPanel);
-        clientInfoPanel.setLayout(clientInfoPanelLayout);
-        clientInfoPanelLayout.setHorizontalGroup(
-            clientInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(clientInfoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-            .addComponent(profCI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        clientInfoPanelLayout.setVerticalGroup(
-            clientInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(clientInfoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(profCI)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        dashboardPanel.setBackground(new java.awt.Color(240, 123, 63));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/dashboard.gif"))); // NOI18N
-
-        profD.setBackground(new java.awt.Color(255, 212, 96));
-        profD.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profD.setForeground(new java.awt.Color(234, 84, 85));
-        profD.setText("Dashboard");
-        profD.setActionCommand("Withdraw");
-
-        javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
-        dashboardPanel.setLayout(dashboardPanelLayout);
-        dashboardPanelLayout.setHorizontalGroup(
-            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(profD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        dashboardPanelLayout.setVerticalGroup(
-            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17)
-                .addGap(18, 18, 18)
-                .addComponent(profD)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        complainPanel.setBackground(new java.awt.Color(240, 123, 63));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
-
-        profComp.setBackground(new java.awt.Color(255, 212, 96));
-        profComp.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profComp.setForeground(new java.awt.Color(234, 84, 85));
-        profComp.setText("Complains");
-        profComp.setActionCommand("Withdraw");
-
-        javax.swing.GroupLayout complainPanelLayout = new javax.swing.GroupLayout(complainPanel);
-        complainPanel.setLayout(complainPanelLayout);
-        complainPanelLayout.setHorizontalGroup(
-            complainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(complainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(profComp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        complainPanelLayout.setVerticalGroup(
-            complainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(complainPanelLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addComponent(profComp)
-                .addGap(19, 19, 19))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(clientInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(complainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(127, 127, 127)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(clientInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(complainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(246, 246, 246))
-        );
 
         closeButton.setBackground(new java.awt.Color(240, 123, 63));
         closeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
@@ -226,7 +90,7 @@ public class ManagerHomepage extends JFrameBase {
 
         minimizeButton.setBackground(new java.awt.Color(240, 123, 63));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        minimizeButton.setText("_");
+        minimizeButton.setText("-");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
 
@@ -264,6 +128,106 @@ public class ManagerHomepage extends JFrameBase {
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
+        jLabel12.setBackground(new java.awt.Color(255, 212, 96));
+        jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(45, 64, 89));
+        jLabel12.setText("Manager");
+
+        jLabel16.setBackground(new java.awt.Color(255, 212, 96));
+        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(45, 64, 89));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Homepage");
+
+        clientInfoPanel.setBackground(new java.awt.Color(254, 247, 181));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/clientinfo.gif"))); // NOI18N
+
+        profCI.setBackground(new java.awt.Color(255, 212, 96));
+        profCI.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profCI.setForeground(new java.awt.Color(234, 84, 85));
+        profCI.setText("Client Info");
+
+        javax.swing.GroupLayout clientInfoPanelLayout = new javax.swing.GroupLayout(clientInfoPanel);
+        clientInfoPanel.setLayout(clientInfoPanelLayout);
+        clientInfoPanelLayout.setHorizontalGroup(
+            clientInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(clientInfoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+            .addComponent(profCI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        clientInfoPanelLayout.setVerticalGroup(
+            clientInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(clientInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(profCI)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        dashboardPanel.setBackground(new java.awt.Color(254, 247, 181));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/dashboard.gif"))); // NOI18N
+
+        profD.setBackground(new java.awt.Color(255, 212, 96));
+        profD.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profD.setForeground(new java.awt.Color(234, 84, 85));
+        profD.setText("Dashboard");
+        profD.setActionCommand("Withdraw");
+
+        javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
+        dashboardPanel.setLayout(dashboardPanelLayout);
+        dashboardPanelLayout.setHorizontalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(profD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dashboardPanelLayout.setVerticalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(profD)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        complainPanel.setBackground(new java.awt.Color(254, 247, 181));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
+
+        profComp.setBackground(new java.awt.Color(255, 212, 96));
+        profComp.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        profComp.setForeground(new java.awt.Color(234, 84, 85));
+        profComp.setText("Complains");
+        profComp.setActionCommand("Withdraw");
+
+        javax.swing.GroupLayout complainPanelLayout = new javax.swing.GroupLayout(complainPanel);
+        complainPanel.setLayout(complainPanelLayout);
+        complainPanelLayout.setHorizontalGroup(
+            complainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(complainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(profComp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        complainPanelLayout.setVerticalGroup(
+            complainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(complainPanelLayout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(profComp)
+                .addGap(19, 19, 19))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -272,35 +236,52 @@ public class ManagerHomepage extends JFrameBase {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(minimizeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(closeButton)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(clientInfoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dashboardMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                            .addComponent(complainMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel12)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(complainMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(dashboardMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(clientInfoMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(backButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clientInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(complainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 22, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(minimizeButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(closeButton))
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(33, 33, 33))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(closeButton)
+                        .addComponent(minimizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(closeButton)
-                            .addComponent(jLabel3)))
-                    .addComponent(minimizeButton))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(backButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clientInfoMenu)
@@ -308,24 +289,24 @@ public class ManagerHomepage extends JFrameBase {
                         .addComponent(dashboardMenu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(complainMenu)
-                        .addGap(458, 458, 458)
-                        .addComponent(logoutButton)
-                        .addGap(31, 31, 31))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addComponent(logoutButton))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(clientInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(complainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(371, 371, 371))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 789, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
@@ -360,7 +341,6 @@ public class ManagerHomepage extends JFrameBase {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton minimizeButton;
     private javax.swing.JButton profCI;
@@ -373,12 +353,12 @@ public class ManagerHomepage extends JFrameBase {
         ManagerClientInfo managerClientInfo = guiManager.getManagerClientInfo();
         ManagerDashboard managerDashboard = guiManager.getManagerDashboard();
         Complains complains = guiManager.getComplains();
-        
+
         navigateOnButtonAction(clientInfoMenu, managerClientInfo);
         navigateOnButtonAction(dashboardMenu, managerDashboard);
         navigateOnButtonAction(complainMenu, complains);
-        
-         navigateOnButtonAction(profCI, managerClientInfo);
+
+        navigateOnButtonAction(profCI, managerClientInfo);
         navigateOnButtonAction(profD, managerDashboard);
         navigateOnButtonAction(profComp, complains);
 
@@ -390,10 +370,37 @@ public class ManagerHomepage extends JFrameBase {
         setMinimizeButtonAction(minimizeButton);
         setLogoutButtonAction(logoutButton);
         setCloseButtonAction(closeButton);
+
+        profCI.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        profD.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        profComp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        clientInfoMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        dashboardMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        complainMenu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        minimizeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        logoutButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        closeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        minimizeButton.setOpaque(false);
+        closeButton.setOpaque(false);
+
+        addColorChangeOnHover(profCI, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(profD, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(profComp, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(clientInfoMenu, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(dashboardMenu, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(complainMenu, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(logoutButton, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(backButton, "FF1000", "FFD460", "FFD460", "EA5455");
+        addColorChangeOnHover(minimizeButton, "FF1000", "FFD460", "FFD460", "000000");
+        addColorChangeOnHover(closeButton, "FF1000", "FFD460", "FFD460", "000000");
     }
 
     @Override
     public void loadVisibleData() {
-        
+
     }
 }

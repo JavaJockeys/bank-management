@@ -28,6 +28,7 @@ public class LoginScreen extends JFrameBase {
 
     /**
      * Creates new form Login_Screen
+     *
      * @param guiManager
      */
     public LoginScreen(GUIManager guiManager) {
@@ -49,7 +50,8 @@ public class LoginScreen extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("7B90C2", "F8F6F4", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM)
+        ;
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -190,11 +192,12 @@ public class LoginScreen extends JFrameBase {
         closeButton.setForeground(new java.awt.Color(255, 212, 96));
         closeButton.setText("X");
         closeButton.setBorder(null);
+        closeButton.setOpaque(true);
 
         minimizeButton.setBackground(new java.awt.Color(45, 64, 89));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         minimizeButton.setForeground(new java.awt.Color(255, 212, 96));
-        minimizeButton.setText("_");
+        minimizeButton.setText("-");
         minimizeButton.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -211,9 +214,9 @@ public class LoginScreen extends JFrameBase {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                         .addComponent(minimizeButton)))
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeButton)
                 .addContainerGap())
         );
@@ -326,7 +329,7 @@ public class LoginScreen extends JFrameBase {
                         JOptionPane.showMessageDialog(LoginScreen.this, "Wrong Password!.", "Invalid password!", 0);
                         return;
                     }
-                    
+
                     guiManager.loginUser(usernameValue, passwordValue);
                     clearAllFields();
                 } catch (IOException ex) {
@@ -339,7 +342,7 @@ public class LoginScreen extends JFrameBase {
                     } catch (Navigator.nullFrameException ex) {
                         Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }catch (Exception ex) {
+                } catch (Exception ex) {
                     System.out.println(ex);
                 }
             }
@@ -376,17 +379,19 @@ public class LoginScreen extends JFrameBase {
         password.getDocument().addDocumentListener(documentListener);
         password.addActionListener(enterPressListener);
 
+        minimizeButton.setOpaque(false);
+        closeButton.setOpaque(false);
         setMinimizeButtonAction(minimizeButton);
         setCloseButtonAction(closeButton);
     }
-    
+
     private void toggleLoginButton() {
         String[] data = new String[2];
         data[0] = username.getText();
         data[1] = new String(password.getPassword());
         toggleButtonEnable(data, loginButton);
     }
-    
+
     private void clearAllFields() {
         username.setText("");
         password.setText("");
@@ -394,6 +399,6 @@ public class LoginScreen extends JFrameBase {
 
     @Override
     public void loadVisibleData() {
-        
+
     }
 }

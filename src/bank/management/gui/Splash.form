@@ -50,6 +50,9 @@
           <Color blue="59" green="40" red="2d" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JFrameBase.GradientBackgroundPanel(&quot;7B90C2&quot;, &quot;2D4059&quot;, JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM)&#xa;"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
