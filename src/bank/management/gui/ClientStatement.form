@@ -217,7 +217,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
@@ -231,7 +231,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fund Transfer"/>
           </Properties>
@@ -245,7 +245,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Mobile Recharge"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -260,7 +260,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pay Bill"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -275,7 +275,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Complain Box"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -290,7 +290,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Log Out"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -305,7 +305,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Withdraw Fund"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>

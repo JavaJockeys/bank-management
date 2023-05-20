@@ -220,41 +220,15 @@ public abstract class JFrameBase extends JFrame {
         String backGroundColorDown = "";
         String fontColor = "";
 
-        String newButtonColor = "#FFFFFF";
+        String newButtonColor = "#352D4B";
         String buttonColor = "#BFA4DB";
         String newButtonFontColor = "#BFA4DB";
-        String buttonFontColor = "#FFFFFF";
+        String buttonFontColor = "#352D4B";
 
         Color hoverColor = Color.decode(newButtonColor);
         Color fontHoverlColor = Color.decode(newButtonFontColor);
         Color normalColor = Color.decode(buttonColor);
         Color fontNormalColo = Color.decode(buttonFontColor);
-
-        button.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(hoverColor);
-                button.setForeground(fontHoverlColor);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(normalColor);
-                button.setForeground(fontNormalColo);
-            }
-        });
-    }
-
-    public static void addColorChangeOnHover(JButton button, String oldFontColor) {
-
-        String newButtonColor = "#BFA4DB";
-        String buttonColor = "#" + oldFontColor;
-        String newButtonFontColor = "#BFA4DB";
-
-        Color hoverColor = Color.decode(newButtonColor);
-        Color fontHoverlColor = Color.decode(buttonColor);
-        Color normalColor = Color.decode(newButtonFontColor);
-        Color fontNormalColo = Color.decode(oldFontColor);
 
         button.addMouseListener(new MouseAdapter() {
             @Override

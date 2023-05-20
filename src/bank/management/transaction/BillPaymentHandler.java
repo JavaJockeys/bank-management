@@ -11,10 +11,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Osama
- */
 public class BillPaymentHandler extends TransactionHandler {
     private Client sender;
     private Organization receiver;

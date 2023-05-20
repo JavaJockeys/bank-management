@@ -150,41 +150,41 @@ public class ClientWithdrawCash extends JFrameBase {
 
         backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setForeground(new java.awt.Color(53, 45, 75));
         backButton.setText("Back");
 
         fundTransferButton.setBackground(new java.awt.Color(191, 164, 219));
         fundTransferButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        fundTransferButton.setForeground(new java.awt.Color(255, 255, 255));
+        fundTransferButton.setForeground(new java.awt.Color(53, 45, 75));
         fundTransferButton.setText("Fund Transfer");
 
         mobileRechargeButton.setBackground(new java.awt.Color(191, 164, 219));
         mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        mobileRechargeButton.setForeground(new java.awt.Color(255, 255, 255));
+        mobileRechargeButton.setForeground(new java.awt.Color(53, 45, 75));
         mobileRechargeButton.setText("Mobile Recharge");
         mobileRechargeButton.setActionCommand("Withdraw");
 
         payBillButton.setBackground(new java.awt.Color(191, 164, 219));
         payBillButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        payBillButton.setForeground(new java.awt.Color(255, 255, 255));
+        payBillButton.setForeground(new java.awt.Color(53, 45, 75));
         payBillButton.setText("Pay Bill");
         payBillButton.setActionCommand("Withdraw");
 
         statementButton.setBackground(new java.awt.Color(191, 164, 219));
         statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        statementButton.setForeground(new java.awt.Color(255, 255, 255));
+        statementButton.setForeground(new java.awt.Color(53, 45, 75));
         statementButton.setText("Statement");
         statementButton.setActionCommand("Withdraw");
 
         complainBoxButton.setBackground(new java.awt.Color(191, 164, 219));
         complainBoxButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        complainBoxButton.setForeground(new java.awt.Color(255, 255, 255));
+        complainBoxButton.setForeground(new java.awt.Color(53, 45, 75));
         complainBoxButton.setText("Complain Box");
         complainBoxButton.setActionCommand("Withdraw");
 
         logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setForeground(new java.awt.Color(53, 45, 75));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
@@ -222,7 +222,7 @@ public class ClientWithdrawCash extends JFrameBase {
 
         withdrawButton.setBackground(new java.awt.Color(191, 164, 219));
         withdrawButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        withdrawButton.setForeground(new java.awt.Color(255, 255, 255));
+        withdrawButton.setForeground(new java.awt.Color(53, 45, 75));
         withdrawButton.setText("Withdraw");
         withdrawButton.setEnabled(false);
 

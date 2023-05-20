@@ -104,29 +104,29 @@ public class ManagerHomepage extends JFrameBase {
 
         backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setForeground(new java.awt.Color(53, 45, 75));
         backButton.setText("Back");
 
         clientInfoMenu.setBackground(new java.awt.Color(191, 164, 219));
         clientInfoMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        clientInfoMenu.setForeground(new java.awt.Color(255, 255, 255));
+        clientInfoMenu.setForeground(new java.awt.Color(53, 45, 75));
         clientInfoMenu.setLabel("Client Info");
 
         dashboardMenu.setBackground(new java.awt.Color(191, 164, 219));
         dashboardMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        dashboardMenu.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardMenu.setForeground(new java.awt.Color(53, 45, 75));
         dashboardMenu.setText("Dashboard");
         dashboardMenu.setActionCommand("Withdraw");
 
         complainMenu.setBackground(new java.awt.Color(191, 164, 219));
         complainMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        complainMenu.setForeground(new java.awt.Color(255, 255, 255));
+        complainMenu.setForeground(new java.awt.Color(53, 45, 75));
         complainMenu.setText("Complains");
         complainMenu.setActionCommand("Withdraw");
 
         logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setForeground(new java.awt.Color(53, 45, 75));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
@@ -147,7 +147,7 @@ public class ManagerHomepage extends JFrameBase {
 
         profCI.setBackground(new java.awt.Color(191, 164, 219));
         profCI.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profCI.setForeground(new java.awt.Color(255, 255, 255));
+        profCI.setForeground(new java.awt.Color(53, 45, 75));
         profCI.setText("Client Info");
 
         javax.swing.GroupLayout clientInfoPanelLayout = new javax.swing.GroupLayout(clientInfoPanel);
@@ -176,7 +176,7 @@ public class ManagerHomepage extends JFrameBase {
 
         profD.setBackground(new java.awt.Color(191, 164, 219));
         profD.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profD.setForeground(new java.awt.Color(255, 255, 255));
+        profD.setForeground(new java.awt.Color(53, 45, 75));
         profD.setText("Dashboard");
         profD.setActionCommand("Withdraw");
 
@@ -206,7 +206,7 @@ public class ManagerHomepage extends JFrameBase {
 
         profComp.setBackground(new java.awt.Color(191, 164, 219));
         profComp.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profComp.setForeground(new java.awt.Color(255, 255, 255));
+        profComp.setForeground(new java.awt.Color(53, 45, 75));
         profComp.setText("Complains");
         profComp.setActionCommand("Withdraw");
 

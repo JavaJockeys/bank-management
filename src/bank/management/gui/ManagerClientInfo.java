@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package bank.management.gui;
 
 import bank.management.Client;
@@ -21,10 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-/**
- *
- * @author Saif
- */
+
 public class ManagerClientInfo extends JFrameBase {
 
     /**
@@ -168,30 +162,30 @@ public class ManagerClientInfo extends JFrameBase {
 
         backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setForeground(new java.awt.Color(53, 45, 75));
         backButton.setText("Back");
 
         dashboardMenu.setBackground(new java.awt.Color(191, 164, 219));
         dashboardMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        dashboardMenu.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardMenu.setForeground(new java.awt.Color(53, 45, 75));
         dashboardMenu.setText("Dashboard");
         dashboardMenu.setActionCommand("Withdraw");
 
         homepageMenu.setBackground(new java.awt.Color(191, 164, 219));
         homepageMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        homepageMenu.setForeground(new java.awt.Color(255, 255, 255));
+        homepageMenu.setForeground(new java.awt.Color(53, 45, 75));
         homepageMenu.setText("Home");
         homepageMenu.setActionCommand("Withdraw");
 
         logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setForeground(new java.awt.Color(53, 45, 75));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
         complainsMenu.setBackground(new java.awt.Color(191, 164, 219));
         complainsMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        complainsMenu.setForeground(new java.awt.Color(255, 255, 255));
+        complainsMenu.setForeground(new java.awt.Color(53, 45, 75));
         complainsMenu.setText("Complains");
         complainsMenu.setActionCommand("Withdraw");
 
@@ -370,7 +364,7 @@ public class ManagerClientInfo extends JFrameBase {
 
         registerClientButton.setBackground(new java.awt.Color(191, 164, 219));
         registerClientButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        registerClientButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerClientButton.setForeground(new java.awt.Color(53, 45, 75));
         registerClientButton.setText("Save");
         registerClientButton.setActionCommand("Withdraw");
         registerClientButton.setEnabled(false);

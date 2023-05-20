@@ -134,41 +134,41 @@ public class ClientComplainPage extends JFrameBase {
 
         backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setForeground(new java.awt.Color(53, 45, 75));
         backButton.setText("Back");
 
         fundTransferButton.setBackground(new java.awt.Color(191, 164, 219));
         fundTransferButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        fundTransferButton.setForeground(new java.awt.Color(255, 255, 255));
+        fundTransferButton.setForeground(new java.awt.Color(53, 45, 75));
         fundTransferButton.setText("Fund Transfer");
 
         mobileRechargeButton.setBackground(new java.awt.Color(191, 164, 219));
         mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        mobileRechargeButton.setForeground(new java.awt.Color(255, 255, 255));
+        mobileRechargeButton.setForeground(new java.awt.Color(53, 45, 75));
         mobileRechargeButton.setText("Mobile Recharge");
         mobileRechargeButton.setActionCommand("Withdraw");
 
         payBillButton.setBackground(new java.awt.Color(191, 164, 219));
         payBillButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        payBillButton.setForeground(new java.awt.Color(255, 255, 255));
+        payBillButton.setForeground(new java.awt.Color(53, 45, 75));
         payBillButton.setText("Pay Bill");
         payBillButton.setActionCommand("Withdraw");
 
         statementButton.setBackground(new java.awt.Color(191, 164, 219));
         statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        statementButton.setForeground(new java.awt.Color(255, 255, 255));
+        statementButton.setForeground(new java.awt.Color(53, 45, 75));
         statementButton.setText("Statement");
         statementButton.setActionCommand("Withdraw");
 
         logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setForeground(new java.awt.Color(53, 45, 75));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
         withdrawFundButton.setBackground(new java.awt.Color(191, 164, 219));
         withdrawFundButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        withdrawFundButton.setForeground(new java.awt.Color(255, 255, 255));
+        withdrawFundButton.setForeground(new java.awt.Color(53, 45, 75));
         withdrawFundButton.setText("Withdraw Fund");
         withdrawFundButton.setActionCommand("Withdraw");
 
@@ -189,7 +189,7 @@ public class ClientComplainPage extends JFrameBase {
 
         sendButton.setBackground(new java.awt.Color(191, 164, 219));
         sendButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        sendButton.setForeground(new java.awt.Color(255, 255, 255));
+        sendButton.setForeground(new java.awt.Color(53, 45, 75));
         sendButton.setText("Send");
         sendButton.setActionCommand("Withdraw");
         sendButton.setEnabled(false);

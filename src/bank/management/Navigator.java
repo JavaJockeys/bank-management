@@ -6,10 +6,7 @@ import bank.management.gui.JFrameBase;
 import java.awt.Point;
 
 
-/**
- *
- * @author Osama
- */
+
 public class Navigator {
 
     private JFrameBase[] frames;

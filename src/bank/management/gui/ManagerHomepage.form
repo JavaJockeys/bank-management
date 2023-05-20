@@ -196,7 +196,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
@@ -210,7 +210,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="label" type="java.lang.String" value="Client Info"/>
           </Properties>
@@ -224,7 +224,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Dashboard"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -239,7 +239,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Complains"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -254,7 +254,7 @@
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="4b" green="2d" red="35" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Log Out"/>
             <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -336,7 +336,7 @@
                   <Font name="Segoe UI Semilight" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="4b" green="2d" red="35" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Client Info"/>
               </Properties>
@@ -390,7 +390,7 @@
                   <Font name="Segoe UI Semilight" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="4b" green="2d" red="35" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dashboard"/>
                 <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>
@@ -445,7 +445,7 @@
                   <Font name="Segoe UI Semilight" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="4b" green="2d" red="35" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Complains"/>
                 <Property name="actionCommand" type="java.lang.String" value="Withdraw"/>

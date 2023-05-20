@@ -193,7 +193,7 @@ public class Splash extends JFrameBase {
             } catch (InterruptedException ex) {
                 System.out.println(ex);
             }
-            progress += random.nextInt(10) + 5;
+            progress += random.nextInt(1) + 5;
             jProgressBar1.setValue(progress);
         }
         jProgressBar1.setValue(100);

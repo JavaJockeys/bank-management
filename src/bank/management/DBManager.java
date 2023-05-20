@@ -1,6 +1,6 @@
 package bank.management;
 
-
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBManager {
+
     private final String currentDir = System.getProperty("user.dir");
     private final String clientPath = currentDir + "\\DB\\clients.db";
     private final String transactionPath = currentDir + "\\DB\\transactions.db";
@@ -30,15 +31,21 @@ public class DBManager {
     public HashMap<String, String> getCredentialDB() {
         return credentialDB;
     }
-    
+
     public DBManager() {
         this.clientDB = new ArrayList<>();
         this.transactionDB = new ArrayList<>();
         this.complainDB = new ArrayList<>();
         this.credentialDB = new HashMap<>();
-        
+
         try {
             loadAllDB();
+            File dbDir = new File(currentDir + "\\DB");
+
+            if (!dbDir.exists()) {
+                dbDir.mkdir();
+                return;
+            }
         } catch (IOException ex) {
             Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -49,7 +56,7 @@ public class DBManager {
     public LoginInfo getLoginInfo() {
         return loginInfo;
     }
-    
+
     private <T extends Serializable> T loadDB(String path) throws FileNotFoundException, IOException, ClassNotFoundException {;
         T db = null;
         FileInputStream fis = new FileInputStream(path);
@@ -61,35 +68,42 @@ public class DBManager {
         fis.close();
         return db;
     }
+
     private void loadClientDB() throws FileNotFoundException, IOException, ClassNotFoundException {
-        Object clients = loadDB(this.clientPath); 
-        if (clients != null)
+        Object clients = loadDB(this.clientPath);
+        if (clients != null) {
             this.clientDB = (ArrayList<Client>) clients;
+        }
     }
+
     private void loadTransactionDB() throws FileNotFoundException, IOException, ClassNotFoundException {
-        Object transactions = loadDB(this.transactionPath); 
-        if (transactions != null)
+        Object transactions = loadDB(this.transactionPath);
+        if (transactions != null) {
             this.transactionDB = (ArrayList<Transaction>) transactions;
+        }
     }
-    
+
     private void loadComplainDB() throws FileNotFoundException, IOException, ClassNotFoundException {
         Object complains = loadDB(this.complainPath);
-        if (complains != null)
+        if (complains != null) {
             this.complainDB = (ArrayList<Complain>) complains;
+        }
     }
-    
+
     private void loadCredentialDB() throws FileNotFoundException, IOException, ClassNotFoundException {
         Object credentials = loadDB(this.credentialsPath);
-        if (credentials != null)
+        if (credentials != null) {
             this.credentialDB = (HashMap<String, String>) credentials;
+        }
     }
-    
+
     private void loadLoginInfo() throws FileNotFoundException, IOException, ClassNotFoundException {
         Object login = loadDB(this.cachedLogin);
-        if (login != null)
+        if (login != null) {
             this.loginInfo = (LoginInfo) login;
+        }
     }
-    
+
     public void loadAllDB() throws FileNotFoundException, IOException, ClassNotFoundException {
         loadClientDB();
         loadTransactionDB();
@@ -101,26 +115,29 @@ public class DBManager {
     public void setLoginInfo(LoginInfo loginInfo) {
         this.loginInfo = loginInfo;
     }
-    
+
     private <T extends Serializable> void updateDB(String path, T db) throws UnsupportedEncodingException, FileNotFoundException, IOException, ClassNotFoundException {
-       
+
         FileOutputStream fos = new FileOutputStream(path);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(db);
         fos.close();
         oos.close();
-        
+
     }
-    
+
     private void updateClientDB() throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, IOException {
         updateDB(clientPath, this.clientDB);
     }
+
     private void updateTransactionDB() throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, IOException {
         updateDB(transactionPath, this.transactionDB);
     }
+
     private void updateComplainDB() throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, IOException {
         updateDB(complainPath, this.complainDB);
     }
+
     private void updateCredentialDB() throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, IOException {
         updateDB(credentialsPath, this.credentialDB);
     }
@@ -128,6 +145,7 @@ public class DBManager {
     private void updateLoginInfo() throws FileNotFoundException, IOException, UnsupportedEncodingException, ClassNotFoundException {
         updateDB(cachedLogin, this.loginInfo);
     }
+
     public void requestDBUpdate() throws IOException, ClassNotFoundException {
 
         updateClientDB();
@@ -149,6 +167,5 @@ public class DBManager {
     public ArrayList<Complain> getComplainDB() {
         return complainDB;
     }
-    
-    
+
 }
