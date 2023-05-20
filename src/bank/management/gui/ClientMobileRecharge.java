@@ -233,11 +233,6 @@ public class ClientMobileRecharge extends JFrameBase {
         mobileRechargeButton.setText("Recharge");
         mobileRechargeButton.setActionCommand("Withdraw");
         mobileRechargeButton.setEnabled(false);
-        mobileRechargeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mobileRechargeButtonActionPerformed(evt);
-            }
-        });
 
         jLabel12.setBackground(new java.awt.Color(255, 212, 96));
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -375,11 +370,6 @@ public class ClientMobileRecharge extends JFrameBase {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mobileRechargeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileRechargeButtonActionPerformed
-        // TODO add your handling code here:
-         JOptionPane.showMessageDialog(this, "Mobile recharge successfull!");
-    }//GEN-LAST:event_mobileRechargeButtonActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
