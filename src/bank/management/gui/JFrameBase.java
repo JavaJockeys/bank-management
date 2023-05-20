@@ -17,6 +17,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -206,14 +207,29 @@ public abstract class JFrameBase extends JFrame {
         }
 
     }
+    //backGroundColorUp
+    //backGroundColorDown;
+    //fontColor
+    //buttonColor
+    //buttonFontColor
+    //newButtonColor
+    //newButtonFontColor
 
-    public static void addColorChangeOnHover(JButton button, String newColor, String newFontColor, String oldColor, String oldFontColor) {
-        
-        Color hoverColor = Color.decode('#' + newColor);
-        Color fontHoverlColor = Color.decode('#' + newFontColor);
-        Color normalColor = Color.decode('#' + oldColor);
-        Color fontNormalColo = Color.decode('#' + oldFontColor);
-        
+    public static void addColorChangeOnHover(JButton button) {
+        String backGroundColorUp = "";
+        String backGroundColorDown = "";
+        String fontColor = "";
+
+        String newButtonColor = "#FFFFFF";
+        String buttonColor = "#BFA4DB";
+        String newButtonFontColor = "#BFA4DB";
+        String buttonFontColor = "#FFFFFF";
+
+        Color hoverColor = Color.decode(newButtonColor);
+        Color fontHoverlColor = Color.decode(newButtonFontColor);
+        Color normalColor = Color.decode(buttonColor);
+        Color fontNormalColo = Color.decode(buttonFontColor);
+
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -228,4 +244,56 @@ public abstract class JFrameBase extends JFrame {
             }
         });
     }
+
+    public static void addColorChangeOnHover(JButton button, String oldFontColor) {
+
+        String newButtonColor = "#BFA4DB";
+        String buttonColor = "#" + oldFontColor;
+        String newButtonFontColor = "#BFA4DB";
+
+        Color hoverColor = Color.decode(newButtonColor);
+        Color fontHoverlColor = Color.decode(buttonColor);
+        Color normalColor = Color.decode(newButtonFontColor);
+        Color fontNormalColo = Color.decode(oldFontColor);
+
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(hoverColor);
+                button.setForeground(fontHoverlColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(normalColor);
+                button.setForeground(fontNormalColo);
+            }
+        });
+    }
+
+    public static void addColorChangeOnHover(JButton button, String newColor, String newFontColor, String oldColor, String oldFontColor) {
+
+        Color hoverColor = Color.decode('#' + newColor);
+        Color fontHoverlColor = Color.decode('#' + newFontColor);
+        Color normalColor = Color.decode('#' + oldColor);
+        Color fontNormalColo = Color.decode('#' + oldFontColor);
+
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(hoverColor);
+                button.setForeground(fontHoverlColor);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(normalColor);
+                button.setForeground(fontNormalColo);
+            }
+        });
+    }
+    
+
+   
+
 }

@@ -97,7 +97,7 @@ public class ClientWithdrawCash extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new JFrameBase.GradientBackgroundPanel("ff0000", "ffff00", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM);
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("352D4B", "836AAE", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM);
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -130,74 +130,75 @@ public class ClientWithdrawCash extends JFrameBase {
 
         closeButton.setBackground(new java.awt.Color(234, 84, 85));
         closeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        minimizeButton.setForeground(new java.awt.Color(255, 255, 255));
         minimizeButton.setText("-");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel3.setForeground(java.awt.Color.white);
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("East West University Bank Limited");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        backButton.setBackground(new java.awt.Color(255, 212, 96));
+        backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(234, 84, 85));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
 
-        fundTransferButton.setBackground(new java.awt.Color(255, 212, 96));
+        fundTransferButton.setBackground(new java.awt.Color(191, 164, 219));
         fundTransferButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        fundTransferButton.setForeground(new java.awt.Color(234, 84, 85));
+        fundTransferButton.setForeground(new java.awt.Color(255, 255, 255));
         fundTransferButton.setText("Fund Transfer");
 
-        mobileRechargeButton.setBackground(new java.awt.Color(255, 212, 96));
+        mobileRechargeButton.setBackground(new java.awt.Color(191, 164, 219));
         mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        mobileRechargeButton.setForeground(new java.awt.Color(234, 84, 85));
+        mobileRechargeButton.setForeground(new java.awt.Color(255, 255, 255));
         mobileRechargeButton.setText("Mobile Recharge");
         mobileRechargeButton.setActionCommand("Withdraw");
 
-        payBillButton.setBackground(new java.awt.Color(255, 212, 96));
+        payBillButton.setBackground(new java.awt.Color(191, 164, 219));
         payBillButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        payBillButton.setForeground(new java.awt.Color(234, 84, 85));
+        payBillButton.setForeground(new java.awt.Color(255, 255, 255));
         payBillButton.setText("Pay Bill");
         payBillButton.setActionCommand("Withdraw");
 
-        statementButton.setBackground(new java.awt.Color(255, 212, 96));
+        statementButton.setBackground(new java.awt.Color(191, 164, 219));
         statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        statementButton.setForeground(new java.awt.Color(234, 84, 85));
+        statementButton.setForeground(new java.awt.Color(255, 255, 255));
         statementButton.setText("Statement");
         statementButton.setActionCommand("Withdraw");
 
-        complainBoxButton.setBackground(new java.awt.Color(255, 212, 96));
+        complainBoxButton.setBackground(new java.awt.Color(191, 164, 219));
         complainBoxButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        complainBoxButton.setForeground(new java.awt.Color(234, 84, 85));
+        complainBoxButton.setForeground(new java.awt.Color(255, 255, 255));
         complainBoxButton.setText("Complain Box");
         complainBoxButton.setActionCommand("Withdraw");
 
-        logoutButton.setBackground(new java.awt.Color(255, 212, 96));
+        logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(234, 84, 85));
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel5.setForeground(java.awt.Color.white);
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Booth/Agent Code:");
 
         withdrawType.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
-        withdrawType.setForeground(new java.awt.Color(45, 64, 89));
         withdrawType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bank Booth", "ATM Booth", "Agent", " " }));
         withdrawType.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel6.setForeground(java.awt.Color.white);
         jLabel6.setText("Withdraw Type:");
 
         agentCode.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
@@ -207,36 +208,37 @@ public class ClientWithdrawCash extends JFrameBase {
         amount.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("Amount:");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 1, 22)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel9.setText("Current Balance:");
 
         currentBalance.setEditable(false);
         currentBalance.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
 
-        withdrawButton.setBackground(new java.awt.Color(255, 212, 96));
+        withdrawButton.setBackground(new java.awt.Color(191, 164, 219));
         withdrawButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        withdrawButton.setForeground(new java.awt.Color(234, 84, 85));
+        withdrawButton.setForeground(new java.awt.Color(255, 255, 255));
         withdrawButton.setText("Withdraw");
+        withdrawButton.setEnabled(false);
 
         jLabel12.setBackground(new java.awt.Color(255, 212, 96));
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel12.setForeground(java.awt.Color.white);
         jLabel12.setText("Client name");
 
         jLabel16.setBackground(new java.awt.Color(255, 212, 96));
         jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel16.setForeground(java.awt.Color.white);
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Withdraw Cash Menu");
 
         clientName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
-        clientName.setForeground(new java.awt.Color(255, 212, 96));
+        clientName.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -299,9 +301,8 @@ public class ClientWithdrawCash extends JFrameBase {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(closeButton)
-                        .addComponent(minimizeButton))
+                    .addComponent(closeButton)
+                    .addComponent(minimizeButton)
                     .addComponent(jLabel3))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
@@ -468,16 +469,14 @@ public class ClientWithdrawCash extends JFrameBase {
         closeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         withdrawButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         
-        addColorChangeOnHover(fundTransferButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(complainBoxButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(statementButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(payBillButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(mobileRechargeButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(minimizeButton,"FF1000","FFD460","FFD460","000000");
-        addColorChangeOnHover(closeButton,"FF1000","FFD460","FFD460","000000");
-        addColorChangeOnHover(backButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(logoutButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(withdrawButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(fundTransferButton);
+        addColorChangeOnHover(complainBoxButton);
+        addColorChangeOnHover(statementButton);
+        addColorChangeOnHover(payBillButton);
+        addColorChangeOnHover(mobileRechargeButton);
+        addColorChangeOnHover(backButton);
+        addColorChangeOnHover(logoutButton);
+        addColorChangeOnHover(withdrawButton);
         
         
        

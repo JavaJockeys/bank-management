@@ -53,42 +53,43 @@ public class Splash extends JFrameBase {
         jPanel1.setBackground(new java.awt.Color(45, 64, 89));
         jPanel1.setForeground(new java.awt.Color(45, 64, 89));
 
-        jLabel1.setBackground(new java.awt.Color(255, 212, 96));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EWUBL");
 
-        jProgressBar1.setForeground(new java.awt.Color(255, 212, 96));
+        jProgressBar1.setBackground(new java.awt.Color(45, 64, 89));
+        jProgressBar1.setForeground(new java.awt.Color(255, 255, 255));
+        jProgressBar1.setBorder(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 40)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("East West University Bank Limited");
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/splash.gif"))); // NOI18N
 
-        jLabel5.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Developed by:");
 
-        jLabel6.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Saif Khan (2022-2-60-063)");
 
-        jLabel7.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Osama Bin Qashem (2022-2-60-058\t)");
 
-        jLabel8.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Mahmudul Hasan Hamim (2022-2-60-079)");
 
-        jLabel9.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Akash Shaha (2022-2-60-081)");
 
-        jLabel10.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Shafuiqul Islam Fahim (2022-2-60-085)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(jLabel2)
@@ -115,6 +116,7 @@ public class Splash extends JFrameBase {
                         .addGap(260, 260, 260)
                         .addComponent(jLabel1)))
                 .addContainerGap(68, Short.MAX_VALUE))
+            .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -76,17 +76,17 @@ public class LoginScreen extends JFrameBase {
 
         jLabel2.setBackground(new java.awt.Color(255, 212, 96));
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("LOGIN");
 
         jPanel2.setBackground(new java.awt.Color(123, 144, 194));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Username");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Password");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/ezgif.com-resize.gif"))); // NOI18N
@@ -143,9 +143,8 @@ public class LoginScreen extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        loginButton.setBackground(new java.awt.Color(255, 212, 96));
         loginButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(234, 84, 85));
+        loginButton.setForeground(new java.awt.Color(45, 64, 89));
         loginButton.setText("LOGIN");
         loginButton.setEnabled(false);
 
@@ -184,19 +183,19 @@ public class LoginScreen extends JFrameBase {
 
         jLabel7.setBackground(new java.awt.Color(255, 212, 96));
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("EWUBL");
 
         closeButton.setBackground(new java.awt.Color(45, 64, 89));
         closeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        closeButton.setForeground(new java.awt.Color(255, 212, 96));
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setOpaque(true);
 
         minimizeButton.setBackground(new java.awt.Color(45, 64, 89));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        minimizeButton.setForeground(new java.awt.Color(255, 212, 96));
+        minimizeButton.setForeground(new java.awt.Color(255, 255, 255));
         minimizeButton.setText("-");
         minimizeButton.setBorder(null);
 
@@ -383,6 +382,8 @@ public class LoginScreen extends JFrameBase {
         closeButton.setOpaque(false);
         setMinimizeButtonAction(minimizeButton);
         setCloseButtonAction(closeButton);
+        
+        addColorChangeOnHover(loginButton,"2D4059","F0EFF0","F0EFF0","2D4059");
     }
 
     private void toggleLoginButton() {

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
@@ -64,8 +66,27 @@ public class GUIManager {
         this.managerHomepage.setAllListeners();
         this.loginScreen.setAllListeners();
         
-       
+        setTaskbarIcon(splash);
+        setTaskbarIcon(clientComplainPage);
+        setTaskbarIcon(clientFundTransfer);
+        setTaskbarIcon(clientMobileRecharge);
+        setTaskbarIcon(clientProfile);
+        setTaskbarIcon(clientStatement);
+        setTaskbarIcon(clientUtilityBill);
+        setTaskbarIcon(clientWithdrawCash);
+        setTaskbarIcon(complains);
+        setTaskbarIcon(managerClientInfo);
+        setTaskbarIcon(managerDashboard);
+        setTaskbarIcon(managerHomepage);
+        setTaskbarIcon(loginScreen);
         
+
+        
+    }
+    
+    public static void setTaskbarIcon(JFrame frame) {
+        ImageIcon icon = new ImageIcon("/bank/management/icons/rsz_money.png");
+        frame.setIconImage(icon.getImage());
     }
     
     public void init() {
@@ -259,5 +280,6 @@ public class GUIManager {
     public static class UserNotFoundException extends Exception {
         public UserNotFoundException() {}
     }
+     
 
 }

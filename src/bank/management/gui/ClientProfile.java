@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class ClientProfile extends JFrameBase {
 
@@ -27,7 +29,7 @@ public class ClientProfile extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new JFrameBase.GradientBackgroundPanel("ff0000", "ffff00", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM)
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("352D4B", "836AAE", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM)
         ;
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
@@ -70,97 +72,101 @@ public class ClientProfile extends JFrameBase {
 
         closeButton.setBackground(new java.awt.Color(234, 84, 85));
         closeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("X");
         closeButton.setBorder(null);
         closeButton.setBorderPainted(false);
 
         minimizeButton.setBackground(new java.awt.Color(234, 84, 85));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        minimizeButton.setForeground(new java.awt.Color(255, 255, 255));
         minimizeButton.setText("-");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
 
-        backButton.setBackground(new java.awt.Color(255, 212, 96));
+        backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(234, 84, 85));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
 
-        fundTransferButton.setBackground(new java.awt.Color(255, 212, 96));
+        fundTransferButton.setBackground(new java.awt.Color(191, 164, 219));
         fundTransferButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        fundTransferButton.setForeground(new java.awt.Color(234, 84, 85));
+        fundTransferButton.setForeground(new java.awt.Color(255, 255, 255));
         fundTransferButton.setText("Fund Transfer");
 
-        withdrawFundButton.setBackground(new java.awt.Color(255, 212, 96));
+        withdrawFundButton.setBackground(new java.awt.Color(191, 164, 219));
         withdrawFundButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        withdrawFundButton.setForeground(new java.awt.Color(234, 84, 85));
+        withdrawFundButton.setForeground(new java.awt.Color(255, 255, 255));
         withdrawFundButton.setText("Withdraw Fund");
         withdrawFundButton.setActionCommand("Withdraw");
 
-        mobileRechargeButton.setBackground(new java.awt.Color(255, 212, 96));
+        mobileRechargeButton.setBackground(new java.awt.Color(191, 164, 219));
         mobileRechargeButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        mobileRechargeButton.setForeground(new java.awt.Color(234, 84, 85));
+        mobileRechargeButton.setForeground(new java.awt.Color(255, 255, 255));
         mobileRechargeButton.setText("Mobile Recharge");
         mobileRechargeButton.setActionCommand("Withdraw");
 
-        payBillButton.setBackground(new java.awt.Color(255, 212, 96));
+        payBillButton.setBackground(new java.awt.Color(191, 164, 219));
         payBillButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        payBillButton.setForeground(new java.awt.Color(234, 84, 85));
+        payBillButton.setForeground(new java.awt.Color(255, 255, 255));
         payBillButton.setText("Pay Bill");
         payBillButton.setActionCommand("Withdraw");
 
-        statementButton.setBackground(new java.awt.Color(255, 212, 96));
+        statementButton.setBackground(new java.awt.Color(191, 164, 219));
         statementButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        statementButton.setForeground(new java.awt.Color(234, 84, 85));
+        statementButton.setForeground(new java.awt.Color(255, 255, 255));
         statementButton.setText("Statement");
         statementButton.setActionCommand("Withdraw");
 
-        complainBoxButton.setBackground(new java.awt.Color(255, 212, 96));
+        complainBoxButton.setBackground(new java.awt.Color(191, 164, 219));
         complainBoxButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        complainBoxButton.setForeground(new java.awt.Color(234, 84, 85));
+        complainBoxButton.setForeground(new java.awt.Color(255, 255, 255));
         complainBoxButton.setText("Complain Box");
         complainBoxButton.setActionCommand("Withdraw");
         complainBoxButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("East West University Bank Limited");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        logoutButton.setBackground(new java.awt.Color(255, 212, 96));
+        logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(234, 84, 85));
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
         jLabel12.setBackground(new java.awt.Color(255, 212, 96));
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Client name");
 
         clientName.setBackground(new java.awt.Color(255, 212, 96));
         clientName.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        clientName.setForeground(new java.awt.Color(255, 212, 96));
+        clientName.setForeground(new java.awt.Color(255, 255, 255));
 
-        fundTransferPanel.setBackground(new java.awt.Color(254, 247, 181));
+        fundTransferPanel.setBackground(new java.awt.Color(218, 160, 219));
+        fundTransferPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 116, 152)));
         fundTransferPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/transfer.gif"))); // NOI18N
 
-        profFTButton.setBackground(new java.awt.Color(255, 212, 96));
+        profFTButton.setBackground(new java.awt.Color(191, 164, 219));
         profFTButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profFTButton.setForeground(new java.awt.Color(234, 84, 85));
+        profFTButton.setForeground(new java.awt.Color(255, 255, 255));
         profFTButton.setText("Fund Transfer");
 
         javax.swing.GroupLayout fundTransferPanelLayout = new javax.swing.GroupLayout(fundTransferPanel);
         fundTransferPanel.setLayout(fundTransferPanelLayout);
         fundTransferPanelLayout.setHorizontalGroup(
             fundTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fundTransferPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fundTransferPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(fundTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(profFTButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(profFTButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         fundTransferPanelLayout.setVerticalGroup(
             fundTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,14 +178,15 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        withdrawFundPanel.setBackground(new java.awt.Color(254, 247, 181));
+        withdrawFundPanel.setBackground(new java.awt.Color(218, 160, 219));
+        withdrawFundPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 116, 152)));
         withdrawFundPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/withdraw.gif"))); // NOI18N
 
-        profWFButton.setBackground(new java.awt.Color(255, 212, 96));
+        profWFButton.setBackground(new java.awt.Color(191, 164, 219));
         profWFButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profWFButton.setForeground(new java.awt.Color(234, 84, 85));
+        profWFButton.setForeground(new java.awt.Color(255, 255, 255));
         profWFButton.setText("Withdraw Fund");
         profWFButton.setActionCommand("Withdraw");
 
@@ -189,9 +196,12 @@ public class ClientProfile extends JFrameBase {
             withdrawFundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(withdrawFundPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(profWFButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(withdrawFundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(withdrawFundPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(profWFButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         withdrawFundPanelLayout.setVerticalGroup(
             withdrawFundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,14 +213,15 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mobileRechargePanel.setBackground(new java.awt.Color(254, 247, 181));
+        mobileRechargePanel.setBackground(new java.awt.Color(218, 160, 219));
+        mobileRechargePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 116, 152)));
         mobileRechargePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/recharge.gif"))); // NOI18N
 
-        profMRButton.setBackground(new java.awt.Color(255, 212, 96));
+        profMRButton.setBackground(new java.awt.Color(191, 164, 219));
         profMRButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profMRButton.setForeground(new java.awt.Color(234, 84, 85));
+        profMRButton.setForeground(new java.awt.Color(255, 255, 255));
         profMRButton.setText("Mobile Recharge");
         profMRButton.setActionCommand("Withdraw");
 
@@ -220,29 +231,31 @@ public class ClientProfile extends JFrameBase {
             mobileRechargePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mobileRechargePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(profMRButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mobileRechargePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(profMRButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mobileRechargePanelLayout.setVerticalGroup(
             mobileRechargePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mobileRechargePanelLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(profMRButton)
+                .addComponent(profMRButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
         );
 
-        payBillPanel.setBackground(new java.awt.Color(254, 247, 181));
+        payBillPanel.setBackground(new java.awt.Color(218, 160, 219));
+        payBillPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 116, 152)));
         payBillPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/bill.gif"))); // NOI18N
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        profPBButton.setBackground(new java.awt.Color(255, 212, 96));
+        profPBButton.setBackground(new java.awt.Color(191, 164, 219));
         profPBButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profPBButton.setForeground(new java.awt.Color(234, 84, 85));
+        profPBButton.setForeground(new java.awt.Color(255, 255, 255));
         profPBButton.setText("Pay Bill");
         profPBButton.setActionCommand("Withdraw");
 
@@ -251,10 +264,13 @@ public class ClientProfile extends JFrameBase {
         payBillPanelLayout.setHorizontalGroup(
             payBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(payBillPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(payBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(payBillPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(profPBButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(profPBButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         payBillPanelLayout.setVerticalGroup(
             payBillPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,14 +282,15 @@ public class ClientProfile extends JFrameBase {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        statementPanel.setBackground(new java.awt.Color(254, 247, 181));
+        statementPanel.setBackground(new java.awt.Color(218, 160, 219));
+        statementPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 116, 152)));
         statementPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/statement.gif"))); // NOI18N
 
-        profSButton.setBackground(new java.awt.Color(255, 212, 96));
+        profSButton.setBackground(new java.awt.Color(191, 164, 219));
         profSButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profSButton.setForeground(new java.awt.Color(234, 84, 85));
+        profSButton.setForeground(new java.awt.Color(255, 255, 255));
         profSButton.setText("Statement");
         profSButton.setActionCommand("Withdraw");
 
@@ -281,11 +298,12 @@ public class ClientProfile extends JFrameBase {
         statementPanel.setLayout(statementPanelLayout);
         statementPanelLayout.setHorizontalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statementPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statementPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(profSButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(profSButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         statementPanelLayout.setVerticalGroup(
             statementPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,17 +312,18 @@ public class ClientProfile extends JFrameBase {
                 .addComponent(jLabel21)
                 .addGap(18, 18, 18)
                 .addComponent(profSButton)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        complainBoxPanel.setBackground(new java.awt.Color(254, 247, 181));
+        complainBoxPanel.setBackground(new java.awt.Color(218, 160, 219));
+        complainBoxPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 116, 152)));
         complainBoxPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank/management/icons/report.gif"))); // NOI18N
 
-        profCBButton.setBackground(new java.awt.Color(255, 212, 96));
+        profCBButton.setBackground(new java.awt.Color(191, 164, 219));
         profCBButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        profCBButton.setForeground(new java.awt.Color(234, 84, 85));
+        profCBButton.setForeground(new java.awt.Color(255, 255, 255));
         profCBButton.setText("Complain Box");
         profCBButton.setActionCommand("Withdraw");
 
@@ -314,9 +333,10 @@ public class ClientProfile extends JFrameBase {
             complainBoxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(complainBoxPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel23)
+                .addGroup(complainBoxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(profCBButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(profCBButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         complainBoxPanelLayout.setVerticalGroup(
             complainBoxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,7 +350,7 @@ public class ClientProfile extends JFrameBase {
 
         jLabel16.setBackground(new java.awt.Color(255, 212, 96));
         jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Homepage");
 
@@ -370,9 +390,9 @@ public class ClientProfile extends JFrameBase {
                                     .addComponent(withdrawFundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(statementPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(complainBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mobileRechargePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(complainBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(mobileRechargePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(jLabel16)))
@@ -397,15 +417,16 @@ public class ClientProfile extends JFrameBase {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fundTransferPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(withdrawFundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(mobileRechargePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(complainBoxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(payBillPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(statementPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(withdrawFundPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fundTransferPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mobileRechargePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(18, 36, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(payBillPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(statementPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(complainBoxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addContainerGap(25, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(clientName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -423,8 +444,8 @@ public class ClientProfile extends JFrameBase {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(complainBoxButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(logoutButton)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addComponent(logoutButton)
+                        .addContainerGap(255, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -534,23 +555,21 @@ public class ClientProfile extends JFrameBase {
         navigateOnMouseAction(withdrawFundPanel, clientWithdrawCash);
         
         
-        addColorChangeOnHover(fundTransferButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(complainBoxButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(statementButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(payBillButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(mobileRechargeButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(withdrawFundButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(minimizeButton,"FF1000","FFD460","FFD460","000000");
-        addColorChangeOnHover(closeButton,"FF1000","FFD460","FFD460","000000");
-        addColorChangeOnHover(backButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(logoutButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(fundTransferButton);
+        addColorChangeOnHover(complainBoxButton);
+        addColorChangeOnHover(statementButton);
+        addColorChangeOnHover(payBillButton);
+        addColorChangeOnHover(mobileRechargeButton);
+        addColorChangeOnHover(withdrawFundButton);
+        addColorChangeOnHover(backButton);
+        addColorChangeOnHover(logoutButton);
 
-        addColorChangeOnHover(profFTButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(profCBButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(profSButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(profPBButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(profMRButton,"FF1000","FFD460","FFD460","EA5455");
-        addColorChangeOnHover(profWFButton,"FF1000","FFD460","FFD460","EA5455");
+        addColorChangeOnHover(profFTButton);
+        addColorChangeOnHover(profCBButton);
+        addColorChangeOnHover(profSButton);
+        addColorChangeOnHover(profPBButton);
+        addColorChangeOnHover(profMRButton);
+        addColorChangeOnHover(profWFButton);
        
         
         minimizeButton.setOpaque(false);
@@ -560,7 +579,7 @@ public class ClientProfile extends JFrameBase {
         setLogoutButtonAction(logoutButton);
         setCloseButtonAction(closeButton);
         
-       
+   
         
     }
 

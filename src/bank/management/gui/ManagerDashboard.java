@@ -62,7 +62,7 @@ public class ManagerDashboard extends JFrameBase {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new JFrameBase.GradientBackgroundPanel("F07B3F", "ffff00", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM);
+        jPanel1 = new JFrameBase.GradientBackgroundPanel("352D4B", "836AAE", JFrameBase.GradientBackgroundPanel.Direction.TOP_TO_BOTTOM);
         closeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -84,47 +84,49 @@ public class ManagerDashboard extends JFrameBase {
 
         closeButton.setBackground(new java.awt.Color(240, 123, 63));
         closeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
         closeButton.setText("X");
         closeButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         closeButton.setBorderPainted(false);
 
         minimizeButton.setBackground(new java.awt.Color(240, 123, 63));
         minimizeButton.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        minimizeButton.setForeground(new java.awt.Color(255, 255, 255));
         minimizeButton.setText("-");
         minimizeButton.setBorder(null);
         minimizeButton.setBorderPainted(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 40)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 212, 96));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("East West University Bank Limited");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        backButton.setBackground(new java.awt.Color(255, 212, 96));
+        backButton.setBackground(new java.awt.Color(191, 164, 219));
         backButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(234, 84, 85));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
         backButton.setText("Back");
 
-        clientInfoMenu.setBackground(new java.awt.Color(255, 212, 96));
+        clientInfoMenu.setBackground(new java.awt.Color(191, 164, 219));
         clientInfoMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        clientInfoMenu.setForeground(new java.awt.Color(234, 84, 85));
+        clientInfoMenu.setForeground(new java.awt.Color(255, 255, 255));
         clientInfoMenu.setLabel("Client Info");
 
-        homepageMenu.setBackground(new java.awt.Color(255, 212, 96));
+        homepageMenu.setBackground(new java.awt.Color(191, 164, 219));
         homepageMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        homepageMenu.setForeground(new java.awt.Color(234, 84, 85));
+        homepageMenu.setForeground(new java.awt.Color(255, 255, 255));
         homepageMenu.setText("Home");
         homepageMenu.setActionCommand("Withdraw");
 
-        complainsMenu.setBackground(new java.awt.Color(255, 212, 96));
+        complainsMenu.setBackground(new java.awt.Color(191, 164, 219));
         complainsMenu.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        complainsMenu.setForeground(new java.awt.Color(234, 84, 85));
+        complainsMenu.setForeground(new java.awt.Color(255, 255, 255));
         complainsMenu.setText("Complains");
         complainsMenu.setActionCommand("Withdraw");
 
-        logoutButton.setBackground(new java.awt.Color(255, 212, 96));
+        logoutButton.setBackground(new java.awt.Color(191, 164, 219));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(234, 84, 85));
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Log Out");
         logoutButton.setActionCommand("Withdraw");
 
@@ -352,12 +354,12 @@ public class ManagerDashboard extends JFrameBase {
 
         jLabel12.setBackground(new java.awt.Color(255, 212, 96));
         jLabel12.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(45, 64, 89));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Manager");
 
         jLabel16.setBackground(new java.awt.Color(255, 212, 96));
         jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(45, 64, 89));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Dashboard");
 
@@ -482,13 +484,12 @@ public class ManagerDashboard extends JFrameBase {
         minimizeButton.setOpaque(false);
         closeButton.setOpaque(false);
         
-         addColorChangeOnHover(clientInfoMenu, "FF1000", "FFD460", "FFD460", "EA5455");
-        addColorChangeOnHover(homepageMenu, "FF1000", "FFD460", "FFD460", "EA5455");
-        addColorChangeOnHover(complainsMenu, "FF1000", "FFD460", "FFD460", "EA5455");
-        addColorChangeOnHover(logoutButton, "FF1000", "FFD460", "FFD460", "EA5455");
-        addColorChangeOnHover(backButton, "FF1000", "FFD460", "FFD460", "EA5455");
-        addColorChangeOnHover(minimizeButton, "FF1000", "FFD460", "FFD460", "000000");
-        addColorChangeOnHover(closeButton, "FF1000", "FFD460", "FFD460", "000000");
+         addColorChangeOnHover(clientInfoMenu);
+        addColorChangeOnHover(homepageMenu);
+        addColorChangeOnHover(complainsMenu);
+        addColorChangeOnHover(logoutButton);
+        addColorChangeOnHover(backButton);
+ 
     
         
     }
